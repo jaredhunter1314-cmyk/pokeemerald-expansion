@@ -93,6 +93,21 @@ for boss in sorted(BOSSES):
     if boss in GYM_LEADERS and shiny_count != 1:
         fail(f"{boss} has {shiny_count} explicitly shiny Pokémon; expected exactly 1")
 
+# Verify wild encounters are stable per save rather than re-rolled every encounter.
+wild_source = Path("src/wild_encounter.c").read_text(encoding="utf-8")
+for snippet in [
+    "u32 seed = READ_OTID_FROM_SAVE;",
+    "gSaveBlock1Ptr->location.mapGroup",
+    "GetJaredsEmeraldWildSpecies(area, wildMonIndex)",
+    "GetJaredsEmeraldWildSpecies(WILD_AREA_FISHING, wildMonIndex)",
+]:
+    if snippet not in wild_source:
+        fail(f"missing save-specific wild encounter logic: {snippet}")
+
+pokemon_source = Path("src/pokemon.c").read_text(encoding="utf-8")
+if "Rare Candies must respect the same hard cap as battle EXP" not in pokemon_source:
+    fail("Rare Candy level-cap enforcement is missing")
+
 # Verify the level-cap progression is wired into the build configuration.
 caps_source = Path("src/caps.c").read_text(encoding="utf-8")
 caps_config = Path("include/config/caps.h").read_text(encoding="utf-8")
