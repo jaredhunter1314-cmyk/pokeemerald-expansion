@@ -1,3 +1,4 @@
+#include <stdbool.h>
 #include "global.h"
 #include "bg.h"
 #include "data.h"
