@@ -3512,7 +3512,19 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, enum Item item, u8 partyIndex, 
 
                 if (param == 0) // Rare Candy
                 {
-                    dataUnsigned = gExperienceTables[gSpeciesInfo[GetMonData(mon, MON_DATA_SPECIES)].growthRate][GetMonData(mon, MON_DATA_LEVEL) + 1];
+                    enum Species species = GetMonData(mon, MON_DATA_SPECIES);
+                    u32 level = GetMonData(mon, MON_DATA_LEVEL);
+
+                    // JARED'S EMERALD: Rare Candies must respect the same hard cap as battle EXP.
+                    if (B_RARE_CANDY_CAP && B_EXP_CAP_TYPE == EXP_CAP_HARD
+                     && level >= GetCurrentLevelCap())
+                    {
+                        dataUnsigned = 0;
+                    }
+                    else
+                    {
+                        dataUnsigned = gExperienceTables[gSpeciesInfo[species].growthRate][level + 1];
+                    }
                 }
                 else if (param - 1 < ARRAY_COUNT(sExpCandyExperienceTable)) // EXP Candies
                 {
