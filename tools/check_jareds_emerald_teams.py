@@ -89,7 +89,7 @@ for boss in sorted(BOSSES):
         fail(f"{boss} has {legendary_count} Legendary Pokémon; expected exactly 1 ({species})")
     if starter_count != 1:
         fail(f"{boss} has {starter_count} starter-family Pokémon; expected exactly 1 ({species})")
-    shiny_count = len(re.findall(r"(?m)^Shiny: true\s*$", party))
+    shiny_count = len(re.findall(r"(?m)^Shiny: Yes\s*$", party))
     if boss in GYM_LEADERS and shiny_count != 1:
         fail(f"{boss} has {shiny_count} explicitly shiny Pokémon; expected exactly 1")
 
