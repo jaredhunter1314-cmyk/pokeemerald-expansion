@@ -666,6 +666,16 @@ static const struct DebugMenuOption sDebugMenu_Actions_Give[] =
     { NULL }
 };
 
+static const struct DebugMenuOption sJaredsEmeraldItemMenu[] =
+{
+    { COMPOUND_STRING("Give item…"),        DebugAction_Selection_Init, &sGiveItemSelection },
+    { COMPOUND_STRING("Max Money"),         DebugAction_Give_MaxMoney },
+    { COMPOUND_STRING("Max Coins"),         DebugAction_Give_MaxCoins },
+    { COMPOUND_STRING("Max Battle Points"), DebugAction_Give_MaxBattlePoints },
+    { COMPOUND_STRING("Cancel"),            DebugAction_Cancel },
+    { NULL }
+};
+
 static const struct DebugMenuOption sDebugMenu_Actions_Player[] =
 {
     { COMPOUND_STRING("Player name"),    DebugAction_Player_Name },
@@ -849,7 +859,8 @@ void Debug_ShowMainMenu(void)
 {
     sDebugMenuListData = AllocZeroed(sizeof(*sDebugMenuListData));
     sDebugMenuListData->menuType = DEBUG_BASIC_MENU;
-    Debug_ShowMenu(DebugTask_HandleMenuInput_General, sDebugMenu_Actions_Main);
+    // JARED'S EMERALD exposes a focused item-cheat menu instead of the full developer menu.
+    Debug_ShowMenu(DebugTask_HandleMenuInput_General, sJaredsEmeraldItemMenu);
 }
 
 #define tMenuTaskId          data[0]

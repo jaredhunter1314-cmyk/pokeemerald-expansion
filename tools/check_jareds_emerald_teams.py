@@ -108,6 +108,17 @@ pokemon_source = Path("src/pokemon.c").read_text(encoding="utf-8")
 if "Rare Candies must respect the same hard cap as battle EXP" not in pokemon_source:
     fail("Rare Candy level-cap enforcement is missing")
 
+# Verify the in-game item cheat menu is accessible from the Start menu.
+debug_source = Path("src/debug.c").read_text(encoding="utf-8")
+start_menu_source = Path("src/start_menu.c").read_text(encoding="utf-8")
+debug_config = Path("include/config/debug.h").read_text(encoding="utf-8")
+if "sJaredsEmeraldItemMenu" not in debug_source or "Debug_ShowMenu(DebugTask_HandleMenuInput_General, sJaredsEmeraldItemMenu)" not in debug_source:
+    fail("JARED'S EMERALD item-cheat menu is missing")
+if "JARED'S ITEMS" not in start_menu_source:
+    fail("JARED'S ITEMS Start-menu entry is missing")
+if "#define DEBUG_OVERWORLD_MENU            TRUE" not in debug_config or "#define DEBUG_OVERWORLD_IN_MENU         TRUE" not in debug_config:
+    fail("JARED'S ITEMS Start-menu access is not enabled")
+
 # Verify the level-cap progression is wired into the build configuration.
 caps_source = Path("src/caps.c").read_text(encoding="utf-8")
 caps_config = Path("include/config/caps.h").read_text(encoding="utf-8")
