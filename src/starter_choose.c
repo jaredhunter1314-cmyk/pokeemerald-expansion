@@ -9,6 +9,7 @@
 #include "menu.h"
 #include "palette.h"
 #include "pokedex.h"
+#include "random.h"
 #include "pokemon.h"
 #include "scanline_effect.h"
 #include "sound.h"
@@ -114,7 +115,7 @@ static const u8 sStarterLabelCoords[STARTER_MON_COUNT][2] =
 #define FIRE_STARTER  (IS_FRLG ? SPECIES_CHARMANDER : SPECIES_TORCHIC)
 #define WATER_STARTER (IS_FRLG ? SPECIES_SQUIRTLE   : SPECIES_MUDKIP )
 
-static const u16 sStarterMon[STARTER_MON_COUNT] =
+static u16 sStarterMon[STARTER_MON_COUNT] =
 {
     GRASS_STARTER,
     FIRE_STARTER,
@@ -349,9 +350,38 @@ static const struct SpriteTemplate sSpriteTemplate_StarterCircle =
 // .text
 u16 GetStarterPokemon(u16 chosenStarterId)
 {
-    if (chosenStarterId > STARTER_MON_COUNT)
+    if (chosenStarterId >= STARTER_MON_COUNT)
         chosenStarterId = 0;
     return sStarterMon[chosenStarterId];
+}
+
+// JARED'S EMERALD: generate three different starter options whenever the
+// starter-choice screen opens for a new game. SPECIES_EGG is excluded because
+// NUM_SPECIES is equal to SPECIES_EGG in this project.
+static void RandomizeJaredsEmeraldStarters(void)
+{
+    u16 i;
+    u16 candidate;
+    bool duplicate;
+
+    for (i = 0; i < STARTER_MON_COUNT; i++)
+    {
+        do
+        {
+            candidate = (Random() % (NUM_SPECIES - 1)) + 1;
+            duplicate = FALSE;
+            for (u16 j = 0; j < i; j++)
+            {
+                if (sStarterMon[j] == candidate)
+                {
+                    duplicate = TRUE;
+                    break;
+                }
+            }
+        } while (duplicate);
+
+        sStarterMon[i] = candidate;
+    }
 }
 
 static void VblankCB_StarterChoose(void)
@@ -376,6 +406,9 @@ void CB2_ChooseStarter(void)
     u8 spriteId;
 
     SetVBlankCallback(NULL);
+
+    // The original three starters are replaced with three distinct random species.
+    RandomizeJaredsEmeraldStarters();
 
     SetGpuReg(REG_OFFSET_DISPCNT, 0);
     SetGpuReg(REG_OFFSET_BG3CNT, 0);
