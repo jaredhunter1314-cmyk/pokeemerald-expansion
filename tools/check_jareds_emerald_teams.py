@@ -92,4 +92,30 @@ for boss in sorted(BOSSES):
     if boss in GYM_LEADERS and shiny_count != 1:
         fail(f"{boss} has {shiny_count} explicitly shiny Pokémon; expected exactly 1")
 
-print(f"PASS: all {len(BOSSES)} major boss teams have six Pokémon, one Legendary, and one starter-family Pokémon; each Gym Leader has exactly one explicitly shiny Pokémon.")
+# Verify the level-cap progression is wired into the build configuration.
+caps_source = Path("src/caps.c").read_text(encoding="utf-8")
+caps_config = Path("include/config/caps.h").read_text(encoding="utf-8")
+for flag, cap in [
+    ("FLAG_BADGE01_GET", 15), ("FLAG_BADGE02_GET", 19),
+    ("FLAG_BADGE03_GET", 24), ("FLAG_BADGE04_GET", 29),
+    ("FLAG_BADGE05_GET", 31), ("FLAG_BADGE06_GET", 33),
+    ("FLAG_BADGE07_GET", 36), ("FLAG_BADGE08_GET", 41),
+]:
+    if f"{{{flag}, {cap}}}" not in caps_source:
+        fail(f"missing expected badge cap {flag} -> {cap}")
+for flag, cap in [
+    ("FLAG_DEFEATED_ELITE_4_SIDNEY", 52),
+    ("FLAG_DEFEATED_ELITE_4_PHOEBE", 54),
+    ("FLAG_DEFEATED_ELITE_4_GLACIA", 56),
+    ("FLAG_DEFEATED_ELITE_4_DRAKE", 58),
+]:
+    if f"if (!FlagGet({flag}))\\n            return {cap};" not in caps_source:
+        fail(f"missing expected Elite Four cap {flag} -> {cap}")
+if "#define B_EXP_CAP_TYPE                  EXP_CAP_HARD" not in caps_config:
+    fail("hard experience cap is not enabled")
+if "#define B_LEVEL_CAP_TYPE                LEVEL_CAP_FLAG_LIST" not in caps_config:
+    fail("badge/League cap progression is not enabled")
+if "#define B_RARE_CANDY_CAP                TRUE" not in caps_config:
+    fail("Rare Candy cap is not enabled")
+
+print(f"PASS: all {len(BOSSES)} major boss teams have six Pokémon, one Legendary, and one starter-family Pokémon; each Gym Leader has exactly one explicitly shiny Pokémon; level-cap config and progression are enabled.")
