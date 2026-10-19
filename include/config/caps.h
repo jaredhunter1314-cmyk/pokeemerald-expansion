@@ -12,7 +12,7 @@
 
 // Level Cap Configs
 #define B_EXP_CAP_TYPE                  EXP_CAP_HARD   // JARED'S EMERALD: enforce hard level caps
-#define B_LEVEL_CAP_TYPE                LEVEL_CAP_NONE // [LEVEL_CAP_NONE, LEVEL_CAP_FLAG_LIST, LEVEL_CAP_VARIABLE] choose the method to derive the level cap
+#define B_LEVEL_CAP_TYPE                LEVEL_CAP_FLAG_LIST // JARED'S EMERALD: derive caps from badge/League progress
 #define B_LEVEL_CAP_VARIABLE            0 // event variable used to derive level cap if B_LEVEL_CAP_TYPE is set to LEVEL_CAP_VARIABLE
 
 #define B_RARE_CANDY_CAP                TRUE // JARED'S EMERALD: Rare Candies/EXP items respect the cap
