@@ -578,7 +578,9 @@ bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, enum WildPok
     if (gMapHeader.mapLayoutId != LAYOUT_BATTLE_FRONTIER_BATTLE_PIKE_ROOM_WILD_MONS && flags & WILD_CHECK_KEEN_EYE && !IsAbilityAllowingEncounter(level))
         return FALSE;
 
-    CreateWildMon(wildMonInfo->wildPokemon[wildMonIndex].species, level);
+    // JARED'S EMERALD: randomize normal encounter-table species while preserving
+    // each encounter's map, level range, repel checks, and ability checks.
+    CreateWildMon((enum Species)((Random() % (NUM_SPECIES - 1)) + 1), level);
     return TRUE;
 }
 
@@ -589,6 +591,8 @@ static u16 GenerateFishingWildMon(const struct WildPokemonInfo *wildMonInfo, u8 
     u8 level = ChooseWildMonLevel(wildMonInfo->wildPokemon, wildMonIndex, WILD_AREA_FISHING);
 
     UpdateChainFishingStreak();
+    // JARED'S EMERALD: fishing encounters use the same randomized species pool.
+    wildMonSpecies = (enum Species)((Random() % (NUM_SPECIES - 1)) + 1);
     CreateWildMon(wildMonSpecies, level);
     return wildMonSpecies;
 }
