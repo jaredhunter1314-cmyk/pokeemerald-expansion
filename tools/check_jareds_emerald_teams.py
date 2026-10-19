@@ -68,6 +68,7 @@ for i, match in enumerate(matches):
     end = matches[i + 1].start() if i + 1 < len(matches) else len(text)
     blocks[name] = text[match.end():end]
 
+boss_max_levels = {}
 for boss in sorted(BOSSES):
     if boss not in blocks:
         fail(f"missing boss definition {boss}")
@@ -83,6 +84,10 @@ for boss in sorted(BOSSES):
         species.append(line.split(" @ ", 1)[0])
     if len(species) != 6:
         fail(f"{boss} has {len(species)} Pokémon; expected exactly 6")
+    levels = [int(level) for level in re.findall(r"(?m)^Level: (\d+)\s*$", party)]
+    if len(levels) != 6:
+        fail(f"{boss} has {len(levels)} explicit Pokémon levels; expected exactly 6")
+    boss_max_levels[boss] = max(levels)
     legendary_count = sum(mon in LEGENDARIES for mon in species)
     starter_count = sum(mon in STARTERS for mon in species)
     if legendary_count != 1:
@@ -92,6 +97,20 @@ for boss in sorted(BOSSES):
     shiny_count = len(re.findall(r"(?m)^Shiny: Yes\s*$", party))
     if boss in GYM_LEADERS and shiny_count != 1:
         fail(f"{boss} has {shiny_count} explicitly shiny Pokémon; expected exactly 1")
+
+# The level-cap milestones must match the highest level in each custom boss team.
+expected_boss_caps = {
+    "TRAINER_ROXANNE_1": 15, "TRAINER_BRAWLY_1": 19,
+    "TRAINER_WATTSON_1": 24, "TRAINER_FLANNERY_1": 29,
+    "TRAINER_NORMAN_1": 31, "TRAINER_WINONA_1": 33,
+    "TRAINER_TATE_AND_LIZA_1": 36, "TRAINER_JUAN_1": 41,
+    "TRAINER_SIDNEY": 52, "TRAINER_PHOEBE": 54,
+    "TRAINER_GLACIA": 56, "TRAINER_DRAKE": 58,
+    "TRAINER_WALLACE": 78,
+}
+for boss, expected_cap in expected_boss_caps.items():
+    if boss_max_levels.get(boss) != expected_cap:
+        fail(f"{boss} max level is {boss_max_levels.get(boss)}; expected level cap {expected_cap}")
 
 # Verify wild encounters are stable per save rather than re-rolled every encounter.
 wild_source = Path("src/wild_encounter.c").read_text(encoding="utf-8")
@@ -145,4 +164,4 @@ if "#define B_LEVEL_CAP_TYPE                LEVEL_CAP_FLAG_LIST" not in caps_con
 if "#define B_RARE_CANDY_CAP                TRUE" not in caps_config:
     fail("Rare Candy cap is not enabled")
 
-print(f"PASS: all {len(BOSSES)} major boss teams have six Pokémon, one Legendary, and one starter-family Pokémon; each Gym Leader has exactly one explicitly shiny Pokémon; level-cap config and progression are enabled.")
+print(f"PASS: all {len(BOSSES)} major boss teams have six Pokémon, one Legendary, and one starter-family Pokémon; each Gym Leader has exactly one explicitly shiny Pokémon; all boss-team maximum levels match the configured level caps, and level-cap config and progression are enabled.")
