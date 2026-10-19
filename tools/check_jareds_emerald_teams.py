@@ -31,7 +31,7 @@ LEGENDARIES = {
     "Koraidon", "Miraidon", "Walking Wake", "Iron Leaves",
     "Gouging Fire", "Raging Bolt", "Iron Boulder", "Iron Crown",
 }
-STARTERS = {
+GYM_LEADERS = {\n    "TRAINER_ROXANNE_1", "TRAINER_BRAWLY_1", "TRAINER_WATTSON_1",\n    "TRAINER_FLANNERY_1", "TRAINER_NORMAN_1", "TRAINER_WINONA_1",\n    "TRAINER_TATE_AND_LIZA_1", "TRAINER_JUAN_1",\n}\nSTARTERS = {
     "Bulbasaur", "Ivysaur", "Venusaur", "Charmander", "Charmeleon",
     "Charizard", "Squirtle", "Wartortle", "Blastoise", "Chikorita",
     "Bayleef", "Meganium", "Cyndaquil", "Quilava", "Typhlosion",
@@ -84,5 +84,8 @@ for boss in sorted(BOSSES):
         fail(f"{boss} has {legendary_count} Legendary Pokémon; expected exactly 1 ({species})")
     if starter_count != 1:
         fail(f"{boss} has {starter_count} starter-family Pokémon; expected exactly 1 ({species})")
+    shiny_count = len(re.findall(r"(?m)^Shiny: true\\s*$", party))
+    if boss in GYM_LEADERS and shiny_count != 1:
+        fail(f"{boss} has {shiny_count} explicitly shiny Pokémon; expected exactly 1")
 
-print(f"PASS: all {len(BOSSES)} major boss teams have exactly six Pokémon, one Legendary, and one starter-family Pokémon.")
+print(f"PASS: all {len(BOSSES)} major boss teams have six Pokémon, one Legendary, and one starter-family Pokémon; each Gym Leader has exactly one explicitly shiny Pokémon.")
