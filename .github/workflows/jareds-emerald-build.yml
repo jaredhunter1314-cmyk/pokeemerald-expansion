@@ -49,6 +49,16 @@ jobs:
           test "$(stat -c%s pokeemerald.gba)" -gt 0
           sha256sum pokeemerald.gba
 
+      - name: Run pokeemerald regression test suite
+        run: make -j2 -O check
+        env:
+          GAME_VERSION: EMERALD
+          GAME_REVISION: 0
+          GAME_LANGUAGE: ENGLISH
+          COMPARE: 0
+          UNUSED_ERROR: 1
+          DEPRECATED_ERROR: 1
+
       - name: Check out matching clean Emerald source
         uses: actions/checkout@v4
         with:
