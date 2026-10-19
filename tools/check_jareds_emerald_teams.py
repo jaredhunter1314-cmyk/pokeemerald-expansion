@@ -109,7 +109,7 @@ for flag, cap in [
     ("FLAG_DEFEATED_ELITE_4_GLACIA", 56),
     ("FLAG_DEFEATED_ELITE_4_DRAKE", 58),
 ]:
-    if f"if (!FlagGet({flag}))\\n            return {cap};" not in caps_source:
+    if f"if (!FlagGet({flag}))\n            return {cap};" not in caps_source:
         fail(f"missing expected Elite Four cap {flag} -> {cap}")
 if "#define B_EXP_CAP_TYPE                  EXP_CAP_HARD" not in caps_config:
     fail("hard experience cap is not enabled")
