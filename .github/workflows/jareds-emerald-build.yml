@@ -19,6 +19,8 @@ jobs:
     steps:
       - name: Check out project
         uses: actions/checkout@v4
+        with:
+          submodules: recursive
 
       - name: Install Emerald build dependencies
         run: |
@@ -68,6 +70,7 @@ jobs:
           repository: pret/pokeemerald
           ref: 731ad5bfd6e6f265508d0efcca0ba42f9dcf5881
           path: vanilla
+          submodules: recursive
 
       - name: Build clean Emerald base ROM
         working-directory: vanilla
