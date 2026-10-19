@@ -1,5 +1,5 @@
 GAME_VERSION ?= EMERALD
-TITLE        ?= POKEMON EMER
+TITLE        ?= JARED'S EMER
 GAME_CODE    ?= BPEE
 BUILD_NAME   ?= emerald
 MAP_VERSION  ?= emerald
