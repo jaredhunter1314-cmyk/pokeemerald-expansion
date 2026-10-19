@@ -116,12 +116,9 @@ static const u8 sStarterLabelCoords[STARTER_MON_COUNT][2] =
 #define FIRE_STARTER  (IS_FRLG ? SPECIES_CHARMANDER : SPECIES_TORCHIC)
 #define WATER_STARTER (IS_FRLG ? SPECIES_SQUIRTLE   : SPECIES_MUDKIP )
 
-static u16 sStarterMon[STARTER_MON_COUNT] =
-{
-    GRASS_STARTER,
-    FIRE_STARTER,
-    WATER_STARTER,
-};
+// Keep this array in BSS: initialized writable .data in this translation unit
+// is discarded by the project's ROM linker script.
+static u16 sStarterMon[STARTER_MON_COUNT];
 
 static const struct BgTemplate sBgTemplates[3] =
 {
@@ -356,9 +353,8 @@ u16 GetStarterPokemon(u16 chosenStarterId)
     return sStarterMon[chosenStarterId];
 }
 
-// JARED'S EMERALD: generate three different starter options whenever the
-// starter-choice screen opens for a new game. SPECIES_EGG is excluded because
-// NUM_SPECIES is equal to SPECIES_EGG in this project.
+// JARED'S EMERALD: generate three distinct starter options for a new game.
+// SPECIES_EGG is excluded because NUM_SPECIES is equal to SPECIES_EGG here.
 static void RandomizeJaredsEmeraldStarters(void)
 {
     u16 i;
