@@ -31,7 +31,11 @@ LEGENDARIES = {
     "Koraidon", "Miraidon", "Walking Wake", "Iron Leaves",
     "Gouging Fire", "Raging Bolt", "Iron Boulder", "Iron Crown",
 }
-GYM_LEADERS = {\n    "TRAINER_ROXANNE_1", "TRAINER_BRAWLY_1", "TRAINER_WATTSON_1",\n    "TRAINER_FLANNERY_1", "TRAINER_NORMAN_1", "TRAINER_WINONA_1",\n    "TRAINER_TATE_AND_LIZA_1", "TRAINER_JUAN_1",\n}\nSTARTERS = {
+GYM_LEADERS = {
+    "TRAINER_ROXANNE_1", "TRAINER_BRAWLY_1", "TRAINER_WATTSON_1",
+    "TRAINER_FLANNERY_1", "TRAINER_NORMAN_1", "TRAINER_WINONA_1",
+    "TRAINER_TATE_AND_LIZA_1", "TRAINER_JUAN_1",
+}\nSTARTERS = {
     "Bulbasaur", "Ivysaur", "Venusaur", "Charmander", "Charmeleon",
     "Charizard", "Squirtle", "Wartortle", "Blastoise", "Chikorita",
     "Bayleef", "Meganium", "Cyndaquil", "Quilava", "Typhlosion",
