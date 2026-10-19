@@ -6421,53 +6421,53 @@ Double Battle: No
 AI: Basic Trainer
 Mugshot: Yellow
 
-Wailord
-Level: 57
+Palkia
+Level: 78
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Rain Dance
-- Water Spout
-- Double Edge
-- Blizzard
+- Spacial Rend
+- Surf
+- Earth Power
+- Thunderbolt
 
-Tentacruel
-Level: 55
+Mudkip
+Level: 74
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Toxic
-- Hydro Pump
-- Sludge Bomb
+- Waterfall
 - Ice Beam
-
-Ludicolo
-Level: 56
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Giga Drain
-- Surf
-- Leech Seed
-- Double Team
-
-Whiscash
-Level: 56
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Earthquake
-- Surf
-- Amnesia
-- Hyper Beam
+- Protect
+
+Milotic
+Level: 75
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Scald
+- Ice Beam
+- Recover
+- Haze
 
 Gyarados
-Level: 56
+Level: 76
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Dragon Dance
+- Waterfall
+- Ice Fang
 - Earthquake
-- Hyper Beam
-- Surf
+- Dragon Dance
 
-Milotic @ Sitrus Berry
-Level: 58
+Kingdra
+Level: 77
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Recover
 - Surf
+- Dragon Pulse
 - Ice Beam
-- Toxic
+- Protect
+
+Ludicolo
+Level: 78
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Surf
+- Giga Drain
+- Ice Beam
+- Rain Dance
 
 === TRAINER_ANDREW ===
 Name: ANDREW
