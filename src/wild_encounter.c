@@ -160,6 +160,20 @@ bool8 CheckFeebasAtCoords(s16 x, s16 y)
     return FALSE;
 }
 
+// JARED'S EMERALD: derive a stable species choice from the save's trainer ID,
+ // map, encounter type, and slot. This gives each save its own encounter tables
+ // without writing new fields into existing save blocks.
+static enum Species GetJaredsEmeraldWildSpecies(enum WildPokemonArea area, u8 slot)
+{
+    u32 seed = READ_OTID_FROM_SAVE;
+    seed ^= ((u32)gSaveBlock1Ptr->location.mapGroup << 24);
+    seed ^= ((u32)gSaveBlock1Ptr->location.mapNum << 16);
+    seed ^= ((u32)area << 8);
+    seed ^= slot;
+    seed = ISO_RANDOMIZE2(seed);
+    return (enum Species)((seed % (NUM_SPECIES - 1)) + 1);
+}
+
 static u16 FeebasRandom(void)
 {
     sFeebasRngValue = ISO_RANDOMIZE2(sFeebasRngValue);
@@ -578,9 +592,9 @@ bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, enum WildPok
     if (gMapHeader.mapLayoutId != LAYOUT_BATTLE_FRONTIER_BATTLE_PIKE_ROOM_WILD_MONS && flags & WILD_CHECK_KEEN_EYE && !IsAbilityAllowingEncounter(level))
         return FALSE;
 
-    // JARED'S EMERALD: randomize normal encounter-table species while preserving
-    // each encounter's map, level range, repel checks, and ability checks.
-    CreateWildMon((enum Species)((Random() % (NUM_SPECIES - 1)) + 1), level);
+    // Preserve the encounter slot's level and odds, but use the save-specific
+    // species assigned to this map/type/slot.
+    CreateWildMon(GetJaredsEmeraldWildSpecies(area, wildMonIndex), level);
     return TRUE;
 }
 
@@ -591,8 +605,8 @@ static u16 GenerateFishingWildMon(const struct WildPokemonInfo *wildMonInfo, u8 
     u8 level = ChooseWildMonLevel(wildMonInfo->wildPokemon, wildMonIndex, WILD_AREA_FISHING);
 
     UpdateChainFishingStreak();
-    // JARED'S EMERALD: fishing encounters use the same randomized species pool.
-    wildMonSpecies = (enum Species)((Random() % (NUM_SPECIES - 1)) + 1);
+    // Fishing gets its own save-specific encounter table per map and slot.
+    wildMonSpecies = GetJaredsEmeraldWildSpecies(WILD_AREA_FISHING, wildMonIndex);
     CreateWildMon(wildMonSpecies, level);
     return wildMonSpecies;
 }
