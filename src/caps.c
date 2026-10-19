@@ -7,6 +7,7 @@
 
 u32 GetCurrentLevelCap(void)
 {
+    // Each cap matches the highest level on the next major boss team.
     static const u32 sLevelCapFlagMap[][2] =
     {
         {FLAG_BADGE01_GET, 15},
@@ -15,9 +16,8 @@ u32 GetCurrentLevelCap(void)
         {FLAG_BADGE04_GET, 29},
         {FLAG_BADGE05_GET, 31},
         {FLAG_BADGE06_GET, 33},
-        {FLAG_BADGE07_GET, 42},
-        {FLAG_BADGE08_GET, 46},
-        {FLAG_IS_CHAMPION, 58},
+        {FLAG_BADGE07_GET, 36},
+        {FLAG_BADGE08_GET, 41},
     };
 
     u32 i;
@@ -29,6 +29,20 @@ u32 GetCurrentLevelCap(void)
             if (!FlagGet(sLevelCapFlagMap[i][0]))
                 return sLevelCapFlagMap[i][1];
         }
+
+        // Progress the cap through the Elite Four instead of using one flat
+        // post-gym cap. The flags are reset when the player starts a new League run.
+        if (!FlagGet(FLAG_DEFEATED_ELITE_4_SIDNEY))
+            return 52;
+        if (!FlagGet(FLAG_DEFEATED_ELITE_4_PHOEBE))
+            return 54;
+        if (!FlagGet(FLAG_DEFEATED_ELITE_4_GLACIA))
+            return 56;
+        if (!FlagGet(FLAG_DEFEATED_ELITE_4_DRAKE))
+            return 58;
+        if (!FlagGet(FLAG_IS_CHAMPION))
+            return 78;
+        return MAX_LEVEL;
     }
     else if (B_LEVEL_CAP_TYPE == LEVEL_CAP_VARIABLE)
     {
