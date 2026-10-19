@@ -1,4 +1,4 @@
-name: JARED'S EMERALD - Build ROM
+name: JARED'S EMERALD - Build and Patch
 
 on:
   workflow_dispatch:
@@ -8,6 +8,10 @@ on:
 
 permissions:
   contents: read
+
+concurrency:
+  group: jareds-emerald-build-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build-emerald:
@@ -20,10 +24,13 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends \
-            binutils-arm-none-eabi gcc-arm-none-eabi libnewlib-arm-none-eabi \
-            libpng-dev python3
+            build-essential binutils-arm-none-eabi gcc-arm-none-eabi libnewlib-arm-none-eabi \
+            libpng-dev python3 git
 
-      - name: Check JARED'S EMERALD boss teams
+      - name: Test BPS patch generator
+        run: python3 tools/make_bps_patch.py --self-test
+
+      - name: Check JARED'S EMERALD features
         run: python3 tools/check_jareds_emerald_teams.py
 
       - name: Build Emerald
@@ -42,10 +49,39 @@ jobs:
           test "$(stat -c%s pokeemerald.gba)" -gt 0
           sha256sum pokeemerald.gba
 
-      - name: Upload build artifact
+      - name: Check out matching clean Emerald source
+        uses: actions/checkout@v4
+        with:
+          repository: pret/pokeemerald
+          ref: 731ad5bfd6e6f265508d0efcca0ba42f9dcf5881
+          path: vanilla
+
+      - name: Build clean Emerald base ROM
+        working-directory: vanilla
+        run: make -j2 -O all
+        env:
+          COMPARE: 0
+
+      - name: Verify clean Emerald revision 0 checksum
+        run: |
+          test -f vanilla/pokeemerald.gba
+          actual="$(sha1sum vanilla/pokeemerald.gba | cut -d' ' -f1)"
+          echo "Clean Emerald SHA-1: $actual"
+          test "$actual" = "f3ae088181bf583e55daf962a92bb46f4f1d07b7"
+
+      - name: Generate and verify BPS patch
+        run: python3 tools/make_bps_patch.py vanilla/pokeemerald.gba pokeemerald.gba jareds-emerald.bps
+
+      - name: Check that a patch was produced
+        run: |
+          test -f jareds-emerald.bps
+          test "$(stat -c%s jareds-emerald.bps)" -gt 0
+          sha256sum jareds-emerald.bps
+
+      - name: Upload patch artifact
         uses: actions/upload-artifact@v4
         with:
-          name: jareds-emerald-build
-          path: pokeemerald.gba
+          name: jareds-emerald-patch
+          path: jareds-emerald.bps
           if-no-files-found: error
           retention-days: 14
