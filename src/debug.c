@@ -859,7 +859,13 @@ void Debug_ShowMainMenu(void)
 {
     sDebugMenuListData = AllocZeroed(sizeof(*sDebugMenuListData));
     sDebugMenuListData->menuType = DEBUG_BASIC_MENU;
-    // JARED'S EMERALD exposes a focused item-cheat menu instead of the full developer menu.
+    Debug_ShowMenu(DebugTask_HandleMenuInput_General, sDebugMenu_Actions_Main);
+}
+
+void Debug_ShowJaredsItemMenu(void)
+{
+    sDebugMenuListData = AllocZeroed(sizeof(*sDebugMenuListData));
+    sDebugMenuListData->menuType = DEBUG_BASIC_MENU;
     Debug_ShowMenu(DebugTask_HandleMenuInput_General, sJaredsEmeraldItemMenu);
 }
 

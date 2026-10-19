@@ -112,7 +112,7 @@ if "Rare Candies must respect the same hard cap as battle EXP" not in pokemon_so
 debug_source = Path("src/debug.c").read_text(encoding="utf-8")
 start_menu_source = Path("src/start_menu.c").read_text(encoding="utf-8")
 debug_config = Path("include/config/debug.h").read_text(encoding="utf-8")
-if "sJaredsEmeraldItemMenu" not in debug_source or "Debug_ShowMenu(DebugTask_HandleMenuInput_General, sJaredsEmeraldItemMenu)" not in debug_source:
+if "sJaredsEmeraldItemMenu" not in debug_source or "Debug_ShowMenu(DebugTask_HandleMenuInput_General, sJaredsEmeraldItemMenu)" not in debug_source or "Debug_ShowJaredsItemMenu();" not in start_menu_source:
     fail("JARED'S EMERALD item-cheat menu is missing")
 if "JARED'S ITEMS" not in start_menu_source:
     fail("JARED'S ITEMS Start-menu entry is missing")

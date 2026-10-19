@@ -798,7 +798,7 @@ static bool8 StartMenuDebugCallback(void)
     if (DEBUG_OVERWORLD_MENU)
     {
         FreezeObjectEvents();
-        Debug_ShowMainMenu();
+        Debug_ShowJaredsItemMenu();
     }
 
 return TRUE;
