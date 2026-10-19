@@ -23,6 +23,9 @@ jobs:
             binutils-arm-none-eabi gcc-arm-none-eabi libnewlib-arm-none-eabi \
             libpng-dev python3
 
+      - name: Check JARED'S EMERALD boss teams
+        run: python3 tools/check_jareds_emerald_teams.py
+
       - name: Build Emerald
         run: make -j2 -O all
         env:
