@@ -1,0 +1,48 @@
+name: JARED'S EMERALD - Build ROM
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - jareds-emerald-dev
+
+permissions:
+  contents: read
+
+jobs:
+  build-emerald:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out project
+        uses: actions/checkout@v4
+
+      - name: Install Emerald build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            binutils-arm-none-eabi gcc-arm-none-eabi libnewlib-arm-none-eabi \
+            libpng-dev python3
+
+      - name: Build Emerald
+        run: make -j2 -O all
+        env:
+          GAME_VERSION: EMERALD
+          GAME_REVISION: 0
+          GAME_LANGUAGE: ENGLISH
+          COMPARE: 0
+          UNUSED_ERROR: 1
+          DEPRECATED_ERROR: 1
+
+      - name: Check that a ROM was produced
+        run: |
+          test -f pokeemerald.gba
+          test "$(stat -c%s pokeemerald.gba)" -gt 0
+          sha256sum pokeemerald.gba
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: jareds-emerald-build
+          path: pokeemerald.gba
+          if-no-files-found: error
+          retention-days: 14
