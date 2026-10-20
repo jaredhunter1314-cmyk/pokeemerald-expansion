@@ -72,6 +72,13 @@ jobs:
           path: vanilla
           submodules: recursive
 
+      - name: Build and install agbcc for clean Emerald source
+        run: |
+          git clone https://github.com/pret/agbcc agbcc
+          cd agbcc
+          ./build.sh
+          ./install.sh ../vanilla
+
       - name: Build clean Emerald base ROM
         working-directory: vanilla
         run: make -j2 -O all
