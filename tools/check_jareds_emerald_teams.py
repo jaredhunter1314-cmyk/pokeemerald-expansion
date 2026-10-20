@@ -112,11 +112,30 @@ for boss, expected_cap in expected_boss_caps.items():
     if boss_max_levels.get(boss) != expected_cap:
         fail(f"{boss} max level is {boss_max_levels.get(boss)}; expected level cap {expected_cap}")
 
+# Verify the three starter choices are randomized into distinct valid species
+# when the new game's starter-selection screen is entered.
+starter_source = Path("src/starter_choose.c").read_text(encoding="utf-8")
+for snippet in [
+    "#define STARTER_MON_COUNT   3",
+    "static void RandomizeJaredsEmeraldStarters(void)",
+    "candidate = (Random() % (NUM_SPECIES - 1)) + 1;",
+    "if (sStarterMon[j] == candidate)",
+    "sStarterMon[i] = candidate;",
+    "RandomizeJaredsEmeraldStarters();",
+]:
+    if snippet not in starter_source:
+        fail(f"missing randomized starter-selection logic: {snippet}")
+if starter_source.count("RandomizeJaredsEmeraldStarters();") != 1:
+    fail("starter randomization must run once when entering starter selection")
+
 # Verify wild encounters are stable per save rather than re-rolled every encounter.
 wild_source = Path("src/wild_encounter.c").read_text(encoding="utf-8")
 for snippet in [
     "u32 seed = READ_OTID_FROM_SAVE;",
     "gSaveBlock1Ptr->location.mapGroup",
+    "gSaveBlock1Ptr->location.mapNum",
+    "seed ^= ((u32)area << 8);",
+    "seed ^= slot;",
     "GetJaredsEmeraldWildSpecies(area, wildMonIndex)",
     "GetJaredsEmeraldWildSpecies(WILD_AREA_FISHING, wildMonIndex)",
 ]:
@@ -164,4 +183,5 @@ if "#define B_LEVEL_CAP_TYPE                LEVEL_CAP_FLAG_LIST" not in caps_con
 if "#define B_RARE_CANDY_CAP                TRUE" not in caps_config:
     fail("Rare Candy cap is not enabled")
 
+print("PASS: starter choices are randomized once per new-game starter selection and wild species are stable per save/map/area/slot.")
 print(f"PASS: all {len(BOSSES)} major boss teams have six Pokémon, one Legendary, and one starter-family Pokémon; each Gym Leader has exactly one explicitly shiny Pokémon; all boss-team maximum levels match the configured level caps, and level-cap config and progression are enabled.")
