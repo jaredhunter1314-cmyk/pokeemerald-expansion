@@ -16,8 +16,8 @@ u32 GetCurrentLevelCap(void)
         {FLAG_BADGE04_GET, 29},
         {FLAG_BADGE05_GET, 31},
         {FLAG_BADGE06_GET, 33},
-        {FLAG_BADGE07_GET, 36},
-        {FLAG_BADGE08_GET, 41},
+        {FLAG_BADGE07_GET, 42},
+        {FLAG_BADGE08_GET, 46},
     };
 
     u32 i;
@@ -33,15 +33,15 @@ u32 GetCurrentLevelCap(void)
         // Progress the cap through the Elite Four instead of using one flat
         // post-gym cap. The flags are reset when the player starts a new League run.
         if (!FlagGet(FLAG_DEFEATED_ELITE_4_SIDNEY))
-            return 52;
+            return 49;
         if (!FlagGet(FLAG_DEFEATED_ELITE_4_PHOEBE))
-            return 54;
+            return 51;
         if (!FlagGet(FLAG_DEFEATED_ELITE_4_GLACIA))
-            return 56;
+            return 53;
         if (!FlagGet(FLAG_DEFEATED_ELITE_4_DRAKE))
-            return 58;
+            return 55;
         if (!FlagGet(FLAG_IS_CHAMPION))
-            return 78;
+            return 58;
         return MAX_LEVEL;
     }
     else if (B_LEVEL_CAP_TYPE == LEVEL_CAP_VARIABLE)

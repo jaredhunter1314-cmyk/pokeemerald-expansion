@@ -98,19 +98,21 @@ for boss in sorted(BOSSES):
     if boss in GYM_LEADERS and shiny_count != 1:
         fail(f"{boss} has {shiny_count} explicitly shiny Pokémon; expected exactly 1")
 
-# The level-cap milestones must match the highest level in each custom boss team.
-expected_boss_caps = {
+# Compare custom teams against the original Emerald trainer maxima.
+# Teams may be lower-level, but must never exceed the original boss's highest level.
+original_boss_max_levels = {
     "TRAINER_ROXANNE_1": 15, "TRAINER_BRAWLY_1": 19,
     "TRAINER_WATTSON_1": 24, "TRAINER_FLANNERY_1": 29,
     "TRAINER_NORMAN_1": 31, "TRAINER_WINONA_1": 33,
-    "TRAINER_TATE_AND_LIZA_1": 36, "TRAINER_JUAN_1": 41,
-    "TRAINER_SIDNEY": 52, "TRAINER_PHOEBE": 54,
-    "TRAINER_GLACIA": 56, "TRAINER_DRAKE": 58,
-    "TRAINER_WALLACE": 78,
+    "TRAINER_TATE_AND_LIZA_1": 42, "TRAINER_JUAN_1": 46,
+    "TRAINER_SIDNEY": 49, "TRAINER_PHOEBE": 51,
+    "TRAINER_GLACIA": 53, "TRAINER_DRAKE": 55,
+    "TRAINER_WALLACE": 58,
 }
-for boss, expected_cap in expected_boss_caps.items():
-    if boss_max_levels.get(boss) != expected_cap:
-        fail(f"{boss} max level is {boss_max_levels.get(boss)}; expected level cap {expected_cap}")
+for boss, original_max_level in original_boss_max_levels.items():
+    actual_max_level = boss_max_levels.get(boss)
+    if actual_max_level is None or actual_max_level > original_max_level:
+        fail(f"{boss} max level is {actual_max_level}; exceeds original Emerald maximum {original_max_level}")
 
 # Verify the three starter choices are randomized into distinct valid species
 # when the new game's starter-selection screen is entered.
@@ -164,18 +166,20 @@ for flag, cap in [
     ("FLAG_BADGE01_GET", 15), ("FLAG_BADGE02_GET", 19),
     ("FLAG_BADGE03_GET", 24), ("FLAG_BADGE04_GET", 29),
     ("FLAG_BADGE05_GET", 31), ("FLAG_BADGE06_GET", 33),
-    ("FLAG_BADGE07_GET", 36), ("FLAG_BADGE08_GET", 41),
+    ("FLAG_BADGE07_GET", 42), ("FLAG_BADGE08_GET", 46),
 ]:
     if f"{{{flag}, {cap}}}" not in caps_source:
         fail(f"missing expected badge cap {flag} -> {cap}")
 for flag, cap in [
-    ("FLAG_DEFEATED_ELITE_4_SIDNEY", 52),
-    ("FLAG_DEFEATED_ELITE_4_PHOEBE", 54),
-    ("FLAG_DEFEATED_ELITE_4_GLACIA", 56),
-    ("FLAG_DEFEATED_ELITE_4_DRAKE", 58),
+    ("FLAG_DEFEATED_ELITE_4_SIDNEY", 49),
+    ("FLAG_DEFEATED_ELITE_4_PHOEBE", 51),
+    ("FLAG_DEFEATED_ELITE_4_GLACIA", 53),
+    ("FLAG_DEFEATED_ELITE_4_DRAKE", 55),
 ]:
     if f"if (!FlagGet({flag}))\n            return {cap};" not in caps_source:
         fail(f"missing expected Elite Four cap {flag} -> {cap}")
+if "if (!FlagGet(FLAG_IS_CHAMPION))\n            return 58;" not in caps_source:
+    fail("missing Champion cap at the original Wallace maximum level 58")
 if "#define B_EXP_CAP_TYPE                  EXP_CAP_HARD" not in caps_config:
     fail("hard experience cap is not enabled")
 if "#define B_LEVEL_CAP_TYPE                LEVEL_CAP_FLAG_LIST" not in caps_config:
@@ -184,4 +188,4 @@ if "#define B_RARE_CANDY_CAP                TRUE" not in caps_config:
     fail("Rare Candy cap is not enabled")
 
 print("PASS: starter choices are randomized once per new-game starter selection and wild species are stable per save/map/area/slot.")
-print(f"PASS: all {len(BOSSES)} major boss teams have six Pokémon, one Legendary, and one starter-family Pokémon; each Gym Leader has exactly one explicitly shiny Pokémon; all boss-team maximum levels match the configured level caps, and level-cap config and progression are enabled.")
+print(f"PASS: all {len(BOSSES)} major boss teams have six Pokémon, one Legendary, and one starter-family Pokémon; each Gym Leader has exactly one explicitly shiny Pokémon; all boss-team maximum levels stay at or below the original Emerald boss maxima, and level-cap progression matches those original maxima.")
