@@ -51,10 +51,9 @@ jobs:
           test "$(stat -c%s pokeemerald.gba)" -gt 0
           sha256sum pokeemerald.gba
 
-      - name: Run pokeemerald regression test suite (level-cap expectation conflicts are non-blocking)
-        # The upstream suite assumes uncapped EXP in four tests; JARED'S EMERALD intentionally caps it.
-        # Keep the full results visible while allowing ROM/patch verification to continue.
-        continue-on-error: true
+      - name: Run pokeemerald regression test suite
+        # EXP formula tests explicitly unlock the badge/League progression so they test
+        # experience calculations independently of JARED'S EMERALD's intended hard caps.
         run: make -j2 -O check
         env:
           GAME_VERSION: EMERALD
