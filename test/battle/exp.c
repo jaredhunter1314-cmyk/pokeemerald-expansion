@@ -1,6 +1,24 @@
 #include "global.h"
 #include "test/battle.h"
 
+// These tests validate experience formulas, not JARED'S EMERALD's hard caps.
+// Unlock the full badge/League progression so high-level test cases can exercise
+// their intended EXP calculations without being stopped at the first cap.
+#define UNLOCK_ALL_JAREDS_EMERALD_LEVEL_CAPS() \
+    FLAG_SET(FLAG_BADGE01_GET); \
+    FLAG_SET(FLAG_BADGE02_GET); \
+    FLAG_SET(FLAG_BADGE03_GET); \
+    FLAG_SET(FLAG_BADGE04_GET); \
+    FLAG_SET(FLAG_BADGE05_GET); \
+    FLAG_SET(FLAG_BADGE06_GET); \
+    FLAG_SET(FLAG_BADGE07_GET); \
+    FLAG_SET(FLAG_BADGE08_GET); \
+    FLAG_SET(FLAG_DEFEATED_ELITE_4_SIDNEY); \
+    FLAG_SET(FLAG_DEFEATED_ELITE_4_PHOEBE); \
+    FLAG_SET(FLAG_DEFEATED_ELITE_4_GLACIA); \
+    FLAG_SET(FLAG_DEFEATED_ELITE_4_DRAKE); \
+    FLAG_SET(FLAG_IS_CHAMPION)
+
 WILD_BATTLE_TEST("Pokemon gain experience after catching a Pokemon (Gen6+)")
 {
     u8 level = 0;
@@ -35,6 +53,7 @@ WILD_BATTLE_TEST("Higher leveled Pokemon give more exp", s32 exp)
     PARAMETRIZE { level = 10; }
 
     GIVEN {
+        UNLOCK_ALL_JAREDS_EMERALD_LEVEL_CAPS();
         PLAYER(SPECIES_WOBBUFFET) { Level(20); }
         OPPONENT(SPECIES_CATERPIE) { Level(level); HP(1); }
     } WHEN {
@@ -103,6 +122,7 @@ WILD_BATTLE_TEST("Large exp gains are supported", s32 exp) // #1455
     PARAMETRIZE { level = MAX_LEVEL; }
 
     GIVEN {
+        UNLOCK_ALL_JAREDS_EMERALD_LEVEL_CAPS();
         PLAYER(SPECIES_WOBBUFFET) { Level(1); Item(ITEM_LUCKY_EGG); OTName("Test"); } // OT Name is different so it gets more exp as a traded mon
         OPPONENT(SPECIES_BLISSEY) { Level(level); HP(1); }
     } WHEN {
@@ -164,6 +184,7 @@ WILD_BATTLE_TEST("Exp Share(held) gives Experience to mons which did not partici
     PARAMETRIZE { item = ITEM_EXP_SHARE; }
 
     GIVEN {
+        UNLOCK_ALL_JAREDS_EMERALD_LEVEL_CAPS();
         PLAYER(SPECIES_WOBBUFFET);
         PLAYER(SPECIES_WYNAUT) { Level(40); Item(item); }
         OPPONENT(SPECIES_CATERPIE) { Level(10); HP(1); }
@@ -187,6 +208,7 @@ WILD_BATTLE_TEST("Exp Share(held) gives Experience to mons which did not partici
 AI_DOUBLE_BATTLE_TEST("Both player Pokemon gain experience in double battles")
 {
     GIVEN {
+        UNLOCK_ALL_JAREDS_EMERALD_LEVEL_CAPS();
         PLAYER(SPECIES_WOBBUFFET) { Level(99); }
         PLAYER(SPECIES_DITTO) { Level(1); }
         OPPONENT(SPECIES_BRELOOM) { Moves(MOVE_MEMENTO); }
