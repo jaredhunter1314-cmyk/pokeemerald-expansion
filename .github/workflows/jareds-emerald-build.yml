@@ -98,7 +98,21 @@ jobs:
         run: |
           test -f jareds-emerald.bps
           test "$(stat -c%s jareds-emerald.bps)" -gt 0
-          sha256sum jareds-emerald.bps
+          patch_sha256="$(sha256sum jareds-emerald.bps | cut -d' ' -f1)"
+          test -n "$patch_sha256"
+          echo "Patch SHA-256: $patch_sha256"
+
+          base_sha1="$(sha1sum vanilla/pokeemerald.gba | cut -d' ' -f1)"
+          target_sha1="$(sha1sum pokeemerald.gba | cut -d' ' -f1)"
+          patch_size="$(stat -c%s jareds-emerald.bps)"
+          {
+            echo "## JARED'S EMERALD patch verification"
+            echo "- Commit: `$GITHUB_SHA`"
+            echo "- Clean base SHA-1: `$base_sha1`"
+            echo "- Built target SHA-1: `$target_sha1`"
+            echo "- BPS SHA-256: `$patch_sha256`"
+            echo "- BPS size: $patch_size bytes"
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload patch artifact
         uses: actions/upload-artifact@v4
