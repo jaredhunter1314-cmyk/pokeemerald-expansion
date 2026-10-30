@@ -1,0 +1,38 @@
+name: JARED'S EMERALD development build
+
+on:
+  push:
+    branches:
+      - jareds-emerald-development
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-emerald:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Install ARM toolchain and build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            binutils-arm-none-eabi \
+            gcc-arm-none-eabi \
+            libnewlib-arm-none-eabi \
+            libpng-dev \
+            python3
+
+      - name: Build Emerald ROM
+        env:
+          GAME_VERSION: EMERALD
+        run: make -j2
+
+      - name: Verify build output (runner only)
+        run: |
+          test -s pokeemerald.gba
+          sha256sum pokeemerald.gba
+          stat -c 'ROM size: %s bytes' pokeemerald.gba
