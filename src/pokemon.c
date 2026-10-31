@@ -4412,6 +4412,23 @@ enum Species GetEvolutionTargetSpecies(struct Pokemon *mon, enum EvolutionMode m
     enum HoldEffect holdEffect;
     const struct Evolution *evolutions = GetSpeciesEvolutions(species);
 
+    // Jared's Emerald: Mega Stones permanently evolve a Pokemon, like an evolution stone.
+    if ((mode == EVO_MODE_ITEM_USE || mode == EVO_MODE_ITEM_CHECK)
+     && evolutionItem != ITEM_NONE && GetItemHoldEffect(evolutionItem) == HOLD_EFFECT_MEGA_STONE)
+    {
+        const struct FormChange *formChanges = GetSpeciesFormChanges(species);
+        if (formChanges != NULL)
+        {
+            for (i = 0; formChanges[i].method != FORM_CHANGE_TERMINATOR; i++)
+            {
+                if (formChanges[i].method == FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM
+                 && formChanges[i].param1 == evolutionItem)
+                    return formChanges[i].targetSpecies;
+            }
+        }
+        return SPECIES_NONE;
+    }
+
     if (evolutions == NULL)
         return SPECIES_NONE;
 

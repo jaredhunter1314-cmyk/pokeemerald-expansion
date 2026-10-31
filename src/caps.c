@@ -3,6 +3,7 @@
 #include "event_data.h"
 #include "caps.h"
 #include "pokemon.h"
+#include "constants/opponents.h"
 
 
 u32 GetCurrentLevelCap(void)
