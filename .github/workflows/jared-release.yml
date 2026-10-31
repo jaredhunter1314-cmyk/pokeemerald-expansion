@@ -26,7 +26,18 @@ jobs:
           sudo apt-get install -y --no-install-recommends binutils-arm-none-eabi gcc-arm-none-eabi libnewlib-arm-none-eabi libpng-dev python3
 
       - name: Build ROM
-        run: make -j$(nproc) -O all 2>&1 | tee build.log
+        shell: bash
+        run: |
+          set -o pipefail
+          make -j$(nproc) -O all 2>&1 | tee build.log
+
+      - name: Save build log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-log
+          path: build.log
+          if-no-files-found: ignore
 
       - name: Publish release
         env:
