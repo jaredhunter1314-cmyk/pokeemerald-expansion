@@ -1,5 +1,6 @@
 #include "global.h"
 #include "event_data.h"
+#include "main.h"
 #include "pokemon.h"
 #include "random.h"
 #include "randomizer.h"
