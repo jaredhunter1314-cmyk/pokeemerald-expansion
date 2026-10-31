@@ -36,7 +36,7 @@ static const u16 sEncounterVars[16] =
 
 #define DEAD_BOX (TOTAL_BOXES_COUNT - 1)
 
-static bool8 sCanCatch = TRUE;
+static EWRAM_DATA bool8 sCannotCatch = FALSE;
 
 bool8 Nuzlocke_IsActive(void)
 {
@@ -45,7 +45,7 @@ bool8 Nuzlocke_IsActive(void)
 
 bool8 Nuzlocke_CanCatch(void)
 {
-    return sCanCatch;
+    return !sCannotCatch;
 }
 
 // Called whenever a wild Pokemon is generated: only the first one met in each area can be caught.
@@ -63,12 +63,12 @@ void Nuzlocke_RegisterWildEncounter(void)
 
     if (VarGet(var) & bit)
     {
-        sCanCatch = FALSE;
+        sCannotCatch = TRUE;
     }
     else
     {
         VarSet(var, VarGet(var) | bit);
-        sCanCatch = TRUE;
+        sCannotCatch = FALSE;
     }
 }
 
@@ -104,7 +104,7 @@ void Nuzlocke_AfterBattle(void)
 {
     u32 i, pos;
 
-    sCanCatch = TRUE;
+    sCannotCatch = FALSE;
     if (!Nuzlocke_IsActive())
         return;
 
