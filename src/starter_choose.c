@@ -1,4 +1,5 @@
 #include "global.h"
+#include "randomizer.h"
 #include "bg.h"
 #include "data.h"
 #include "decompress.h"
@@ -351,7 +352,7 @@ u16 GetStarterPokemon(u16 chosenStarterId)
 {
     if (chosenStarterId > STARTER_MON_COUNT)
         chosenStarterId = 0;
-    return sStarterMon[chosenStarterId];
+    return RandomizeStarterSpecies(sStarterMon[chosenStarterId], chosenStarterId);
 }
 
 static void VblankCB_StarterChoose(void)

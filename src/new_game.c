@@ -1,4 +1,5 @@
 #include "global.h"
+#include "randomizer.h"
 #include "clock.h"
 #include "new_game.h"
 #include "random.h"
@@ -211,6 +212,7 @@ void NewGameInitData(void)
     ResetFanClub();
     ResetLotteryCorner();
     UpdateDailySeed();
+    RandomizerInit();
     WarpToTruck();
     if (IS_FRLG)
         RunScriptImmediately(EventScript_ResetAllMapFlagsFrlg);
