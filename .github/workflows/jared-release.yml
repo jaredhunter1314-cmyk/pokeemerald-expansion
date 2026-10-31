@@ -1,0 +1,39 @@
+name: Build Jared's Emerald
+
+on:
+  push:
+    branches: [jared]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  GAME_VERSION: EMERALD
+  GAME_REVISION: 0
+  GAME_LANGUAGE: ENGLISH
+  COMPARE: 0
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends binutils-arm-none-eabi gcc-arm-none-eabi libnewlib-arm-none-eabi libpng-dev python3
+
+      - name: Build ROM
+        run: make -j$(nproc) -O all 2>&1 | tee build.log
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cp pokeemerald.gba "Pokemon_Jareds_Emerald.gba"
+          TAG="build-${{ github.run_number }}"
+          gh release create "$TAG" "Pokemon_Jareds_Emerald.gba" \
+            --title "Jared's Emerald build ${{ github.run_number }}" \
+            --notes "Commit ${{ github.sha }}. Download the .gba and open it in Delta."
