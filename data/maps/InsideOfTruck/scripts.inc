@@ -15,6 +15,9 @@ InsideOfTruck_OnResume:
 
 InsideOfTruck_EventScript_SetIntroFlags::
 	lockall
+	msgbox InsideOfTruck_Text_AskNuzlocke, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, InsideOfTruck_EventScript_EnableNuzlocke
+InsideOfTruck_EventScript_ContinueIntroFlags::
 	setflag FLAG_HIDE_MAP_NAME_POPUP
 	checkplayergender
 	goto_if_eq VAR_RESULT, MALE, InsideOfTruck_EventScript_SetIntroFlagsMale
@@ -56,3 +59,18 @@ InsideOfTruck_Text_BoxPrintedWithMonLogo:
 	.string "It's a POKéMON brand moving and\n"
 	.string "delivery service.$"
 
+
+InsideOfTruck_EventScript_EnableNuzlocke::
+	setflag FLAG_HARDCORE_NUZLOCKE
+	msgbox InsideOfTruck_Text_NuzlockeOn, MSGBOX_DEFAULT
+	goto InsideOfTruck_EventScript_ContinueIntroFlags
+
+InsideOfTruck_Text_AskNuzlocke:
+	.string "Enable Hardcore Nuzlocke Rules?\n"
+	.string "One catch per area, fainted POKéMON\l"
+	.string "go to the DEAD box, no battle items,\l"
+	.string "mandatory nicknames, wipe = game over.$"
+
+InsideOfTruck_Text_NuzlockeOn:
+	.string "Hardcore Nuzlocke Rules are ON.\n"
+	.string "Good luck!$"

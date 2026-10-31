@@ -1,4 +1,5 @@
 #include "global.h"
+#include "nuzlocke.h"
 #include "overworld.h"
 #include "battle_pyramid.h"
 #include "battle_setup.h"
@@ -1956,6 +1957,8 @@ void CB2_NewGame(void)
 void CB2_WhiteOut(void)
 {
     u8 state;
+
+    Nuzlocke_OnWhiteout();
 
     if (++gMain.state >= 120)
     {

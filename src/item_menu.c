@@ -1,4 +1,5 @@
 #include "global.h"
+#include "nuzlocke.h"
 #include "item_menu.h"
 #include "battle.h"
 #include "battle_controllers.h"
@@ -1623,7 +1624,7 @@ static void OpenContextMenu(u8 taskId)
     case ITEMMENULOCATION_BATTLE:
     case ITEMMENULOCATION_WALLY:
     case ITEMMENULOCATION_RAIDEND:
-        if (GetItemBattleUsage(gSpecialVar_ItemId))
+        if (GetItemBattleUsage(gSpecialVar_ItemId) && !Nuzlocke_BlocksItem(gSpecialVar_ItemId))
         {
             gBagMenu->contextMenuItemsPtr = sContextMenuItems_BattleUse;
             gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_BattleUse);
