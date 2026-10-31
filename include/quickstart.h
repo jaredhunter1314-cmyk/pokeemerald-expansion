@@ -3,11 +3,7 @@
 
 #include "config/quickstart.h"
 
-#if RELEASE
-    #define QUICKSTART FALSE
-#else
-    #define QUICKSTART ENABLE_QUICKSTART
-#endif
+#define QUICKSTART ENABLE_QUICKSTART
 
 void CreateQuickstartHud(void);
 void Quickstart(void);

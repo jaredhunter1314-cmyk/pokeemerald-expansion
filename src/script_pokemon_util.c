@@ -1,4 +1,6 @@
 #include "global.h"
+#include "randomizer.h"
+#include "nuzlocke.h"
 #include "battle.h"
 #include "battle_gfx_sfx_util.h"
 #include "berry.h"
@@ -124,6 +126,8 @@ void CreateScriptedWildMon(enum Species species, u8 level, enum Item item)
 {
     u8 heldItem[2];
 
+    species = RandomizeWildSpecies(species);
+    Nuzlocke_RegisterWildEncounter();
     ZeroEnemyPartyMons();
     u32 personality = GetMonPersonality(species,
         GetSynchronizedGender(STATIC_WILDMON_ORIGIN, species),

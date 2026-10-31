@@ -6,6 +6,7 @@
 #include "graphics.h"
 #include "main.h"
 #include "overworld.h"
+#include "naming_screen.h"
 #include "palette.h"
 #include "config/quickstart.h"
 #include "quickstart.h"
@@ -72,6 +73,14 @@ static inline enum Gender SetQuickstartPlayerGender()
     }
 }
 
+static void CB2_QuickstartNamed(void)
+{
+    ResetSpriteData();
+    FreeAllSpritePalettes();
+    ResetTasks();
+    SetMainCallback2(CB2_NewGame);
+}
+
 static void CB2_SkipToNewGame(void)
 {
 #if IS_FRLG
@@ -93,10 +102,11 @@ static void CB2_SkipToNewGame(void)
         StringCopy_PlayerName(gSaveBlock1Ptr->rivalName, sText_Rival);
 #endif  // IS_FRLG
 
+        // Let the player type their own name before the game starts.
         ResetSpriteData();
         FreeAllSpritePalettes();
         ResetTasks();
-        SetMainCallback2(CB2_NewGame);
+        DoNamingScreen(NAMING_SCREEN_PLAYER, gSaveBlock2Ptr->playerName, gSaveBlock2Ptr->playerGender, 0, 0, CB2_QuickstartNamed);
     }
 }
 

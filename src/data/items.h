@@ -5659,7 +5659,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Venusaur to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -5678,7 +5678,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Charizard to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -5697,7 +5697,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Charizard to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -5716,7 +5716,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Blastoise to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -5735,7 +5735,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Beedrill to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -5754,7 +5754,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Pidgeot to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -5773,7 +5773,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Alakazam to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -5792,7 +5792,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Slowbro to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -5811,7 +5811,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Gengar to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -5830,7 +5830,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Kangaskhan to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -5849,7 +5849,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Pinsir to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -5868,7 +5868,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Gyarados to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -5887,7 +5887,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Aerodactyl to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -5906,7 +5906,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Mewtwo to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -5925,7 +5925,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Mewtwo to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -5944,7 +5944,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Ampharos to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -5963,7 +5963,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Steelix to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -5982,7 +5982,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Scizor to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6001,7 +6001,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Heracross to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6020,7 +6020,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Houndoom to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6039,7 +6039,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Tyranitar to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6058,7 +6058,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Sceptile to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6077,7 +6077,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Blaziken to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6096,7 +6096,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Swampert to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6115,7 +6115,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Gardevoir to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6134,7 +6134,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Sableye to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6153,7 +6153,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Mawile to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6172,7 +6172,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Aggron to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6191,7 +6191,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Medicham to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6210,7 +6210,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Manectric to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6229,7 +6229,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Sharpedo to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6248,7 +6248,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Camerupt to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6267,7 +6267,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Altaria to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6286,7 +6286,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Banette to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6305,7 +6305,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Absol to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6324,7 +6324,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Glalie to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6343,7 +6343,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Salamence to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6362,7 +6362,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Metagross to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6381,7 +6381,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Latias to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6400,7 +6400,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Latios to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6419,7 +6419,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Lopunny to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6438,7 +6438,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Garchomp to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6457,7 +6457,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Lucario to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6476,7 +6476,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Abomasnow to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6495,7 +6495,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Gallade to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6514,7 +6514,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Audino to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6533,7 +6533,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Diancie to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6552,7 +6552,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Clefable to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6571,7 +6571,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Victreebel to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6590,7 +6590,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Starmie to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6609,7 +6609,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Dragonite to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6628,7 +6628,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Meganium to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6647,7 +6647,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Feraligatr to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6666,7 +6666,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Skarmory to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6685,7 +6685,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Froslass to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6704,7 +6704,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Emboar to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6723,7 +6723,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Excadrill to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6742,7 +6742,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Scolipede to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6761,7 +6761,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Scrafty to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6780,7 +6780,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Eelektross to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6799,7 +6799,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Chandelure to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6818,7 +6818,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Chesnaught to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6837,7 +6837,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Delphox to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6856,7 +6856,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Greninja to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6875,7 +6875,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Pyroar to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6894,7 +6894,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Floette to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6913,7 +6913,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Malamar to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6932,7 +6932,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Barbaracle to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6951,7 +6951,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Dragalge to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6970,7 +6970,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Hawlucha to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -6989,7 +6989,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Zygarde to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -7008,7 +7008,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Drampa to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -7027,7 +7027,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Falinks to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -7046,7 +7046,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Heatran to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -7065,7 +7065,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Darkrai to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -7084,7 +7084,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Zeraora to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -7103,7 +7103,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Raichu to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -7122,7 +7122,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Raichu to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -7141,7 +7141,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Chimecho to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -7160,7 +7160,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Absol to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -7179,7 +7179,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Staraptor to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -7198,7 +7198,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Garchomp to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -7217,7 +7217,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Lucario to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -7236,7 +7236,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Golurk to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -7255,7 +7255,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Meowstic to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -7293,7 +7293,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Golisopod to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -7312,7 +7312,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Magearna to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -7331,7 +7331,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Scovillain to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -7350,7 +7350,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Baxcalibur to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -7369,7 +7369,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Tatsugiri to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
@@ -7388,7 +7388,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Glimmora to Mega\n"
-            "Evolve in battle."),
+            "Evolve for good."),
         .pocket = POCKET_ITEMS,
         .sortType = ITEM_TYPE_MEGA_STONE,
         .type = ITEM_USE_PARTY_MENU,
