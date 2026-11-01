@@ -4731,42 +4731,29 @@ Level: 55
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 === TRAINER_ROXANNE_1 ===
-Name: ROXANNE
+Name: BALGRUUF
 Class: Leader
 Pic: Leader Roxanne
-Gender: Female
-Music: Female
+Gender: Male
+Music: Male
 Items: Potion / Potion
 Double Battle: No
 AI: Basic Trainer
 
-SPECIES_TERRAKION
-Level: 15
+SPECIES_DRAUGR
+Level: 12
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
-SPECIES_TYPHLOSION
-Level: 15
+SPECIES_SKELETON
+Level: 14
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
-SPECIES_GALLADE_MEGA
-Level: 15
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-
-SPECIES_WEAVILE
-Level: 15
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-Shiny: Yes
-
-SPECIES_PROBOPASS
-Level: 15
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-
-SPECIES_ARCANINE_HISUI
+SPECIES_FROSTBITE_SPIDER
 Level: 15
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
 === TRAINER_BRAWLY_1 ===
-Name: BRAWLY
+Name: KODLAK
 Class: Leader
 Pic: Leader Brawly
 Gender: Male
@@ -4775,28 +4762,15 @@ Items: Super Potion / Super Potion
 Double Battle: No
 AI: Basic Trainer
 
-SPECIES_ZAMAZENTA_HERO
-Level: 19
+SPECIES_WOLF
+Level: 16
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
-SPECIES_PRIMARINA
-Level: 19
+SPECIES_BANDIT
+Level: 17
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
-SPECIES_LOPUNNY_MEGA
-Level: 19
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-
-SPECIES_CELESTEELA
-Level: 19
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-Shiny: Yes
-
-SPECIES_MACHAMP
-Level: 19
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-
-SPECIES_PANGORO
+SPECIES_BEAR
 Level: 19
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
@@ -4976,7 +4950,7 @@ Level: 42
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 === TRAINER_JUAN_1 ===
-Name: JUAN
+Name: ULFRIC
 Class: Leader
 Pic: Leader Juan
 Gender: Male
@@ -4985,30 +4959,17 @@ Items: Hyper Potion / Hyper Potion
 Double Battle: No
 AI: Basic Trainer
 
-SPECIES_PHIONE
-Level: 46
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+SPECIES_HAGRAVEN
+Level: 41
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
-SPECIES_CHESNAUGHT
-Level: 46
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+SPECIES_GIANT
+Level: 43
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
-SPECIES_AERODACTYL_MEGA
-Level: 46
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-
-SPECIES_DARMANITAN_GALAR_STANDARD
-Level: 46
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-Shiny: Yes
-
-SPECIES_KINGLER
-Level: 46
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-
-SPECIES_LUDICOLO
-Level: 46
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+SPECIES_ELDER_DRAGON
+Level: 45
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
 === TRAINER_JERRY_1 ===
 Name: JERRY
@@ -15719,7 +15680,7 @@ Level: 30
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
 === TRAINER_STEVEN ===
-Name: STEVEN
+Name: ALDUIN
 Class: Rival
 Pic: Steven
 Gender: Male
@@ -15728,53 +15689,17 @@ Items: Full Restore / Full Restore / Full Restore / Full Restore
 Double Battle: No
 AI: Basic Trainer
 
-Skarmory
-Level: 77
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Toxic
-- Aerial Ace
-- Spikes
-- Steel Wing
+SPECIES_DRAGON_PRIEST
+Level: 56
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
-Claydol
-Level: 75
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Reflect
-- Light Screen
-- Ancient Power
-- Earthquake
+SPECIES_DRAUGR_DEATHLORD
+Level: 57
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
-Aggron
-Level: 76
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Thunder
-- Earthquake
-- Solar Beam
-- Dragon Claw
-
-Cradily
-Level: 76
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Giga Drain
-- Ancient Power
-- Ingrain
-- Confuse Ray
-
-Armaldo
-Level: 76
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Water Pulse
-- Ancient Power
-- Aerial Ace
-- Slash
-
-Metagross @ Sitrus Berry
-Level: 78
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Earthquake
-- Psychic
-- Meteor Mash
-- Shadow Ball
+SPECIES_ALDUIN
+Level: 58
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
 === TRAINER_ANABEL ===
 Name: ANABEL

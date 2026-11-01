@@ -15,6 +15,7 @@ InsideOfTruck_OnResume:
 
 InsideOfTruck_EventScript_SetIntroFlags::
 	lockall
+	msgbox InsideOfTruck_Text_HelgenBurns, MSGBOX_DEFAULT
 	msgbox InsideOfTruck_Text_AskNuzlocke, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, InsideOfTruck_EventScript_EnableNuzlocke
 InsideOfTruck_EventScript_AskCheats::
@@ -69,6 +70,11 @@ InsideOfTruck_EventScript_EnableNuzlocke::
 	setflag FLAG_HARDCORE_NUZLOCKE
 	msgbox InsideOfTruck_Text_NuzlockeOn, MSGBOX_DEFAULT
 	goto InsideOfTruck_EventScript_AskCheats
+
+InsideOfTruck_Text_HelgenBurns:
+	.string "HELGEN is burning!\n"
+	.string "A dragon darkens the sky...\l"
+	.string "Run, and survive.$"
 
 InsideOfTruck_Text_AskNuzlocke:
 	.string "Enable Hardcore Nuzlocke Rules?\n"
