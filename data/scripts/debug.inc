@@ -492,6 +492,30 @@ Debug_EventScript_SetFriendship::
 	releaseall
 	end
 
+Debug_EventScript_MaxIVs::
+	special ChoosePartyMon
+	callnative DebugNative_Party_MaxIVs
+	releaseall
+	end
+
+Debug_EventScript_MaxEVs::
+	special ChoosePartyMon
+	callnative DebugNative_Party_MaxEVs
+	releaseall
+	end
+
+Debug_EventScript_MakeShiny::
+	special ChoosePartyMon
+	callnative DebugNative_Party_MakeShiny
+	releaseall
+	end
+
+Debug_EventScript_SetLevel100::
+	special ChoosePartyMon
+	callnative DebugNative_Party_SetLevel100
+	releaseall
+	end
+
 Debug_EventScript_GivePokerus::
 	special ChoosePartyMon
 	callnative DebugNative_Party_SetPokerus

@@ -376,6 +376,10 @@ extern const u8 Debug_EventScript_InflictStatus1[];
 extern const u8 Debug_EventScript_KoPokemon[];
 extern const u8 Debug_EventScript_SetHiddenNature[];
 extern const u8 Debug_EventScript_SetAbility[];
+extern const u8 Debug_EventScript_MaxIVs[];
+extern const u8 Debug_EventScript_MaxEVs[];
+extern const u8 Debug_EventScript_MakeShiny[];
+extern const u8 Debug_EventScript_SetLevel100[];
 extern const u8 Debug_EventScript_SetFriendship[];
 extern const u8 Debug_EventScript_Script_1[];
 extern const u8 Debug_EventScript_Script_2[];
@@ -633,6 +637,10 @@ static const struct DebugMenuOption sDebugMenu_Actions_EditPokemon[] =
     { COMPOUND_STRING("Set Hidden Nature"),  DebugAction_ExecuteScript, Debug_EventScript_SetHiddenNature },
     { COMPOUND_STRING("Set Friendship"),     DebugAction_ExecuteScript, Debug_EventScript_SetFriendship },
     { COMPOUND_STRING("Set Ability"),        DebugAction_ExecuteScript, Debug_EventScript_SetAbility },
+    { COMPOUND_STRING("Max IVs"),            DebugAction_ExecuteScript, Debug_EventScript_MaxIVs },
+    { COMPOUND_STRING("Max EVs"),            DebugAction_ExecuteScript, Debug_EventScript_MaxEVs },
+    { COMPOUND_STRING("Make Shiny"),         DebugAction_ExecuteScript, Debug_EventScript_MakeShiny },
+    { COMPOUND_STRING("Set Level 100"),      DebugAction_ExecuteScript, Debug_EventScript_SetLevel100 },
     { NULL }
 };
 
@@ -4685,6 +4693,54 @@ static const struct DebugSelection sFriendshipSelection = {
     .steps = {&sFriendshipSelectionStep},
     .maxSteps = 1,
 };
+
+#define JARED_PARTY_MON() (&gParties[B_TRAINER_PLAYER][gSpecialVar_0x8004])
+
+void DebugNative_Party_MaxIVs(void)
+{
+    u32 i;
+    u8 value = 31;
+
+    if (gSpecialVar_0x8004 >= PARTY_SIZE)
+        return;
+    for (i = 0; i < NUM_STATS; i++)
+        SetMonData(JARED_PARTY_MON(), MON_DATA_HP_IV + i, &value);
+    CalculateMonStats(JARED_PARTY_MON());
+}
+
+void DebugNative_Party_MaxEVs(void)
+{
+    u32 i;
+    u8 value = 252;
+
+    if (gSpecialVar_0x8004 >= PARTY_SIZE)
+        return;
+    for (i = 0; i < NUM_STATS; i++)
+        SetMonData(JARED_PARTY_MON(), MON_DATA_HP_EV + i, &value);
+    CalculateMonStats(JARED_PARTY_MON());
+}
+
+void DebugNative_Party_MakeShiny(void)
+{
+    u8 value = TRUE;
+
+    if (gSpecialVar_0x8004 >= PARTY_SIZE)
+        return;
+    SetMonData(JARED_PARTY_MON(), MON_DATA_IS_SHINY, &value);
+}
+
+void DebugNative_Party_SetLevel100(void)
+{
+    enum Species species;
+    u32 exp;
+
+    if (gSpecialVar_0x8004 >= PARTY_SIZE)
+        return;
+    species = GetMonData(JARED_PARTY_MON(), MON_DATA_SPECIES);
+    exp = gExperienceTables[gSpeciesInfo[species].growthRate][MAX_LEVEL];
+    SetMonData(JARED_PARTY_MON(), MON_DATA_EXP, &exp);
+    CalculateMonStats(JARED_PARTY_MON());
+}
 
 void DebugNative_Party_SetFriendship(void)
 {
