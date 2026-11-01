@@ -1,10 +1,7 @@
 gText_Birch_Welcome::
 	.string "Hi! Sorry to keep you waiting!\p"
 	.string "Welcome to the world of POKéMON!\p"
-	.string "I am Prof. Jared and I created this\n"
-	.string "game for my family and friends.\p"
-	.string "Everyone just calls me the POKéMON\n"
-	.string "PROFESSOR.\p"
+	.string "Enjoy playing my game.\p"
 	.string "$"
 
 gText_Birch_Pokemon::

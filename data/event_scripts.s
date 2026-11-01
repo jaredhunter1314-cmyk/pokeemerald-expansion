@@ -1333,6 +1333,20 @@ Common_EventScript_FerryDepartIsland::
 	.include "data/scripts/cave_of_origin.inc"
 	.include "data/scripts/kecleon.inc"
 
+Common_EventScript_NicknamePrompt::
+	goto_if_set FLAG_HARDCORE_NUZLOCKE, Common_EventScript_NicknamePrompt_Forced
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	return
+
+Common_EventScript_NicknamePrompt_Forced::
+	msgbox Common_Text_NuzlockeMustNickname, MSGBOX_DEFAULT
+	setvar VAR_RESULT, YES
+	return
+
+Common_Text_NuzlockeMustNickname:
+	.string "NUZLOCKE rule: you must give it\n"
+	.string "a nickname!$"
+
 Common_EventScript_NameReceivedPartyMon::
 	fadescreen FADE_TO_BLACK
 	special ChangePokemonNickname

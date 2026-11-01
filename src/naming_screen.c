@@ -27,6 +27,7 @@
 #include "overworld.h"
 #include "walda_phrase.h"
 #include "main.h"
+#include "nuzlocke.h"
 #include "decompress.h"
 #include "constants/event_objects.h"
 #include "constants/rgb.h"
@@ -1574,11 +1575,32 @@ static bool8 KeyboardKeyHandler_Backspace(u8 input)
     return FALSE;
 }
 
+static bool8 JaredNicknameMissing(void)
+{
+    u8 i;
+
+    if (!Nuzlocke_IsActive())
+        return FALSE;
+    if (sNamingScreen->templateNum != NAMING_SCREEN_NICKNAME && sNamingScreen->templateNum != NAMING_SCREEN_CAUGHT_MON)
+        return FALSE;
+    for (i = 0; i < sNamingScreen->template->maxChars; i++)
+    {
+        if (sNamingScreen->textBuffer[i] != CHAR_SPACE && sNamingScreen->textBuffer[i] != EOS)
+            return FALSE;
+    }
+    return TRUE;
+}
+
 static bool8 KeyboardKeyHandler_OK(u8 input)
 {
     TryStartButtonFlash(BUTTON_OK, TRUE, FALSE);
     if (input == INPUT_A_BUTTON)
     {
+        if (JaredNicknameMissing())
+        {
+            PlaySE(SE_FAILURE);
+            return FALSE;
+        }
         PlaySE(SE_SELECT);
         sNamingScreen->state = STATE_PRESSED_OK;
         return TRUE;
