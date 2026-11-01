@@ -310,7 +310,7 @@ static void BuildStartMenuActions(void)
     }
     else
     {
-        if (DEBUG_OVERWORLD_MENU == TRUE && DEBUG_OVERWORLD_IN_MENU == TRUE)
+        if (DEBUG_OVERWORLD_MENU == TRUE && DEBUG_OVERWORLD_IN_MENU == TRUE && !FlagGet(FLAG_NO_CHEATS))
             BuildDebugStartMenu();
         else
             BuildNormalStartMenu();
