@@ -278,6 +278,7 @@ static void DebugAction_Jared_GiveItem(u8 taskId);
 static void DebugAction_Jared_GivePokemon(u8 taskId);
 static void DebugAction_Jared_GiveEgg(u8 taskId);
 static void DebugAction_Jared_EditMoves(u8 taskId);
+static void DebugAction_Jared_EditAbility(u8 taskId);
 static void DebugAction_DestroyExtraWindow(u8 taskId);
 static u8 DebugNativeStep_CreateDebugWindow(void);
 static void DebugNativeStep_CloseDebugWindow(u8 taskId);
@@ -650,7 +651,7 @@ static const struct DebugMenuOption sDebugMenu_Actions_EditPokemon[] =
     { COMPOUND_STRING("Max IVs"),            DebugAction_ExecuteScript, Debug_EventScript_MaxIVs },
     { COMPOUND_STRING("Max EVs"),            DebugAction_ExecuteScript, Debug_EventScript_MaxEVs },
     { COMPOUND_STRING("Toggle Shiny"),       DebugAction_ExecuteScript, Debug_EventScript_MakeShiny },
-    { COMPOUND_STRING("Set Ability"),        DebugAction_ExecuteScript, Debug_EventScript_SetAbility },
+    { COMPOUND_STRING("Set Ability…"),       DebugAction_Jared_EditAbility },
     { COMPOUND_STRING("Set Hidden Nature"),  DebugAction_ExecuteScript, Debug_EventScript_SetHiddenNature },
     { COMPOUND_STRING("Set Moves…"),         DebugAction_Jared_EditMoves },
     { COMPOUND_STRING("Set Friendship"),     DebugAction_ExecuteScript, Debug_EventScript_SetFriendship },
@@ -1177,6 +1178,7 @@ enum JaredPickKind
     JP_PARTY,
     JP_MOVE_SLOT,
     JP_MOVE,
+    JP_ABILITY,
 };
 
 struct JaredPicker
@@ -1231,6 +1233,8 @@ static const u8 *JaredPicker_GetName(u8 kind, u16 id)
         return GetSpeciesName(id);
     case JP_MOVE:
         return GetMoveName(id);
+    case JP_ABILITY:
+        return (id == ABILITY_NONE) ? COMPOUND_STRING("(Original ability)") : gAbilitiesInfo[id].name;
     case JP_PARTY:
         return GetSpeciesName(GetMonData(&gParties[B_TRAINER_PLAYER][id], MON_DATA_SPECIES));
     default: // JP_MOVE_SLOT
@@ -1272,6 +1276,9 @@ static void JaredPicker_BuildList(void)
     case JP_MOVE:
         max = MOVES_COUNT;
         break;
+    case JP_ABILITY:
+        max = ABILITIES_COUNT;
+        break;
     default:
         max = PARTY_SIZE + MAX_MON_MOVES;
         break;
@@ -1307,6 +1314,13 @@ static void JaredPicker_BuildList(void)
         {
             const u8 *name = GetMoveName(i);
             if (name != NULL && name[0] != EOS)
+                sJared->ids[n++] = i;
+        }
+        break;
+    case JP_ABILITY:
+        for (i = 0; i < ABILITIES_COUNT; i++)
+        {
+            if (i == ABILITY_NONE || (gAbilitiesInfo[i].name != NULL && gAbilitiesInfo[i].name[0] != EOS))
                 sJared->ids[n++] = i;
         }
         break;
@@ -1402,6 +1416,8 @@ static void JaredPicker_Show(u8 kind, u8 partyId, u8 slot)
         JaredPicker_SetStatus(COMPOUND_STRING("A: get Pokémon   B: back\nLEFT/RIGHT: page"));
     else if (kind == JP_EGG)
         JaredPicker_SetStatus(COMPOUND_STRING("A: get Egg   B: back\nLEFT/RIGHT: page"));
+    else if (kind == JP_ABILITY)
+        JaredPicker_SetStatus(COMPOUND_STRING("A: set ability   B: back\nLEFT/RIGHT: page"));
     else if (kind == JP_PARTY)
         JaredPicker_SetStatus(COMPOUND_STRING("Choose a party Pokémon\nB: back"));
     else if (kind == JP_MOVE_SLOT)
@@ -1473,8 +1489,26 @@ static void JaredPicker_OnA(u8 taskId, u16 id)
         break;
     case JP_PARTY:
         JaredPicker_Destroy(taskId);
-        JaredPicker_Show(JP_MOVE_SLOT, id, 0);
+        if (slot == 1)
+            JaredPicker_Show(JP_ABILITY, id, 0);
+        else
+            JaredPicker_Show(JP_MOVE_SLOT, id, 0);
         break;
+    case JP_ABILITY:
+    {
+        u16 ov = id;
+        SetMonData(&gParties[B_TRAINER_PLAYER][partyId], MON_DATA_ABILITY_OVERRIDE, &ov);
+        PlaySE(SE_SUCCESS);
+        if (id == ABILITY_NONE)
+            JaredPicker_SetStatus(COMPOUND_STRING("Back to original ability"));
+        else
+        {
+            StringCopy(gStringVar4, COMPOUND_STRING("Ability set: "));
+            StringAppend(gStringVar4, gAbilitiesInfo[id].name);
+            JaredPicker_SetStatus(gStringVar4);
+        }
+        break;
+    }
     case JP_MOVE_SLOT:
         JaredPicker_Destroy(taskId);
         JaredPicker_Show(JP_MOVE, partyId, id);
@@ -1503,6 +1537,8 @@ static void JaredPicker_OnB(u8 taskId)
         JaredPicker_Show(JP_MOVE_SLOT, partyId, slot);
     else if (kind == JP_MOVE_SLOT)
         JaredPicker_Show(JP_PARTY, 0, 0);
+    else if (kind == JP_ABILITY)
+        JaredPicker_Show(JP_PARTY, 0, 1);
     else
         Debug_ShowMenu(DebugTask_HandleMenuInput_General, NULL);
 }
@@ -1544,6 +1580,17 @@ static void DebugAction_Jared_EditMoves(u8 taskId)
     }
     Debug_DestroyMenu(taskId);
     JaredPicker_Show(JP_PARTY, 0, 0);
+}
+
+static void DebugAction_Jared_EditAbility(u8 taskId)
+{
+    if (gPartiesCount[B_TRAINER_PLAYER] == 0)
+    {
+        PlaySE(SE_FAILURE);
+        return;
+    }
+    Debug_DestroyMenu(taskId);
+    JaredPicker_Show(JP_PARTY, 0, 1);
 }
 
 static void DebugAction_Cancel(u8 taskId)

@@ -2399,6 +2399,9 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
         case MON_DATA_GIGANTAMAX_FACTOR:
             retVal = GetSubstruct3(boxMon)->gigantamaxFactor;
             break;
+        case MON_DATA_ABILITY_OVERRIDE:
+            retVal = GetSubstruct0(boxMon)->unused_02 | (GetSubstruct0(boxMon)->unused_04 << 6);
+            break;
         case MON_DATA_TERA_TYPE:
             {
                 struct PokemonSubstruct0 *substruct0 = GetSubstruct0(boxMon);
@@ -2846,6 +2849,13 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
         case MON_DATA_GIGANTAMAX_FACTOR:
             SET8(GetSubstruct3(boxMon)->gigantamaxFactor);
             break;
+        case MON_DATA_ABILITY_OVERRIDE:
+        {
+            u16 ov = data[0] | (data[1] << 8);
+            GetSubstruct0(boxMon)->unused_02 = ov & 0x3F;
+            GetSubstruct0(boxMon)->unused_04 = (ov >> 6) & 0x7;
+            break;
+        }
         case MON_DATA_TERA_TYPE:
             SET8(GetSubstruct0(boxMon)->teraType);
             break;
@@ -3106,6 +3116,9 @@ enum Ability GetMonAbility(struct Pokemon *mon)
 {
     enum Species species = GetMonData(mon, MON_DATA_SPECIES);
     u8 abilityNum = GetMonData(mon, MON_DATA_ABILITY_NUM);
+    u32 override = GetMonData(mon, MON_DATA_ABILITY_OVERRIDE);
+    if (override != ABILITY_NONE && override < ABILITIES_COUNT)
+        return override;
     return GetAbilityBySpecies(species, abilityNum);
 }
 
@@ -3402,7 +3415,7 @@ void PokemonToBattleMon(struct Pokemon *src, struct BattlePokemon *dst)
     dst->types[2] = TYPE_MYSTERY;
     dst->isShiny = IsMonShiny(src);
     dst->affectionHearts = GetMonAffectionHearts(src);
-    dst->ability = GetAbilityBySpecies(dst->species, dst->abilityNum);
+    dst->ability = GetMonAbility(src);
     GetMonData(src, MON_DATA_NICKNAME, nickname);
     StringCopy_Nickname(dst->nickname, nickname);
     GetMonData(src, MON_DATA_OT_NAME, dst->otName);
@@ -5939,7 +5952,7 @@ enum Species GetFormChangeTargetSpeciesBoxMon(struct BoxPokemon *boxMon, enum Fo
         .method = method,
         .currentSpecies = species,
         .heldItem = GetBoxMonData(boxMon, MON_DATA_HELD_ITEM),
-        .ability = GetAbilityBySpecies(species, GetBoxMonData(boxMon, MON_DATA_ABILITY_NUM)),
+        .ability = (GetBoxMonData(boxMon, MON_DATA_ABILITY_OVERRIDE) != 0 && GetBoxMonData(boxMon, MON_DATA_ABILITY_OVERRIDE) < ABILITIES_COUNT) ? GetBoxMonData(boxMon, MON_DATA_ABILITY_OVERRIDE) : GetAbilityBySpecies(species, GetBoxMonData(boxMon, MON_DATA_ABILITY_NUM)),
         .partyItemUsed = gSpecialVar_ItemId,
         .multichoiceSelection = gSpecialVar_Result,
         .status = GetBoxMonData(boxMon, MON_DATA_STATUS),
