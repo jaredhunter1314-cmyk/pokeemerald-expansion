@@ -1320,7 +1320,7 @@ static void JaredPicker_BuildList(void)
     case JP_ABILITY:
         for (i = 0; i < ABILITIES_COUNT; i++)
         {
-            if (i == ABILITY_NONE || (gAbilitiesInfo[i].name != NULL && gAbilitiesInfo[i].name[0] != EOS))
+            if (i == ABILITY_NONE || gAbilitiesInfo[i].name[0] != EOS)
                 sJared->ids[n++] = i;
         }
         break;
