@@ -1,4 +1,7 @@
 #include "global.h"
+#pragma GCC diagnostic ignored "-Wunused-const-variable"
+#pragma GCC diagnostic ignored "-Wunused-function"
+#pragma GCC diagnostic ignored "-Wunused-variable"
 #include "battle.h"
 #include "battle_setup.h"
 #include "berry.h"
@@ -632,15 +635,12 @@ static const struct DebugMenuOption sDebugMenu_Actions_PCBag[] =
 
 static const struct DebugMenuOption sDebugMenu_Actions_EditPokemon[] =
 {
-    { COMPOUND_STRING("Inflict Status1"),    DebugAction_ExecuteScript, Debug_EventScript_InflictStatus1 },
-    { COMPOUND_STRING("Faint Pokemon"),      DebugAction_ExecuteScript, Debug_EventScript_KoPokemon },
-    { COMPOUND_STRING("Set Hidden Nature"),  DebugAction_ExecuteScript, Debug_EventScript_SetHiddenNature },
-    { COMPOUND_STRING("Set Friendship"),     DebugAction_ExecuteScript, Debug_EventScript_SetFriendship },
-    { COMPOUND_STRING("Set Ability"),        DebugAction_ExecuteScript, Debug_EventScript_SetAbility },
+    { COMPOUND_STRING("Set Level 100"),      DebugAction_ExecuteScript, Debug_EventScript_SetLevel100 },
     { COMPOUND_STRING("Max IVs"),            DebugAction_ExecuteScript, Debug_EventScript_MaxIVs },
     { COMPOUND_STRING("Max EVs"),            DebugAction_ExecuteScript, Debug_EventScript_MaxEVs },
     { COMPOUND_STRING("Make Shiny"),         DebugAction_ExecuteScript, Debug_EventScript_MakeShiny },
-    { COMPOUND_STRING("Set Level 100"),      DebugAction_ExecuteScript, Debug_EventScript_SetLevel100 },
+    { COMPOUND_STRING("Set Ability"),        DebugAction_ExecuteScript, Debug_EventScript_SetAbility },
+    { COMPOUND_STRING("Change Moves"),       DebugAction_ExecuteScript, Common_EventScript_MoveRelearner },
     { NULL }
 };
 
@@ -777,18 +777,11 @@ static const u8 *const sDebugMenu_Actions_BagUse_Options[] =
 
 static const struct DebugMenuOption sDebugMenu_Actions_Main[] =
 {
-    { COMPOUND_STRING("Utilities…"),    DebugAction_OpenSubMenu, sDebugMenu_Actions_Utilities, },
-    { COMPOUND_STRING("PC/Bag…"),       DebugAction_OpenSubMenu, sDebugMenu_Actions_PCBag, },
-    { COMPOUND_STRING("Party…"),        DebugAction_OpenSubMenu, sDebugMenu_Actions_Party, },
-    { COMPOUND_STRING("Give X…"),       DebugAction_OpenSubMenu, sDebugMenu_Actions_Give, },
-    { COMPOUND_STRING("Player…"),       DebugAction_OpenSubMenu, sDebugMenu_Actions_Player, },
-    { COMPOUND_STRING("Scripts…"),      DebugAction_OpenSubMenu, sDebugMenu_Actions_Scripts, },
-    { COMPOUND_STRING("Trainers…"),     DebugAction_OpenSubMenuTrainers, sDebugMenu_Actions_Trainers, },
-    { COMPOUND_STRING("Encounters…"),   DebugAction_OpenSubMenu, sDebugMenu_Actions_Encounters, },
-    { COMPOUND_STRING("Flags & Vars…"), DebugAction_OpenSubMenuFlagsVars, sDebugMenu_Actions_Flags, },
-    { COMPOUND_STRING("Sound…"),        DebugAction_OpenSubMenu, sDebugMenu_Actions_Sound, },
-    { COMPOUND_STRING("ROM Info…"),     DebugAction_OpenSubMenu, sDebugMenu_Actions_ROMInfo2, },
-    { COMPOUND_STRING("Cancel"),        DebugAction_Cancel, },
+    { COMPOUND_STRING("Give Item"),        DebugAction_Selection_Init, &sGiveItemSelection },
+    { COMPOUND_STRING("Give Pokémon"),     DebugAction_Selection_Init, &sComplexPokemonSelection },
+    { COMPOUND_STRING("Edit Pokémon…"),    DebugAction_OpenSubMenu, sDebugMenu_Actions_EditPokemon },
+    { COMPOUND_STRING("Heal Party"),       DebugAction_Party_HealParty },
+    { COMPOUND_STRING("Cancel"),           DebugAction_Cancel, },
     { NULL }
 };
 
