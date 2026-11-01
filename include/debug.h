@@ -8,6 +8,10 @@ const struct Trainer* GetDebugAiTrainer(void);
 
 void DebugNative_GetAbilityNames(void);
 void DebugNative_Party_SetFriendship(void);
+void DebugNative_Party_SetLevel(void);
+void DebugNative_Party_SetIVs(void);
+void DebugNative_Party_SetEVs(void);
+void DebugNative_Party_SetMoves(void);
 void DebugNative_Party_MaxIVs(void);
 void DebugNative_Party_MaxEVs(void);
 void DebugNative_Party_MakeShiny(void);

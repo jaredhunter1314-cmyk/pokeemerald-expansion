@@ -379,6 +379,10 @@ extern const u8 Debug_EventScript_InflictStatus1[];
 extern const u8 Debug_EventScript_KoPokemon[];
 extern const u8 Debug_EventScript_SetHiddenNature[];
 extern const u8 Debug_EventScript_SetAbility[];
+extern const u8 Debug_EventScript_SetLevel[];
+extern const u8 Debug_EventScript_SetIVs[];
+extern const u8 Debug_EventScript_SetEVs[];
+extern const u8 Debug_EventScript_SetMoves[];
 extern const u8 Debug_EventScript_MaxIVs[];
 extern const u8 Debug_EventScript_MaxEVs[];
 extern const u8 Debug_EventScript_MakeShiny[];
@@ -635,12 +639,18 @@ static const struct DebugMenuOption sDebugMenu_Actions_PCBag[] =
 
 static const struct DebugMenuOption sDebugMenu_Actions_EditPokemon[] =
 {
-    { COMPOUND_STRING("Set Level 100"),      DebugAction_ExecuteScript, Debug_EventScript_SetLevel100 },
+    { COMPOUND_STRING("Set Level…"),         DebugAction_ExecuteScript, Debug_EventScript_SetLevel },
+    { COMPOUND_STRING("Set IVs…"),           DebugAction_ExecuteScript, Debug_EventScript_SetIVs },
+    { COMPOUND_STRING("Set EVs…"),           DebugAction_ExecuteScript, Debug_EventScript_SetEVs },
     { COMPOUND_STRING("Max IVs"),            DebugAction_ExecuteScript, Debug_EventScript_MaxIVs },
     { COMPOUND_STRING("Max EVs"),            DebugAction_ExecuteScript, Debug_EventScript_MaxEVs },
-    { COMPOUND_STRING("Make Shiny"),         DebugAction_ExecuteScript, Debug_EventScript_MakeShiny },
+    { COMPOUND_STRING("Toggle Shiny"),       DebugAction_ExecuteScript, Debug_EventScript_MakeShiny },
     { COMPOUND_STRING("Set Ability"),        DebugAction_ExecuteScript, Debug_EventScript_SetAbility },
-    { COMPOUND_STRING("Change Moves"),       DebugAction_ExecuteScript, Common_EventScript_MoveRelearner },
+    { COMPOUND_STRING("Set Hidden Nature"),  DebugAction_ExecuteScript, Debug_EventScript_SetHiddenNature },
+    { COMPOUND_STRING("Set Moves…"),         DebugAction_ExecuteScript, Debug_EventScript_SetMoves },
+    { COMPOUND_STRING("Set Friendship"),     DebugAction_ExecuteScript, Debug_EventScript_SetFriendship },
+    { COMPOUND_STRING("Inflict Status1"),    DebugAction_ExecuteScript, Debug_EventScript_InflictStatus1 },
+    { COMPOUND_STRING("Faint Pokemon"),      DebugAction_ExecuteScript, Debug_EventScript_KoPokemon },
     { NULL }
 };
 
@@ -775,13 +785,38 @@ static const u8 *const sDebugMenu_Actions_BagUse_Options[] =
     COMPOUND_STRING("No Bag: {STR_VAR_1}Invalid value"),
 };
 
-static const struct DebugMenuOption sDebugMenu_Actions_Main[] =
+static const struct DebugMenuOption sDebugMenu_Actions_Cheat[] =
 {
     { COMPOUND_STRING("Give Item"),        DebugAction_Selection_Init, &sGiveItemSelection },
     { COMPOUND_STRING("Give Pokémon"),     DebugAction_Selection_Init, &sComplexPokemonSelection },
+    { COMPOUND_STRING("Give Egg"),         DebugAction_Selection_Init, &sEggPokemonSelection },
     { COMPOUND_STRING("Edit Pokémon…"),    DebugAction_OpenSubMenu, sDebugMenu_Actions_EditPokemon },
     { COMPOUND_STRING("Heal Party"),       DebugAction_Party_HealParty },
-    { COMPOUND_STRING("Cancel"),           DebugAction_Cancel, },
+    { COMPOUND_STRING("Max Money"),        DebugAction_Give_MaxMoney },
+    { NULL }
+};
+
+static const struct DebugMenuOption sDebugMenu_Actions_Stock[] =
+{
+    { COMPOUND_STRING("Utilities…"),    DebugAction_OpenSubMenu, sDebugMenu_Actions_Utilities, },
+    { COMPOUND_STRING("PC/Bag…"),       DebugAction_OpenSubMenu, sDebugMenu_Actions_PCBag, },
+    { COMPOUND_STRING("Party…"),        DebugAction_OpenSubMenu, sDebugMenu_Actions_Party, },
+    { COMPOUND_STRING("Give X…"),       DebugAction_OpenSubMenu, sDebugMenu_Actions_Give, },
+    { COMPOUND_STRING("Player…"),       DebugAction_OpenSubMenu, sDebugMenu_Actions_Player, },
+    { COMPOUND_STRING("Scripts…"),      DebugAction_OpenSubMenu, sDebugMenu_Actions_Scripts, },
+    { COMPOUND_STRING("Trainers…"),     DebugAction_OpenSubMenuTrainers, sDebugMenu_Actions_Trainers, },
+    { COMPOUND_STRING("Encounters…"),   DebugAction_OpenSubMenu, sDebugMenu_Actions_Encounters, },
+    { COMPOUND_STRING("Flags & Vars…"), DebugAction_OpenSubMenuFlagsVars, sDebugMenu_Actions_Flags, },
+    { COMPOUND_STRING("Sound…"),        DebugAction_OpenSubMenu, sDebugMenu_Actions_Sound, },
+    { COMPOUND_STRING("ROM Info…"),     DebugAction_OpenSubMenu, sDebugMenu_Actions_ROMInfo2, },
+    { NULL }
+};
+
+static const struct DebugMenuOption sDebugMenu_Actions_Main[] =
+{
+    { COMPOUND_STRING("CHEAT…"),        DebugAction_OpenSubMenu, sDebugMenu_Actions_Cheat, },
+    { COMPOUND_STRING("DEBUG…"),        DebugAction_OpenSubMenu, sDebugMenu_Actions_Stock, },
+    { COMPOUND_STRING("Cancel"),        DebugAction_Cancel, },
     { NULL }
 };
 
@@ -4687,6 +4722,142 @@ static const struct DebugSelection sFriendshipSelection = {
     .maxSteps = 1,
 };
 
+// ---- Jared's Emerald: party Pokemon editors (level, IVs, EVs, moves) ----
+static const struct DebugSelection sJaredLevelSelection;
+static const struct DebugSelection sJaredIVsSelection;
+static const struct DebugSelection sJaredEVsSelection;
+static const struct DebugSelection sJaredMovesSelection;
+
+static void JaredLaunchPartySelection(const struct DebugSelection *selection)
+{
+    if (gSpecialVar_0x8004 < PARTY_SIZE)
+    {
+        u32 taskId = CreateTask(DebugNativeStep_DelayedSelection, 1);
+        SetWordTaskArg(taskId, DEBUG_SELECTION_PTR_ARG, (u32) selection);
+    }
+}
+
+#define JARED_TASK_MON() (&gParties[B_TRAINER_PLAYER][gTasks[taskId].tPartyId])
+
+static void JaredLevel_OnInit(u8 taskId)
+{
+    DebugNativeStep_InitAfterPartyMenu(taskId);
+    DebugSelection_SetData(taskId, 0, GetMonData(JARED_TASK_MON(), MON_DATA_LEVEL));
+}
+
+static bool32 JaredLevel_OnComplete(u8 taskId)
+{
+    struct Pokemon *mon = JARED_TASK_MON();
+    enum Species species = GetMonData(mon, MON_DATA_SPECIES);
+    u32 level = DebugSelection_GetData(taskId, 0);
+    u32 exp = gExperienceTables[gSpeciesInfo[species].growthRate][level];
+
+    SetMonData(mon, MON_DATA_EXP, &exp);
+    CalculateMonStats(mon);
+    gTasks[taskId].func = DebugNativeStep_DelayedSelection;
+    return TRUE;
+}
+
+static const struct DebugSelection sJaredLevelSelection = {
+    .onInit = JaredLevel_OnInit,
+    .onCancel = DebugNativeStep_CloseDebugWindow,
+    .onComplete = JaredLevel_OnComplete,
+    .steps = {&sLevelSelectionStep},
+    .maxSteps = 1,
+};
+
+static void JaredIVs_OnInit(u8 taskId)
+{
+    u32 i;
+    DebugNativeStep_InitAfterPartyMenu(taskId);
+    for (i = 0; i < NUM_STATS; i++)
+        DebugSelection_SetData(taskId, i, GetMonData(JARED_TASK_MON(), MON_DATA_HP_IV + i));
+}
+
+static bool32 JaredIVs_OnComplete(u8 taskId)
+{
+    u32 i;
+    for (i = 0; i < NUM_STATS; i++)
+    {
+        u8 value = DebugSelection_GetData(taskId, i);
+        SetMonData(JARED_TASK_MON(), MON_DATA_HP_IV + i, &value);
+    }
+    CalculateMonStats(JARED_TASK_MON());
+    gTasks[taskId].func = DebugNativeStep_DelayedSelection;
+    return TRUE;
+}
+
+static const struct DebugSelection sJaredIVsSelection = {
+    .onInit = JaredIVs_OnInit,
+    .onCancel = DebugNativeStep_CloseDebugWindow,
+    .onComplete = JaredIVs_OnComplete,
+    .steps = {&sIVsSelectionStep},
+    .maxSteps = 1,
+};
+
+static void JaredEVs_OnInit(u8 taskId)
+{
+    u32 i;
+    DebugNativeStep_InitAfterPartyMenu(taskId);
+    for (i = 0; i < NUM_STATS; i++)
+        DebugSelection_SetData(taskId, i, GetMonData(JARED_TASK_MON(), MON_DATA_HP_EV + i));
+}
+
+static bool32 JaredEVs_OnComplete(u8 taskId)
+{
+    u32 i;
+    for (i = 0; i < NUM_STATS; i++)
+    {
+        u8 value = DebugSelection_GetData(taskId, i);
+        SetMonData(JARED_TASK_MON(), MON_DATA_HP_EV + i, &value);
+    }
+    CalculateMonStats(JARED_TASK_MON());
+    gTasks[taskId].func = DebugNativeStep_DelayedSelection;
+    return TRUE;
+}
+
+static const struct DebugSelection sJaredEVsSelection = {
+    .onInit = JaredEVs_OnInit,
+    .onCancel = DebugNativeStep_CloseDebugWindow,
+    .onComplete = JaredEVs_OnComplete,
+    .steps = {&sEVsSelectionStep},
+    .maxSteps = 1,
+};
+
+static void JaredMoves_OnInit(u8 taskId)
+{
+    u32 i;
+    DebugNativeStep_InitAfterPartyMenu(taskId);
+    for (i = 0; i < MAX_MON_MOVES; i++)
+        DebugSelection_SetData(taskId, i, GetMonData(JARED_TASK_MON(), MON_DATA_MOVE1 + i));
+}
+
+static bool32 JaredMoves_OnComplete(u8 taskId)
+{
+    u32 i;
+    for (i = 0; i < MAX_MON_MOVES; i++)
+    {
+        u16 move = DebugSelection_GetData(taskId, i);
+        if (move != MOVE_NONE && move != MOVES_COUNT)
+            SetMonMoveSlot(JARED_TASK_MON(), move, i);
+    }
+    gTasks[taskId].func = DebugNativeStep_DelayedSelection;
+    return TRUE;
+}
+
+static const struct DebugSelection sJaredMovesSelection = {
+    .onInit = JaredMoves_OnInit,
+    .onCancel = DebugNativeStep_CloseDebugWindow,
+    .onComplete = JaredMoves_OnComplete,
+    .steps = {&sMovesSelectionStep},
+    .maxSteps = 1,
+};
+
+void DebugNative_Party_SetLevel(void) { JaredLaunchPartySelection(&sJaredLevelSelection); }
+void DebugNative_Party_SetIVs(void)   { JaredLaunchPartySelection(&sJaredIVsSelection); }
+void DebugNative_Party_SetEVs(void)   { JaredLaunchPartySelection(&sJaredEVsSelection); }
+void DebugNative_Party_SetMoves(void) { JaredLaunchPartySelection(&sJaredMovesSelection); }
+
 #define JARED_PARTY_MON() (&gParties[B_TRAINER_PLAYER][gSpecialVar_0x8004])
 
 void DebugNative_Party_MaxIVs(void)
@@ -4715,10 +4886,11 @@ void DebugNative_Party_MaxEVs(void)
 
 void DebugNative_Party_MakeShiny(void)
 {
-    u8 value = TRUE;
+    u8 value;
 
     if (gSpecialVar_0x8004 >= PARTY_SIZE)
         return;
+    value = !GetMonData(JARED_PARTY_MON(), MON_DATA_IS_SHINY);
     SetMonData(JARED_PARTY_MON(), MON_DATA_IS_SHINY, &value);
 }
 

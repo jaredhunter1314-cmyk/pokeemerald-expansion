@@ -492,6 +492,30 @@ Debug_EventScript_SetFriendship::
 	releaseall
 	end
 
+Debug_EventScript_SetLevel::
+	special ChoosePartyMon
+	callnative DebugNative_Party_SetLevel
+	releaseall
+	end
+
+Debug_EventScript_SetIVs::
+	special ChoosePartyMon
+	callnative DebugNative_Party_SetIVs
+	releaseall
+	end
+
+Debug_EventScript_SetEVs::
+	special ChoosePartyMon
+	callnative DebugNative_Party_SetEVs
+	releaseall
+	end
+
+Debug_EventScript_SetMoves::
+	special ChoosePartyMon
+	callnative DebugNative_Party_SetMoves
+	releaseall
+	end
+
 Debug_EventScript_MaxIVs::
 	special ChoosePartyMon
 	callnative DebugNative_Party_MaxIVs
