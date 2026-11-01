@@ -2,7 +2,7 @@ name: Build Jared's Emerald
 
 on:
   push:
-    branches: [jared]
+    branches: [jared, skyrim-build1]
   workflow_dispatch:
 
 permissions:
@@ -49,8 +49,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          cp pokeemerald.gba "Pokemon_Jareds_Emerald.gba"
-          TAG="build-${{ github.run_number }}"
-          gh release create "$TAG" "Pokemon_Jareds_Emerald.gba" \
-            --title "Jared's Emerald build ${{ github.run_number }}" \
+          cp pokeemerald.gba "Pokemon_Skyrim_Emerald.gba"
+          TAG="skyrim-build-${{ github.run_number }}"
+          gh release create "$TAG" "Pokemon_Skyrim_Emerald.gba" \
+            --title "Pokemon Skyrim Emerald build ${{ github.run_number }}" \
             --notes "Commit ${{ github.sha }}. Download the .gba and open it in Delta."
