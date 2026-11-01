@@ -23,6 +23,7 @@
 #include "follower_npc.h"
 #include "international_string_util.h"
 #include "item.h"
+#include "caps.h"
 #include "item_icon.h"
 #include "item_use.h"
 #include "list_menu.h"
@@ -273,6 +274,10 @@ static u32 Debug_GenerateListFlagsMenu(const struct DebugMenuOption *items);
 static u32 Debug_GenerateListOutbreakMenu(const struct DebugMenuOption *items);
 static void Debug_DestroyMenu(u8 taskId);
 static void DebugAction_Cancel(u8 taskId);
+static void DebugAction_Jared_GiveItem(u8 taskId);
+static void DebugAction_Jared_GivePokemon(u8 taskId);
+static void DebugAction_Jared_GiveEgg(u8 taskId);
+static void DebugAction_Jared_EditMoves(u8 taskId);
 static void DebugAction_DestroyExtraWindow(u8 taskId);
 static u8 DebugNativeStep_CreateDebugWindow(void);
 static void DebugNativeStep_CloseDebugWindow(u8 taskId);
@@ -647,7 +652,7 @@ static const struct DebugMenuOption sDebugMenu_Actions_EditPokemon[] =
     { COMPOUND_STRING("Toggle Shiny"),       DebugAction_ExecuteScript, Debug_EventScript_MakeShiny },
     { COMPOUND_STRING("Set Ability"),        DebugAction_ExecuteScript, Debug_EventScript_SetAbility },
     { COMPOUND_STRING("Set Hidden Nature"),  DebugAction_ExecuteScript, Debug_EventScript_SetHiddenNature },
-    { COMPOUND_STRING("Set Moves…"),         DebugAction_ExecuteScript, Debug_EventScript_SetMoves },
+    { COMPOUND_STRING("Set Moves…"),         DebugAction_Jared_EditMoves },
     { COMPOUND_STRING("Set Friendship"),     DebugAction_ExecuteScript, Debug_EventScript_SetFriendship },
     { COMPOUND_STRING("Inflict Status1"),    DebugAction_ExecuteScript, Debug_EventScript_InflictStatus1 },
     { COMPOUND_STRING("Faint Pokemon"),      DebugAction_ExecuteScript, Debug_EventScript_KoPokemon },
@@ -787,9 +792,9 @@ static const u8 *const sDebugMenu_Actions_BagUse_Options[] =
 
 static const struct DebugMenuOption sDebugMenu_Actions_Cheat[] =
 {
-    { COMPOUND_STRING("Give Item"),        DebugAction_Selection_Init, &sGiveItemSelection },
-    { COMPOUND_STRING("Give Pokémon"),     DebugAction_Selection_Init, &sComplexPokemonSelection },
-    { COMPOUND_STRING("Give Egg"),         DebugAction_Selection_Init, &sEggPokemonSelection },
+    { COMPOUND_STRING("Give Item"),        DebugAction_Jared_GiveItem },
+    { COMPOUND_STRING("Give Pokémon"),     DebugAction_Jared_GivePokemon },
+    { COMPOUND_STRING("Give Egg"),         DebugAction_Jared_GiveEgg },
     { COMPOUND_STRING("Edit Pokémon…"),    DebugAction_OpenSubMenu, sDebugMenu_Actions_EditPokemon },
     { COMPOUND_STRING("Heal Party"),       DebugAction_Party_HealParty },
     { COMPOUND_STRING("Max Money"),        DebugAction_Give_MaxMoney },
@@ -1159,6 +1164,386 @@ static void Debug_HandleInput_SongId(u8 taskId, enum SongType type, u32 digits)
         if (gTasks[taskId].tDigit < digits - 1)
             gTasks[taskId].tDigit += 1;
     }
+}
+
+// ============================================================
+// Jared's Emerald: scrolling picker lists (alphabetical names, no numbers)
+// ============================================================
+enum JaredPickKind
+{
+    JP_ITEM,
+    JP_SPECIES,
+    JP_EGG,
+    JP_PARTY,
+    JP_MOVE_SLOT,
+    JP_MOVE,
+};
+
+struct JaredPicker
+{
+    u16 *ids;
+    struct ListMenuItem *items;
+    u16 count;
+    u8 kind;
+    u8 partyId;
+    u8 slot;
+    u8 windowId;
+    u8 statusWindowId;
+    u8 listTaskId;
+    u8 slotText[MAX_MON_MOVES][32];
+};
+
+static EWRAM_DATA struct JaredPicker *sJared = NULL;
+
+static const struct WindowTemplate sJaredListWindow =
+{
+    .bg = 0,
+    .tilemapLeft = 1,
+    .tilemapTop = 1,
+    .width = 20,
+    .height = 14,
+    .paletteNum = 15,
+    .baseBlock = 1,
+};
+
+static const struct WindowTemplate sJaredStatusWindow =
+{
+    .bg = 0,
+    .tilemapLeft = 1,
+    .tilemapTop = 16,
+    .width = 27,
+    .height = 3,
+    .paletteNum = 15,
+    .baseBlock = 300,
+};
+
+static void Task_JaredPicker(u8 taskId);
+static void JaredPicker_Show(u8 kind, u8 partyId, u8 slot);
+
+static const u8 *JaredPicker_GetName(u8 kind, u16 id)
+{
+    switch (kind)
+    {
+    case JP_ITEM:
+        return GetItemName(id);
+    case JP_SPECIES:
+    case JP_EGG:
+        return GetSpeciesName(id);
+    case JP_MOVE:
+        return GetMoveName(id);
+    case JP_PARTY:
+        return GetSpeciesName(GetMonData(&gParties[B_TRAINER_PLAYER][id], MON_DATA_SPECIES));
+    default: // JP_MOVE_SLOT
+        return sJared->slotText[id];
+    }
+}
+
+static void JaredPicker_Sort(void)
+{
+    u32 gap, i, j;
+
+    for (gap = sJared->count / 2; gap > 0; gap /= 2)
+    {
+        for (i = gap; i < sJared->count; i++)
+        {
+            u16 id = sJared->ids[i];
+            const u8 *name = JaredPicker_GetName(sJared->kind, id);
+
+            for (j = i; j >= gap && StringCompare(JaredPicker_GetName(sJared->kind, sJared->ids[j - gap]), name) > 0; j -= gap)
+                sJared->ids[j] = sJared->ids[j - gap];
+            sJared->ids[j] = id;
+        }
+    }
+}
+
+static void JaredPicker_BuildList(void)
+{
+    u32 i, n = 0, max;
+
+    switch (sJared->kind)
+    {
+    case JP_ITEM:
+        max = ITEMS_COUNT;
+        break;
+    case JP_SPECIES:
+    case JP_EGG:
+        max = NUM_SPECIES;
+        break;
+    case JP_MOVE:
+        max = MOVES_COUNT;
+        break;
+    default:
+        max = PARTY_SIZE + MAX_MON_MOVES;
+        break;
+    }
+
+    sJared->ids = Alloc(max * sizeof(u16));
+    sJared->items = Alloc((max + 1) * sizeof(struct ListMenuItem));
+
+    switch (sJared->kind)
+    {
+    case JP_ITEM:
+        for (i = 1; i < ITEMS_COUNT; i++)
+        {
+            const u8 *name = GetItemName(i);
+            if (name != NULL && name[0] != EOS)
+                sJared->ids[n++] = i;
+        }
+        break;
+    case JP_SPECIES:
+    case JP_EGG:
+        for (i = 1; i < NUM_SPECIES; i++)
+        {
+            const u8 *name;
+            if (!IsSpeciesEnabled(i))
+                continue;
+            name = GetSpeciesName(i);
+            if (name != NULL && name[0] != EOS)
+                sJared->ids[n++] = i;
+        }
+        break;
+    case JP_MOVE:
+        for (i = 1; i < MOVES_COUNT; i++)
+        {
+            const u8 *name = GetMoveName(i);
+            if (name != NULL && name[0] != EOS)
+                sJared->ids[n++] = i;
+        }
+        break;
+    case JP_PARTY:
+        for (i = 0; i < PARTY_SIZE; i++)
+        {
+            if (GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES) != SPECIES_NONE)
+                sJared->ids[n++] = i;
+        }
+        break;
+    default: // JP_MOVE_SLOT
+        for (i = 0; i < MAX_MON_MOVES; i++)
+        {
+            u16 move = GetMonData(&gParties[B_TRAINER_PLAYER][sJared->partyId], MON_DATA_MOVE1 + i);
+
+            ConvertIntToDecimalStringN(sJared->slotText[i], i + 1, STR_CONV_MODE_LEFT_ALIGN, 1);
+            StringAppend(sJared->slotText[i], COMPOUND_STRING(": "));
+            if (move != MOVE_NONE)
+                StringAppend(sJared->slotText[i], GetMoveName(move));
+            else
+                StringAppend(sJared->slotText[i], COMPOUND_STRING("-"));
+            sJared->ids[n++] = i;
+        }
+        break;
+    }
+    sJared->count = n;
+
+    if (sJared->kind != JP_PARTY && sJared->kind != JP_MOVE_SLOT)
+        JaredPicker_Sort();
+
+    for (i = 0; i < n; i++)
+    {
+        sJared->items[i].name = JaredPicker_GetName(sJared->kind, sJared->ids[i]);
+        sJared->items[i].id = sJared->ids[i];
+    }
+}
+
+static void JaredPicker_SetStatus(const u8 *text)
+{
+    if (sJared->statusWindowId == WINDOW_NONE)
+    {
+        sJared->statusWindowId = AddWindow(&sJaredStatusWindow);
+        DrawStdWindowFrame(sJared->statusWindowId, FALSE);
+    }
+    FillWindowPixelBuffer(sJared->statusWindowId, PIXEL_FILL(1));
+    AddTextPrinterParameterized(sJared->statusWindowId, DEBUG_MENU_FONT, text, 2, 2, 0, NULL);
+    CopyWindowToVram(sJared->statusWindowId, COPYWIN_FULL);
+}
+
+static void JaredPicker_Show(u8 kind, u8 partyId, u8 slot)
+{
+    struct ListMenuTemplate menuTemplate = {0};
+    u8 taskId;
+
+    sJared = AllocZeroed(sizeof(*sJared));
+    sJared->kind = kind;
+    sJared->partyId = partyId;
+    sJared->slot = slot;
+    sJared->statusWindowId = WINDOW_NONE;
+    JaredPicker_BuildList();
+
+    HideMapNamePopUpWindow();
+    LoadMessageBoxAndBorderGfx();
+    sJared->windowId = AddWindow(&sJaredListWindow);
+    DrawStdWindowFrame(sJared->windowId, FALSE);
+    CopyWindowToVram(sJared->windowId, COPYWIN_GFX);
+
+    menuTemplate.items = sJared->items;
+    menuTemplate.moveCursorFunc = ListMenuDefaultCursorMoveFunc;
+    menuTemplate.totalItems = sJared->count;
+    menuTemplate.maxShowed = (sJared->count < 7) ? sJared->count : 7;
+    menuTemplate.windowId = sJared->windowId;
+    menuTemplate.header_X = 0;
+    menuTemplate.item_X = 8;
+    menuTemplate.cursor_X = 0;
+    menuTemplate.upText_Y = 1;
+    menuTemplate.cursorPal = 2;
+    menuTemplate.fillValue = 1;
+    menuTemplate.cursorShadowPal = 3;
+    menuTemplate.lettersSpacing = 1;
+    menuTemplate.itemVerticalPadding = 0;
+    menuTemplate.scrollMultiple = LIST_MULTIPLE_SCROLL_DPAD;
+    menuTemplate.fontId = DEBUG_MENU_FONT;
+    menuTemplate.cursorKind = 0;
+    sJared->listTaskId = ListMenuInit(&menuTemplate, 0, 0);
+
+    taskId = CreateTask(Task_JaredPicker, 3);
+    gTasks[taskId].data[0] = sJared->listTaskId;
+
+    if (kind == JP_ITEM)
+        JaredPicker_SetStatus(COMPOUND_STRING("A: get x99   B: back\nLEFT/RIGHT: page"));
+    else if (kind == JP_SPECIES)
+        JaredPicker_SetStatus(COMPOUND_STRING("A: get Pokémon   B: back\nLEFT/RIGHT: page"));
+    else if (kind == JP_EGG)
+        JaredPicker_SetStatus(COMPOUND_STRING("A: get Egg   B: back\nLEFT/RIGHT: page"));
+    else if (kind == JP_PARTY)
+        JaredPicker_SetStatus(COMPOUND_STRING("Choose a party Pokémon\nB: back"));
+    else if (kind == JP_MOVE_SLOT)
+        JaredPicker_SetStatus(COMPOUND_STRING("Choose a move slot\nB: back"));
+    else
+        JaredPicker_SetStatus(COMPOUND_STRING("A: set move   B: back\nLEFT/RIGHT: page"));
+}
+
+static void JaredPicker_Destroy(u8 taskId)
+{
+    DestroyListMenuTask(sJared->listTaskId, NULL, NULL);
+    ClearStdWindowAndFrame(sJared->windowId, TRUE);
+    RemoveWindow(sJared->windowId);
+    if (sJared->statusWindowId != WINDOW_NONE)
+    {
+        ClearStdWindowAndFrame(sJared->statusWindowId, TRUE);
+        RemoveWindow(sJared->statusWindowId);
+    }
+    Free(sJared->ids);
+    Free(sJared->items);
+    Free(sJared);
+    sJared = NULL;
+    DestroyTask(taskId);
+}
+
+static void JaredPicker_OnA(u8 taskId, u16 id)
+{
+    u8 partyId = sJared->partyId;
+    u8 slot = sJared->slot;
+
+    switch (sJared->kind)
+    {
+    case JP_ITEM:
+        if (AddBagItem(id, 99))
+        {
+            PlaySE(SE_SUCCESS);
+            StringCopy(gStringVar4, COMPOUND_STRING("Got 99 x "));
+            StringAppend(gStringVar4, GetItemName(id));
+            JaredPicker_SetStatus(gStringVar4);
+        }
+        else
+        {
+            PlaySE(SE_FAILURE);
+            JaredPicker_SetStatus(COMPOUND_STRING("Your bag is full!"));
+        }
+        break;
+    case JP_SPECIES:
+    {
+        struct Pokemon mon;
+        u32 level = GetCurrentLevelCap();
+
+        if (level > MAX_LEVEL)
+            level = MAX_LEVEL;
+        CreateMon(&mon, id, level, Random32(), OTID_STRUCT_PLAYER_ID);
+        GiveScriptedMonToPlayer(&mon, PARTY_SIZE);
+        PlaySE(SE_SUCCESS);
+        StringCopy(gStringVar4, COMPOUND_STRING("Got "));
+        StringAppend(gStringVar4, GetSpeciesName(id));
+        StringAppend(gStringVar4, COMPOUND_STRING("!"));
+        JaredPicker_SetStatus(gStringVar4);
+        break;
+    }
+    case JP_EGG:
+        ScriptGiveEgg(id);
+        PlaySE(SE_SUCCESS);
+        StringCopy(gStringVar4, COMPOUND_STRING("Got an Egg: "));
+        StringAppend(gStringVar4, GetSpeciesName(id));
+        JaredPicker_SetStatus(gStringVar4);
+        break;
+    case JP_PARTY:
+        JaredPicker_Destroy(taskId);
+        JaredPicker_Show(JP_MOVE_SLOT, id, 0);
+        break;
+    case JP_MOVE_SLOT:
+        JaredPicker_Destroy(taskId);
+        JaredPicker_Show(JP_MOVE, partyId, id);
+        break;
+    case JP_MOVE:
+        SetMonMoveSlot(&gParties[B_TRAINER_PLAYER][partyId], id, slot);
+        PlaySE(SE_SUCCESS);
+        JaredPicker_Destroy(taskId);
+        JaredPicker_Show(JP_MOVE_SLOT, partyId, slot);
+        StringCopy(gStringVar4, COMPOUND_STRING("Move set: "));
+        StringAppend(gStringVar4, GetMoveName(id));
+        JaredPicker_SetStatus(gStringVar4);
+        break;
+    }
+}
+
+static void JaredPicker_OnB(u8 taskId)
+{
+    u8 partyId = sJared->partyId;
+    u8 slot = sJared->slot;
+    u8 kind = sJared->kind;
+
+    PlaySE(SE_SELECT);
+    JaredPicker_Destroy(taskId);
+    if (kind == JP_MOVE)
+        JaredPicker_Show(JP_MOVE_SLOT, partyId, slot);
+    else if (kind == JP_MOVE_SLOT)
+        JaredPicker_Show(JP_PARTY, 0, 0);
+    else
+        Debug_ShowMenu(DebugTask_HandleMenuInput_General, NULL);
+}
+
+static void Task_JaredPicker(u8 taskId)
+{
+    s32 input = ListMenu_ProcessInput(gTasks[taskId].data[0]);
+
+    if (JOY_NEW(A_BUTTON) && input >= 0)
+        JaredPicker_OnA(taskId, input);
+    else if (JOY_NEW(B_BUTTON) || input == LIST_CANCEL)
+        JaredPicker_OnB(taskId);
+}
+
+static void DebugAction_Jared_GiveItem(u8 taskId)
+{
+    Debug_DestroyMenu(taskId);
+    JaredPicker_Show(JP_ITEM, 0, 0);
+}
+
+static void DebugAction_Jared_GivePokemon(u8 taskId)
+{
+    Debug_DestroyMenu(taskId);
+    JaredPicker_Show(JP_SPECIES, 0, 0);
+}
+
+static void DebugAction_Jared_GiveEgg(u8 taskId)
+{
+    Debug_DestroyMenu(taskId);
+    JaredPicker_Show(JP_EGG, 0, 0);
+}
+
+static void DebugAction_Jared_EditMoves(u8 taskId)
+{
+    if (gPartiesCount[B_TRAINER_PLAYER] == 0)
+    {
+        PlaySE(SE_FAILURE);
+        return;
+    }
+    Debug_DestroyMenu(taskId);
+    JaredPicker_Show(JP_PARTY, 0, 0);
 }
 
 static void DebugAction_Cancel(u8 taskId)
