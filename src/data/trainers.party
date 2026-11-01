@@ -4959,7 +4959,7 @@ Items: Hyper Potion / Hyper Potion
 Double Battle: No
 AI: Basic Trainer
 
-SPECIES_HAGRAVEN
+SPECIES_CROWHAG
 Level: 41
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
@@ -15680,7 +15680,7 @@ Level: 30
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
 === TRAINER_STEVEN ===
-Name: ALDUIN
+Name: HAKON
 Class: Rival
 Pic: Steven
 Gender: Male
@@ -15689,15 +15689,15 @@ Items: Full Restore / Full Restore / Full Restore / Full Restore
 Double Battle: No
 AI: Basic Trainer
 
-SPECIES_DRAGON_PRIEST
+SPECIES_WRAITH_PRIEST
 Level: 56
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
-SPECIES_DRAUGR_DEATHLORD
+SPECIES_BARROW_LORD
 Level: 57
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
-SPECIES_ALDUIN
+SPECIES_ANCIENT_WYRM
 Level: 58
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 

@@ -40,9 +40,6 @@
         .pokemonOffset = 18,
         .trainerScale = 256,
         .trainerOffset = 0,
-        .frontPic = gMonFrontPic_Geodude,
-        .frontPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(40, 32) : MON_COORDS_SIZE(64, 32),
-        .frontPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 18 : 19,
         .frontAnimFrames = ANIM_FRAMES(
             ANIMCMD_FRAME(0, 15),
             ANIMCMD_FRAME(1, 36),
@@ -50,14 +47,7 @@
         ),
         .frontAnimId = ANIM_BOUNCE_ROTATE_TO_SIDES_SMALL,
         .enemyMonElevation = P_GBA_STYLE_SPECIES_GFX ? 16 : 10,
-        .backPic = gMonBackPic_Geodude,
-        .backPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(48, 48) : MON_COORDS_SIZE(64, 48),
-        .backPicYOffset = 11,
         .backAnimId = BACK_ANIM_V_SHAKE_LOW,
-        .palette = gMonPalette_Geodude,
-        .shinyPalette = gMonShinyPalette_Geodude,
-        .iconSprite = gMonIcon_Geodude,
-        .iconPalIndex = 1,
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         SHADOW(1, 2, SHADOW_SIZE_M)
         FOOTPRINT(Geodude)
@@ -73,6 +63,16 @@
         .levelUpLearnset = sGeodudeLevelUpLearnset,
         .teachableLearnset = sGeodudeTeachableLearnset,
         .eggMoveLearnset = sGeodudeEggMoveLearnset,
+        .frontPic = gMonFrontPic_SkyDraugr,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 2,
+        .backPic = gMonBackPic_SkyDraugr,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 0,
+        .palette = gMonPalette_SkyDraugr,
+        .shinyPalette = gMonShinyPalette_SkyDraugr,
+        .iconSprite = gMonIcon_SkyDraugr,
+        .iconPalIndex = 2,
     },
     [SPECIES_SKELETON] =
     {
@@ -114,9 +114,6 @@
         .pokemonOffset = 4,
         .trainerScale = 256,
         .trainerOffset = 0,
-        .frontPic = gMonFrontPic_Anorith,
-        .frontPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(48, 48) : MON_COORDS_SIZE(48, 56),
-        .frontPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 8 : 7,
         .frontAnimFrames = ANIM_FRAMES(
             ANIMCMD_FRAME(0, 15),
             ANIMCMD_FRAME(1, 15),
@@ -127,14 +124,7 @@
             ANIMCMD_FRAME(0, 15),
         ),
         .frontAnimId = ANIM_TWIST,
-        .backPic = gMonBackPic_Anorith,
-        .backPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(64, 24) : MON_COORDS_SIZE(56, 32),
-        .backPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 23 : 19,
         .backAnimId = BACK_ANIM_TRIANGLE_DOWN,
-        .palette = gMonPalette_Anorith,
-        .shinyPalette = gMonShinyPalette_Anorith,
-        .iconSprite = gMonIcon_Anorith,
-        .iconPalIndex = 0,
         .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
         SHADOW(0, 4, SHADOW_SIZE_S)
         FOOTPRINT(Anorith)
@@ -150,6 +140,16 @@
         .levelUpLearnset = sAnorithLevelUpLearnset,
         .teachableLearnset = sAnorithTeachableLearnset,
         .eggMoveLearnset = sAnorithEggMoveLearnset,
+        .frontPic = gMonFrontPic_SkySkeleton,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 2,
+        .backPic = gMonBackPic_SkySkeleton,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 0,
+        .palette = gMonPalette_SkySkeleton,
+        .shinyPalette = gMonShinyPalette_SkySkeleton,
+        .iconSprite = gMonIcon_SkySkeleton,
+        .iconPalIndex = 2,
     },
     [SPECIES_FROSTBITE_SPIDER] =
     {
@@ -185,9 +185,6 @@
         .pokemonOffset = 21,
         .trainerScale = 256,
         .trainerOffset = 0,
-        .frontPic = gMonFrontPic_Spinarak,
-        .frontPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(40, 32) : MON_COORDS_SIZE(48, 32),
-        .frontPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 19 : 16,
         .frontAnimFrames = ANIM_FRAMES(
             ANIMCMD_FRAME(1, 6),
             ANIMCMD_FRAME(0, 6),
@@ -199,14 +196,7 @@
             ANIMCMD_FRAME(0, 6),
         ),
         .frontAnimId = ANIM_CIRCLE_C_CLOCKWISE_SLOW,
-        .backPic = gMonBackPic_Spinarak,
-        .backPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(56, 24) : MON_COORDS_SIZE(64, 32),
-        .backPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 21 : 16,
         .backAnimId = BACK_ANIM_V_SHAKE_H_SLIDE,
-        .palette = gMonPalette_Spinarak,
-        .shinyPalette = gMonShinyPalette_Spinarak,
-        .iconSprite = gMonIcon_Spinarak,
-        .iconPalIndex = 1,
         .pokemonJumpType = PKMN_JUMP_TYPE_FAST,
         SHADOW(0, -8, SHADOW_SIZE_M)
         FOOTPRINT(Spinarak)
@@ -222,6 +212,16 @@
         .levelUpLearnset = sSpinarakLevelUpLearnset,
         .teachableLearnset = sSpinarakTeachableLearnset,
         .eggMoveLearnset = sSpinarakEggMoveLearnset,
+        .frontPic = gMonFrontPic_SkyFrostbiteSpider,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 2,
+        .backPic = gMonBackPic_SkyFrostbiteSpider,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 0,
+        .palette = gMonPalette_SkyFrostbiteSpider,
+        .shinyPalette = gMonShinyPalette_SkyFrostbiteSpider,
+        .iconSprite = gMonIcon_SkyFrostbiteSpider,
+        .iconPalIndex = 2,
     },
     [SPECIES_WOLF] =
     {
@@ -261,9 +261,6 @@
         .pokemonOffset = 9,
         .trainerScale = 256,
         .trainerOffset = 0,
-        .frontPic = gMonFrontPic_Mightyena,
-        .frontPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(64, 56) : MON_COORDS_SIZE(64, 64),
-        .frontPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 4 : 3,
         .frontAnimFrames = ANIM_FRAMES(
             ANIMCMD_FRAME(0, 27),
             ANIMCMD_FRAME(1, 6),
@@ -272,14 +269,7 @@
             ANIMCMD_FRAME(0, 6),
         ),
         .frontAnimId = ANIM_V_SHAKE,
-        .backPic = gMonBackPic_Mightyena,
-        .backPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(64, 56) : MON_COORDS_SIZE(64, 64),
-        .backPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 4 : 3,
         .backAnimId = BACK_ANIM_H_SHAKE,
-        .palette = gMonPalette_Mightyena,
-        .shinyPalette = gMonShinyPalette_Mightyena,
-        .iconSprite = gMonIcon_Mightyena,
-        .iconPalIndex = 2,
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         SHADOW(-2, 6, SHADOW_SIZE_L)
         FOOTPRINT(Mightyena)
@@ -294,6 +284,16 @@
         )
         .levelUpLearnset = sMightyenaLevelUpLearnset,
         .teachableLearnset = sMightyenaTeachableLearnset,
+        .frontPic = gMonFrontPic_SkyWolf,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 2,
+        .backPic = gMonBackPic_SkyWolf,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 0,
+        .palette = gMonPalette_SkyWolf,
+        .shinyPalette = gMonShinyPalette_SkyWolf,
+        .iconSprite = gMonIcon_SkyWolf,
+        .iconPalIndex = 2,
     },
     [SPECIES_BEAR] =
     {
@@ -335,22 +335,12 @@
         .pokemonOffset = 19,
         .trainerScale = 256,
         .trainerOffset = 0,
-        .frontPic = gMonFrontPic_Teddiursa,
-        .frontPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(32, 40) : MON_COORDS_SIZE(40, 40),
-        .frontPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 13 : 12,
         .frontAnimFrames = ANIM_FRAMES(
             ANIMCMD_FRAME(1, 30),
             ANIMCMD_FRAME(0, 20),
         ),
         .frontAnimId = ANIM_V_STRETCH,
-        .backPic = gMonBackPic_Teddiursa,
-        .backPicSize = MON_COORDS_SIZE(48, 48),
-        .backPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 8 : 10,
         .backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
-        .palette = gMonPalette_Teddiursa,
-        .shinyPalette = gMonShinyPalette_Teddiursa,
-        .iconSprite = gMonIcon_Teddiursa,
-        .iconPalIndex = 0,
         .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
         SHADOW(-2, 1, SHADOW_SIZE_S)
         FOOTPRINT(Teddiursa)
@@ -366,6 +356,16 @@
         .levelUpLearnset = sTeddiursaLevelUpLearnset,
         .teachableLearnset = sTeddiursaTeachableLearnset,
         .eggMoveLearnset = sTeddiursaEggMoveLearnset,
+        .frontPic = gMonFrontPic_SkyBear,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 2,
+        .backPic = gMonBackPic_SkyBear,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 0,
+        .palette = gMonPalette_SkyBear,
+        .shinyPalette = gMonShinyPalette_SkyBear,
+        .iconSprite = gMonIcon_SkyBear,
+        .iconPalIndex = 2,
     },
     [SPECIES_BANDIT] =
     {
@@ -412,9 +412,6 @@
         .pokemonOffset = 14,
         .trainerScale = 256,
         .trainerOffset = 0,
-        .frontPic = gMonFrontPic_Machop,
-        .frontPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(40, 48) : MON_COORDS_SIZE(48, 48),
-        .frontPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 11 : 8,
         .frontAnimFrames = ANIM_FRAMES(
             ANIMCMD_FRAME(0, 6),
             ANIMCMD_FRAME(1, 15),
@@ -423,14 +420,7 @@
             ANIMCMD_FRAME(0, 10),
         ),
         .frontAnimId = P_GBA_STYLE_SPECIES_GFX ? ANIM_V_SQUISH_AND_BOUNCE : ANIM_V_STRETCH,
-        .backPic = gMonBackPic_Machop,
-        .backPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(48, 40) : MON_COORDS_SIZE(48, 56),
-        .backPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 12 : 6,
         .backAnimId = BACK_ANIM_JOLT_RIGHT,
-        .palette = gMonPalette_Machop,
-        .shinyPalette = gMonShinyPalette_Machop,
-        .iconSprite = gMonIcon_Machop,
-        .iconPalIndex = 0,
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         SHADOW(0, 3, SHADOW_SIZE_S)
         FOOTPRINT(Machop)
@@ -446,8 +436,18 @@
         .levelUpLearnset = sMachopLevelUpLearnset,
         .teachableLearnset = sMachopTeachableLearnset,
         .eggMoveLearnset = sMachopEggMoveLearnset,
+        .frontPic = gMonFrontPic_SkyBandit,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 2,
+        .backPic = gMonBackPic_SkyBandit,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 0,
+        .palette = gMonPalette_SkyBandit,
+        .shinyPalette = gMonShinyPalette_SkyBandit,
+        .iconSprite = gMonIcon_SkyBandit,
+        .iconPalIndex = 2,
     },
-    [SPECIES_FALMER] =
+    [SPECIES_CAVE_OWL] =
     {
         .baseHP        = 100,
         .baseAttack    = 50,
@@ -472,7 +472,7 @@
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FLYING),
         .abilities = { ABILITY_INSOMNIA, ABILITY_KEEN_EYE, ABILITY_TINTED_LENS },
         .bodyColor = BODY_COLOR_BROWN,
-        .speciesName = _("Falmer"),
+        .speciesName = _("Cave Owl"),
         .cryId = CRY_NOCTOWL,
         .natDexNum = NATIONAL_DEX_NONE,
         .categoryName = _("Owl"),
@@ -487,22 +487,12 @@
         .pokemonOffset = 3,
         .trainerScale = 256,
         .trainerOffset = 0,
-        .frontPic = gMonFrontPic_Noctowl,
-        .frontPicSize = MON_COORDS_SIZE(40, 64),
-        .frontPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 3 : 2,
         .frontAnimFrames = ANIM_FRAMES(
             ANIMCMD_FRAME(1, 40),
             ANIMCMD_FRAME(0, 20),
         ),
         .frontAnimId = ANIM_V_STRETCH,
-        .backPic = gMonBackPic_Noctowl,
-        .backPicSize = MON_COORDS_SIZE(48, 64),
-        .backPicYOffset = 3,
         .backAnimId = BACK_ANIM_TRIANGLE_DOWN,
-        .palette = gMonPalette_Noctowl,
-        .shinyPalette = gMonShinyPalette_Noctowl,
-        .iconSprite = gMonIcon_Noctowl,
-        .iconPalIndex = 2,
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         SHADOW(-2, 10, SHADOW_SIZE_S)
         FOOTPRINT(Noctowl)
@@ -517,6 +507,16 @@
         )
         .levelUpLearnset = sNoctowlLevelUpLearnset,
         .teachableLearnset = sNoctowlTeachableLearnset,
+        .frontPic = gMonFrontPic_SkyCaveOwl,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 2,
+        .backPic = gMonBackPic_SkyCaveOwl,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 0,
+        .palette = gMonPalette_SkyCaveOwl,
+        .shinyPalette = gMonShinyPalette_SkyCaveOwl,
+        .iconSprite = gMonIcon_SkyCaveOwl,
+        .iconPalIndex = 0,
     },
     [SPECIES_TROLL] =
     {
@@ -558,9 +558,6 @@
         .pokemonOffset = 2,
         .trainerScale = 300,
         .trainerOffset = 1,
-        .frontPic = gMonFrontPic_Slaking,
-        .frontPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(64, 48) : MON_COORDS_SIZE(64, 56),
-        .frontPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 8 : 7,
         .frontAnimFrames = ANIM_FRAMES(
             ANIMCMD_FRAME(0, 22),
             ANIMCMD_FRAME(1, 22),
@@ -571,14 +568,7 @@
             ANIMCMD_FRAME(0, 22),
         ),
         .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE_SLOW,
-        .backPic = gMonBackPic_Slaking,
-        .backPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(64, 48) : MON_COORDS_SIZE(64, 56),
-        .backPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 8 : 6,
         .backAnimId = BACK_ANIM_H_SHAKE,
-        .palette = gMonPalette_Slaking,
-        .shinyPalette = gMonShinyPalette_Slaking,
-        .iconSprite = gMonIcon_Slaking,
-        .iconPalIndex = P_GBA_STYLE_SPECIES_ICONS ? 1 : 2,
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         SHADOW(0, 6, SHADOW_SIZE_XL_BATTLE_ONLY)
         FOOTPRINT(Slaking)
@@ -593,8 +583,18 @@
         )
         .levelUpLearnset = sSlakingLevelUpLearnset,
         .teachableLearnset = sSlakingTeachableLearnset,
+        .frontPic = gMonFrontPic_SkyTroll,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 2,
+        .backPic = gMonBackPic_SkyTroll,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 0,
+        .palette = gMonPalette_SkyTroll,
+        .shinyPalette = gMonShinyPalette_SkyTroll,
+        .iconSprite = gMonIcon_SkyTroll,
+        .iconPalIndex = 0,
     },
-    [SPECIES_HAGRAVEN] =
+    [SPECIES_CROWHAG] =
     {
         .baseHP        = 60,
         .baseAttack    = 85,
@@ -617,7 +617,7 @@
         .abilities = { ABILITY_INSOMNIA, ABILITY_NONE, ABILITY_PRANKSTER },
     #endif
         .bodyColor = BODY_COLOR_BLACK,
-        .speciesName = _("Hagraven"),
+        .speciesName = _("Crowhag"),
         .cryId = CRY_MURKROW,
         .natDexNum = NATIONAL_DEX_NONE,
         .categoryName = _("Darkness"),
@@ -632,28 +632,14 @@
         .pokemonOffset = -8,
         .trainerScale = 256,
         .trainerOffset = 1,
-        .frontPic = gMonFrontPic_Murkrow,
-        .frontPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(48, 48) : MON_COORDS_SIZE(48, 40),
-        .frontPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 11 : 15,
         .frontAnimFrames = ANIM_FRAMES(
             ANIMCMD_FRAME(1, 15),
             ANIMCMD_FRAME(0, 20),
         ),
         .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
         .enemyMonElevation = P_GBA_STYLE_SPECIES_GFX ? 0 : 12,
-        .backPic = gMonBackPic_Murkrow,
-        .backPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(48, 48) : MON_COORDS_SIZE(40, 56),
-        .backPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 9 : 10,
         .backAnimId = BACK_ANIM_CONCAVE_ARC_SMALL,
-        .palette = gMonPalette_Murkrow,
-        .shinyPalette = gMonShinyPalette_Murkrow,
-        .iconSprite = gMonIcon_Murkrow,
-        .iconPalIndex = 2,
 #if P_GENDER_DIFFERENCES && !P_GBA_STYLE_SPECIES_GFX
-        .frontPicFemale = gMonFrontPic_MurkrowF,
-        .frontPicSizeFemale = MON_COORDS_SIZE(48, 40),
-        .backPicFemale = gMonBackPic_MurkrowF,
-        .backPicSizeFemale = MON_COORDS_SIZE(40, 56),
 #endif //P_GENDER_DIFFERENCES && !P_GBA_STYLE_SPECIES_GFX
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         SHADOW(-2, 8, SHADOW_SIZE_S)
@@ -680,6 +666,16 @@
         .eggMoveLearnset = sMurkrowEggMoveLearnset,
     #if P_GEN_4_CROSS_EVOS
     #endif
+        .frontPic = gMonFrontPic_SkyCrowhag,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 2,
+        .backPic = gMonBackPic_SkyCrowhag,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 0,
+        .palette = gMonPalette_SkyCrowhag,
+        .shinyPalette = gMonShinyPalette_SkyCrowhag,
+        .iconSprite = gMonIcon_SkyCrowhag,
+        .iconPalIndex = 2,
     },
     [SPECIES_GIANT] =
     {
@@ -716,9 +712,6 @@
         .pokemonOffset = 0,
         .trainerScale = 343,
         .trainerOffset = 7,
-        .frontPic = gMonFrontPic_Hariyama,
-        .frontPicSize = MON_COORDS_SIZE(64, 64),
-        .frontPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 1 : 0,
         .frontAnimFrames = ANIM_FRAMES(
             ANIMCMD_FRAME(0, 30),
             ANIMCMD_FRAME(1, 30),
@@ -726,14 +719,7 @@
             ANIMCMD_FRAME(0, 11),
         ),
         .frontAnimId = ANIM_ROTATE_UP_TO_SIDES,
-        .backPic = gMonBackPic_Hariyama,
-        .backPicSize = MON_COORDS_SIZE(64, 56),
-        .backPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 7 : 4,
         .backAnimId = BACK_ANIM_V_SHAKE_LOW,
-        .palette = gMonPalette_Hariyama,
-        .shinyPalette = gMonShinyPalette_Hariyama,
-        .iconSprite = gMonIcon_Hariyama,
-        .iconPalIndex = P_GBA_STYLE_SPECIES_ICONS ? 1 : 2,
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         SHADOW(-3, 9, SHADOW_SIZE_L)
         FOOTPRINT(Hariyama)
@@ -748,6 +734,16 @@
         )
         .levelUpLearnset = sHariyamaLevelUpLearnset,
         .teachableLearnset = sHariyamaTeachableLearnset,
+        .frontPic = gMonFrontPic_SkyGiant,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 2,
+        .backPic = gMonBackPic_SkyGiant,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 0,
+        .palette = gMonPalette_SkyGiant,
+        .shinyPalette = gMonShinyPalette_SkyGiant,
+        .iconSprite = gMonIcon_SkyGiant,
+        .iconPalIndex = 2,
     },
     [SPECIES_ELDER_DRAGON] =
     {
@@ -790,9 +786,6 @@
         .pokemonOffset = 0,
         .trainerScale = 256,
         .trainerOffset = 0,
-        .frontPic = gMonFrontPic_Salamence,
-        .frontPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(64, 56) : MON_COORDS_SIZE(64, 64),
-        .frontPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 4 : 3,
         .frontAnimFrames = ANIM_FRAMES(
             ANIMCMD_FRAME(0, 10),
             ANIMCMD_FRAME(1, 10),
@@ -802,14 +795,7 @@
         ),
         .frontAnimId = ANIM_H_SHAKE,
         .frontAnimDelay = 70,
-        .backPic = gMonBackPic_Salamence,
-        .backPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(56, 56) : MON_COORDS_SIZE(56, 64),
-        .backPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 6 : 4,
         .backAnimId = BACK_ANIM_H_SHAKE,
-        .palette = gMonPalette_Salamence,
-        .shinyPalette = gMonShinyPalette_Salamence,
-        .iconSprite = gMonIcon_Salamence,
-        .iconPalIndex = 0,
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         SHADOW(3, 8, SHADOW_SIZE_L)
         FOOTPRINT(Salamence)
@@ -824,8 +810,18 @@
         )
         .levelUpLearnset = sSalamenceLevelUpLearnset,
         .teachableLearnset = sSalamenceTeachableLearnset,
+        .frontPic = gMonFrontPic_SkyElderDragon,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 2,
+        .backPic = gMonBackPic_SkyElderDragon,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 0,
+        .palette = gMonPalette_SkyElderDragon,
+        .shinyPalette = gMonShinyPalette_SkyElderDragon,
+        .iconSprite = gMonIcon_SkyElderDragon,
+        .iconPalIndex = 2,
     },
-    [SPECIES_ALDUIN] =
+    [SPECIES_ANCIENT_WYRM] =
     {
         .baseHP        = 105,
         .baseAttack    = 150,
@@ -851,7 +847,7 @@
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
         .abilities = { ABILITY_AIR_LOCK, ABILITY_NONE, ABILITY_NONE },
         .bodyColor = BODY_COLOR_GREEN,
-        .speciesName = _("Alduin"),
+        .speciesName = _("Ancient Wyrm"),
         .cryId = CRY_RAYQUAZA,
         .natDexNum = NATIONAL_DEX_NONE,
         .categoryName = _("Sky High"),
@@ -866,9 +862,6 @@
         .pokemonOffset = 0,
         .trainerScale = 448,
         .trainerOffset = 12,
-        .frontPic = gMonFrontPic_Rayquaza,
-        .frontPicSize = MON_COORDS_SIZE(64, 64),
-        .frontPicYOffset = 0,
         .frontAnimFrames = ANIM_FRAMES(
             ANIMCMD_FRAME(0, 1),
             ANIMCMD_FRAME(1, 8),
@@ -879,14 +872,7 @@
         .frontAnimId = ANIM_H_SHAKE,
         .frontAnimDelay = 60,
         .enemyMonElevation = 6,
-        .backPic = gMonBackPic_Rayquaza,
-        .backPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(56, 64) : MON_COORDS_SIZE(64, 64),
-        .backPicYOffset = 0,
         .backAnimId = BACK_ANIM_GROW_STUTTER,
-        .palette = gMonPalette_Rayquaza,
-        .shinyPalette = gMonShinyPalette_Rayquaza,
-        .iconSprite = gMonIcon_Rayquaza,
-        .iconPalIndex = 1,
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         SHADOW(0, 17, SHADOW_SIZE_L)
         FOOTPRINT(Rayquaza)
@@ -904,8 +890,18 @@
         .perfectIVCount = LEGENDARY_PERFECT_IV_COUNT,
         .levelUpLearnset = sRayquazaLevelUpLearnset,
         .teachableLearnset = sRayquazaTeachableLearnset,
+        .frontPic = gMonFrontPic_SkyAncientWyrm,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 2,
+        .backPic = gMonBackPic_SkyAncientWyrm,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 0,
+        .palette = gMonPalette_SkyAncientWyrm,
+        .shinyPalette = gMonShinyPalette_SkyAncientWyrm,
+        .iconSprite = gMonIcon_SkyAncientWyrm,
+        .iconPalIndex = 2,
     },
-    [SPECIES_DRAGON_PRIEST] =
+    [SPECIES_WRAITH_PRIEST] =
     {
         .baseHP        = 64,
         .baseAttack    = 115,
@@ -930,7 +926,7 @@
     #endif
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = TRUE,
-        .speciesName = _("Dragonpriest"),
+        .speciesName = _("Wraith Priest"),
         .cryId = CRY_BANETTE,
         .natDexNum = NATIONAL_DEX_NONE,
         .categoryName = _("Marionette"),
@@ -945,9 +941,6 @@
         .pokemonOffset = 9,
         .trainerScale = 256,
         .trainerOffset = 0,
-        .frontPic = gMonFrontPic_Banette,
-        .frontPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(40, 40) : MON_COORDS_SIZE(56, 56),
-        .frontPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 12 : 7,
         .frontAnimFrames = ANIM_FRAMES(
             ANIMCMD_FRAME(0, 15),
             ANIMCMD_FRAME(1, 15),
@@ -959,14 +952,7 @@
         ),
         .frontAnimId = P_GBA_STYLE_SPECIES_GFX ? ANIM_SWING_CONVEX : ANIM_CIRCULAR_STRETCH_TWICE,
         .enemyMonElevation = P_GBA_STYLE_SPECIES_GFX ? 8 : 0,
-        .backPic = gMonBackPic_Banette,
-        .backPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(48, 40) : MON_COORDS_SIZE(64, 64),
-        .backPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 12 : 5,
         .backAnimId = BACK_ANIM_H_VIBRATE,
-        .palette = gMonPalette_Banette,
-        .shinyPalette = gMonShinyPalette_Banette,
-        .iconSprite = gMonIcon_Banette,
-        .iconPalIndex = 0,
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         SHADOW(0, 7, SHADOW_SIZE_S)
         FOOTPRINT(Banette)
@@ -981,8 +967,18 @@
         )
         .levelUpLearnset = sBanetteLevelUpLearnset,
         .teachableLearnset = sBanetteTeachableLearnset,
+        .frontPic = gMonFrontPic_SkyWraithPriest,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 2,
+        .backPic = gMonBackPic_SkyWraithPriest,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 0,
+        .palette = gMonPalette_SkyWraithPriest,
+        .shinyPalette = gMonShinyPalette_SkyWraithPriest,
+        .iconSprite = gMonIcon_SkyWraithPriest,
+        .iconPalIndex = 2,
     },
-    [SPECIES_DRAUGR_DEATHLORD] =
+    [SPECIES_BARROW_LORD] =
     {
         .baseHP        = 40,
         .baseAttack    = 70,
@@ -1007,7 +1003,7 @@
         .abilities = { ABILITY_PRESSURE, ABILITY_NONE, ABILITY_NONE },
     #endif
         .bodyColor = BODY_COLOR_BLACK,
-        .speciesName = _("Deathlord"),
+        .speciesName = _("Barrow Lord"),
         .cryId = CRY_DUSCLOPS,
         .natDexNum = NATIONAL_DEX_NONE,
         .categoryName = _("Beckon"),
@@ -1022,9 +1018,6 @@
         .pokemonOffset = 3,
         .trainerScale = 299,
         .trainerOffset = 1,
-        .frontPic = gMonFrontPic_Dusclops,
-        .frontPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(56, 56) : MON_COORDS_SIZE(64, 64),
-        .frontPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 5 : 3,
         .frontAnimFrames = ANIM_FRAMES(
             ANIMCMD_FRAME(0, 15),
             ANIMCMD_FRAME(1, 15),
@@ -1034,14 +1027,7 @@
         ),
         .frontAnimId = ANIM_H_VIBRATE,
         .frontAnimDelay = 30,
-        .backPic = gMonBackPic_Dusclops,
-        .backPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(64, 48) : MON_COORDS_SIZE(64, 64),
-        .backPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 8 : 2,
         .backAnimId = BACK_ANIM_H_VIBRATE,
-        .palette = gMonPalette_Dusclops,
-        .shinyPalette = gMonShinyPalette_Dusclops,
-        .iconSprite = gMonIcon_Dusclops,
-        .iconPalIndex = 0,
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         SHADOW(-2, 8, SHADOW_SIZE_M)
         FOOTPRINT(Dusclops)
@@ -1058,4 +1044,14 @@
         .teachableLearnset = sDusclopsTeachableLearnset,
     #if P_GEN_4_CROSS_EVOS
     #endif
+        .frontPic = gMonFrontPic_SkyBarrowLord,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 2,
+        .backPic = gMonBackPic_SkyBarrowLord,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 0,
+        .palette = gMonPalette_SkyBarrowLord,
+        .shinyPalette = gMonShinyPalette_SkyBarrowLord,
+        .iconSprite = gMonIcon_SkyBarrowLord,
+        .iconPalIndex = 2,
     },
