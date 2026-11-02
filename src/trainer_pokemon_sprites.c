@@ -254,6 +254,57 @@ u16 CreateMonPicSprite_Affine(enum Species species, bool8 isShiny, u32 personali
     return spriteId;
 }
 
+// Jared's Emerald: same as CreateMonPicSprite_Affine, but the picture is a custom raw 4bpp 64x64 image
+// and palette instead of a species' pic. Used for the intro's Bulbasaur. Free it with FreeAndDestroyMonPicSprite.
+u16 CreateCustomPicSprite_Affine(const u32 *gfx, const u16 *palette, enum Species animSpecies, u8 flags, s16 x, s16 y, u8 paletteSlot)
+{
+    u8 *framePics;
+    struct SpriteFrameImage *images;
+    int j;
+    u8 i;
+    u8 spriteId;
+
+    for (i = 0; i < PICS_COUNT; i++)
+    {
+        if (!sSpritePics[i].active)
+            break;
+    }
+    if (i == PICS_COUNT)
+        return 0xFFFF;
+
+    framePics = Alloc(MON_PIC_SIZE * MAX_MON_PIC_FRAMES);
+    if (!framePics)
+        return 0xFFFF;
+    images = Alloc(sizeof(struct SpriteFrameImage) * MAX_MON_PIC_FRAMES);
+    if (!images)
+    {
+        Free(framePics);
+        return 0xFFFF;
+    }
+    // every animation frame shows the same picture
+    for (j = 0; j < MAX_MON_PIC_FRAMES; j++)
+    {
+        CpuCopy32(gfx, framePics + MON_PIC_SIZE * j, MON_PIC_SIZE);
+        images[j].data = framePics + MON_PIC_SIZE * j;
+        images[j].size = MON_PIC_SIZE;
+    }
+    sCreatingSpriteTemplate.tileTag = TAG_NONE;
+    sCreatingSpriteTemplate.anims = gSpeciesInfo[animSpecies].frontAnimFrames;
+    sCreatingSpriteTemplate.images = images;
+    sCreatingSpriteTemplate.affineAnims = gAffineAnims_BattleSpriteOpponentSide;
+    sCreatingSpriteTemplate.oam = &sOamData_Affine;
+    sCreatingSpriteTemplate.callback = DummyPicSpriteCallback;
+    LoadPalette(palette, OBJ_PLTT_ID(paletteSlot), PLTT_SIZE_4BPP);
+    spriteId = CreateSprite(&sCreatingSpriteTemplate, x, y, 0);
+    gSprites[spriteId].oam.paletteNum = paletteSlot;
+    sSpritePics[i].frames = framePics;
+    sSpritePics[i].images = images;
+    sSpritePics[i].paletteTag = TAG_NONE;
+    sSpritePics[i].spriteId = spriteId;
+    sSpritePics[i].active = TRUE;
+    return spriteId;
+}
+
 static u16 FreeAndDestroyPicSpriteInternal(u16 spriteId, bool8 clearPalette)
 {
     u8 i;
