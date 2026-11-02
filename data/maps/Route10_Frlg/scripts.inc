@@ -54,7 +54,7 @@ Route10_Text_HermanPostBattle::
 	.string "I don't like anyone better than me!$"
 
 Route10_Text_HeidiIntro::
-	.string "I've been out at a POKéMON GYM\n"
+	.string "I've been out at a GUILD HALL\n"
 	.string "a few times.\p"
 	.string "…But I always lose.$"
 

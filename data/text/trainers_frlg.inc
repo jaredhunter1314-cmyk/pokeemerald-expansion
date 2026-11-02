@@ -164,7 +164,7 @@ Route10_Text_HermanRematchIntro::
 	.string "Did I show you my POKéMON?$"
 
 Route10_Text_HeidiRematchIntro::
-	.string "I went out to a POKéMON GYM again.\p"
+	.string "I went out to a GUILD HALL again.\p"
 	.string "…But I lost as usual.$"
 
 Route10_Text_TrentRematchIntro::

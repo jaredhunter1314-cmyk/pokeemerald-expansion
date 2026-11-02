@@ -195,7 +195,7 @@ SaffronCity_Text_FightingDojo::
 	.string "FIGHTING DOJO$"
 
 SaffronCity_Text_GymSign::
-	.string "SAFFRON CITY POKéMON GYM\n"
+	.string "SAFFRON CITY GUILD HALL\n"
 	.string "LEADER: SABRINA\l"
 	.string "The Master of PSYCHIC POKéMON!$"
 

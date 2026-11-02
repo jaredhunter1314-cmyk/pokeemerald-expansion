@@ -181,7 +181,7 @@ FuchsiaCity_Text_SafariZoneOfficeSign::
 	.string "SAFARI ZONE OFFICE$"
 
 FuchsiaCity_Text_GymSign::
-	.string "FUCHSIA CITY POKéMON GYM\n"
+	.string "FUCHSIA CITY GUILD HALL\n"
 	.string "LEADER: KOGA\l"
 	.string "The Poisonous Ninja Master$"
 
@@ -191,7 +191,7 @@ FuchsiaCity_Text_ChanseySign::
 
 FuchsiaCity_Text_VoltorbSign::
 	.string "Name: VOLTORB\n"
-	.string "The very image of a POKé BALL.$"
+	.string "The very image of a RUNE STONE.$"
 
 FuchsiaCity_Text_KangaskhanSign::
 	.string "Name: KANGASKHAN\p"
@@ -245,7 +245,7 @@ Text_SubstituteTaught::
 	.string "a KANGASKHAN belly pouch…$"
 
 FuchsiaCity_Text_MyFatherIsGymLeader::
-	.string "My father is the GYM LEADER of\n"
+	.string "My father is the GUILD LEADER of\n"
 	.string "this town.\p"
 	.string "I'm training to use POISON POKéMON\n"
 	.string "as well as my father.$"

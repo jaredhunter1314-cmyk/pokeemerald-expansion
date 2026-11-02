@@ -83,7 +83,7 @@ PewterCity_Gym_EventScript_GymStatuePostVictory::
 
 PewterCity_Gym_Text_BrockIntro::
 	.string "So, you're here. I'm BROCK.\n"
-	.string "I'm PEWTER's GYM LEADER.\p"
+	.string "I'm PEWTER's GUILD LEADER.\p"
 	.string "My rock-hard willpower is evident\n"
 	.string "even in my POKéMON.\p"
 	.string "My POKéMON are all rock hard, and\n"
@@ -189,13 +189,13 @@ PewterCity_Gym_Text_YoureChampMaterial::
 	.string "You're POKéMON champ material!$"
 
 PewterCity_Gym_Text_GymStatue::
-	.string "PEWTER POKéMON GYM\n"
+	.string "PEWTER GUILD HALL\n"
 	.string "LEADER: BROCK\p"
 	.string "WINNING TRAINERS:\n"
 	.string "{RIVAL}$"
 
 PewterCity_Gym_Text_GymStatuePlayerWon::
-	.string "PEWTER POKéMON GYM\n"
+	.string "PEWTER GUILD HALL\n"
 	.string "LEADER: BROCK\p"
 	.string "WINNING TRAINERS:\n"
 	.string "{RIVAL}, {PLAYER}$"

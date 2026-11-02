@@ -105,7 +105,7 @@ ViridianCity_School_Text_ReadBlackboardCarefully::
 ViridianCity_School_Text_NotebookFirstPage::
 	.string "Let's check out the notebook.\p"
 	.string "First page…\p"
-	.string "POKé BALLS are used to catch\n"
+	.string "RUNE STONES are used to catch\n"
 	.string "POKéMON.\p"
 	.string "Up to six POKéMON can be carried\n"
 	.string "in your party.\p"
@@ -126,14 +126,14 @@ ViridianCity_School_Text_NotebookThirdPage::
 	.string "To TRAINERS, the taste of victory\n"
 	.string "is sweet, indeed.\p"
 	.string "Battles are constantly waged at\n"
-	.string "POKéMON GYMS everywhere.$"
+	.string "GUILD HALLS everywhere.$"
 
 ViridianCity_School_Text_NotebookFourthPage::
 	.string "Fourth page…\p"
 	.string "The ultimate goal for all POKéMON\n"
 	.string "TRAINERS is simple.\p"
 	.string "It is to defeat the top eight\n"
-	.string "POKéMON GYM LEADERS.\p"
+	.string "GUILD HALL LEADERS.\p"
 	.string "Do so to earn the right to face…\p"
 	.string "The ELITE FOUR of the POKéMON\n"
 	.string "LEAGUE!$"

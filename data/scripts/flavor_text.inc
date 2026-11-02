@@ -150,7 +150,7 @@ Text_PokemartSign::
 
 Text_PokecenterSign::
 	.string "Heal Your POKéMON!\n"
-	.string "POKéMON CENTER$"
+	.string "INN$"
 
 Text_Indigo_UltimateGoal::
 	.string "INDIGO PLATEAU\p"

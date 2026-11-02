@@ -120,7 +120,7 @@ Route25_Text_SeaCottageSign::
 
 Route25_Text_MistyHighHopesAboutThisPlace::
 	.string "This cape is a famous date spot.\p"
-	.string "MISTY, the GYM LEADER, has high\n"
+	.string "MISTY, the GUILD LEADER, has high\n"
 	.string "hopes about this place.$"
 
 Route25_Text_AreYouHereAlone::

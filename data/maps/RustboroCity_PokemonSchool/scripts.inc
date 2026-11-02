@@ -291,7 +291,7 @@ RustboroCity_PokemonSchool_Text_PokemonHealItselfWithBerry:
 RustboroCity_PokemonSchool_Text_StudentsNotes:
 	.string "It's this student's notebook…\p"
 	.string "POKéMON are to be caught using\n"
-	.string "POKé BALLS.\p"
+	.string "RUNE STONES.\p"
 	.string "Up to six POKéMON can accompany\n"
 	.string "a TRAINER.\p"
 	.string "A TRAINER is someone who catches\n"
@@ -299,7 +299,7 @@ RustboroCity_PokemonSchool_Text_StudentsNotes:
 	.string "with them.\p"
 	.string "A TRAINER's mission is to defeat\n"
 	.string "the strong TRAINERS who await\l"
-	.string "challengers in POKéMON GYMS.$"
+	.string "challengers in GUILD HALLS.$"
 
 RustboroCity_PokemonSchool_Text_ScottMetAlreadyCut:
 	.string "Hello? Didn't we meet before?\n"

@@ -131,10 +131,10 @@ ViridianForest_Text_CharliePostBattle::
 	.string "They're a lot of fun!$"
 
 ViridianForest_Text_RanOutOfPokeBalls::
-	.string "I was throwing POKé BALLS to\n"
+	.string "I was throwing RUNE STONES to\n"
 	.string "catch POKéMON, and I ran out.\p"
 	.string "That's why you can never have too\n"
-	.string "many POKé BALLS.$"
+	.string "many RUNE STONES.$"
 
 ViridianForest_Text_AvoidGrassyAreasWhenWeak::
 	.string "TRAINER TIPS\p"
@@ -155,7 +155,7 @@ ViridianForest_Text_CantCatchOwnedMons::
 	.string "TRAINER TIPS\p"
 	.string "You can't catch a POKéMON that\n"
 	.string "belongs to someone else.\p"
-	.string "Throw POKé BALLS only at wild\n"
+	.string "Throw RUNE STONES only at wild\n"
 	.string "POKéMON to catch them!$"
 
 ViridianForest_Text_WeakenMonsBeforeCapture::

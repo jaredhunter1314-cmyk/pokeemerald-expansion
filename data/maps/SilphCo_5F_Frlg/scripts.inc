@@ -78,7 +78,7 @@ SilphCo_5F_Text_Grunt1PostBattle::
 	.string "TEAM ROCKET!$"
 
 SilphCo_5F_Text_BeauIntro::
-	.string "We study POKé BALL technology on\n"
+	.string "We study RUNE STONE technology on\n"
 	.string "this floor.$"
 
 SilphCo_5F_Text_BeauDefeat::
@@ -114,7 +114,7 @@ SilphCo_5F_Text_Grunt2PostBattle::
 
 SilphCo_5F_Text_PorygonFirstVRMon::
 	.string "It's a POKéMON REPORT!\p"
-	.string "POKéMON LAB created PORYGON,\n"
+	.string "ARCH-MAGE'S LAB created PORYGON,\n"
 	.string "the first virtual-reality POKéMON.$"
 
 SilphCo_5F_Text_Over350TechniquesConfirmed::

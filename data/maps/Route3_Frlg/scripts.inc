@@ -36,7 +36,7 @@ Route3_Text_BenDefeat::
 	.string "I don't believe it!$"
 
 Route3_Text_BenPostBattle::
-	.string "Are you using a POKéMON CENTER's\n"
+	.string "Are you using an INN's\n"
 	.string "PC for storing your POKéMON?\p"
 	.string "Each BOX can hold up to\n"
 	.string "30 POKéMON.$"

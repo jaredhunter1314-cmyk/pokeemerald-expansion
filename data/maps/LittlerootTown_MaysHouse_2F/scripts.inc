@@ -343,7 +343,7 @@ RivalsHouse_2F_Text_BrendanWhoAreYou:
 	.string "Moved in next door, right?\p"
 	.string "I didn't know that you're a girl.\p"
 	.string "Dad, PROF. JARED, said that our new\n"
-	.string "next-door neighbor is a GYM LEADER's\l"
+	.string "next-door neighbor is a GUILD LEADER's\l"
 	.string "kid, so I assumed you'd be a guy.\p"
 	.string "My name's BRENDAN.\n"
 	.string "So, hi, neighbor!\p"
@@ -360,7 +360,7 @@ RivalsHouse_2F_Text_BrendanGettingReady:
 	.string "Items all packed, and…$"
 
 RivalsHouse_2F_Text_ItsRivalsPokeBall:
-	.string "It's {RIVAL}'s POKé BALL!\p"
+	.string "It's {RIVAL}'s RUNE STONE!\p"
 	.string "Better leave it right where it is.$"
 
 RivalsHouse_2F_Text_MayJustCheckingMyPokedex:

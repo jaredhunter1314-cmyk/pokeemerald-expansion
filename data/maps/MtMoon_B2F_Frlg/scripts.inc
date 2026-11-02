@@ -152,7 +152,7 @@ MtMoon_B2F_Text_ThenThisFossilIsMine::
 
 MtMoon_B2F_Text_LabOnCinnabarRegeneratesFossils::
 	.string "Far away, on CINNABAR ISLAND,\n"
-	.string "there's a POKéMON LAB.\p"
+	.string "there's a ARCH-MAGE'S LAB.\p"
 	.string "They do research on regenerating\n"
 	.string "fossils.$"
 

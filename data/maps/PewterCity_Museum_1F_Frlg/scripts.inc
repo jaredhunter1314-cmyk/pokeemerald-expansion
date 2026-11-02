@@ -246,7 +246,7 @@ PewterCity_Museum_1F_Text_WantYouToGetAmberExamined::
 	.string "what I have to say.\p"
 	.string "So, I have a favor to ask!\p"
 	.string "I want you to get this examined at\n"
-	.string "a POKéMON LAB somewhere.$"
+	.string "a ARCH-MAGE'S LAB somewhere.$"
 
 PewterCity_Museum_1F_Text_ReceivedOldAmberFromMan::
 	.string "{PLAYER} received the OLD AMBER\n"

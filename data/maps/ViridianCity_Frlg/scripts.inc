@@ -233,13 +233,13 @@ ViridianCity_EventScript_DoTutorialBattle::
 	return
 
 ViridianCity_Text_CanCarryMonsAnywhere::
-	.string "Those POKé BALLS at your waist!\n"
+	.string "Those RUNE STONES at your waist!\n"
 	.string "You have POKéMON, don't you?\p"
 	.string "It's great that you can carry and\n"
 	.string "use POKéMON anytime, anywhere.$"
 
 ViridianCity_Text_GymClosedWonderWhoLeaderIs::
-	.string "This POKéMON GYM is always closed.\p"
+	.string "This GUILD HALL is always closed.\p"
 	.string "I wonder who the LEADER is?$"
 
 ViridianCity_Text_ViridiansGymLeaderReturned::
@@ -349,10 +349,10 @@ ViridianCity_Text_MovesLimitedByPP::
 	.string "The battle moves of POKéMON are\n"
 	.string "limited by their POWER POINTS, PP.\p"
 	.string "To replenish PP, rest your tired\n"
-	.string "POKéMON at a POKéMON CENTER.$"
+	.string "POKéMON at an INN.$"
 
 ViridianCity_Text_GymSign::
-	.string "VIRIDIAN CITY POKéMON GYM$"
+	.string "VIRIDIAN CITY GUILD HALL$"
 
 ViridianCity_Text_GymDoorsAreLocked::
 	.string "VIRIDIAN GYM's doors are locked…$"

@@ -849,13 +849,13 @@ CinnabarIsland_Gym_Text_GymGuyPostVictory::
 	.string "You beat that firebrand!$"
 
 CinnabarIsland_Gym_Text_GymStatue::
-	.string "CINNABAR POKéMON GYM\n"
+	.string "CINNABAR GUILD HALL\n"
 	.string "LEADER: BLAINE\p"
 	.string "WINNING TRAINERS:\n"
 	.string "{RIVAL}$"
 
 CinnabarIsland_Gym_Text_GymStatuePlayerWon::
-	.string "CINNABAR POKéMON GYM\n"
+	.string "CINNABAR GUILD HALL\n"
 	.string "LEADER: BLAINE\p"
 	.string "WINNING TRAINERS:\n"
 	.string "{RIVAL}, {PLAYER}$"
@@ -866,7 +866,7 @@ CinnabarIsland_Gym_Text_PokemonQuizRules::
 	.string "the next room.\p"
 	.string "Get it wrong, and face a TRAINER!\p"
 	.string "If you want to conserve your\n"
-	.string "POKéMON for the GYM LEADER…\p"
+	.string "POKéMON for the GUILD LEADER…\p"
 	.string "Then get it right!\n"
 	.string "Here we go!$"
 

@@ -371,10 +371,10 @@ CinnabarIsland_Text_IslandSign::
 	.string "The Fiery Town of Burning Desire$"
 
 CinnabarIsland_Text_PokemonLab::
-	.string "POKéMON LAB$"
+	.string "ARCH-MAGE'S LAB$"
 
 CinnabarIsland_Text_GymSign::
-	.string "CINNABAR ISLAND POKéMON GYM\n"
+	.string "CINNABAR ISLAND GUILD HALL\n"
 	.string "LEADER: BLAINE\l"
 	.string "The Hotheaded Quiz Master!$"
 
