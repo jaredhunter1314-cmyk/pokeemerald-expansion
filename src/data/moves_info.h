@@ -22360,7 +22360,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     },
     [MOVE_DEVASTATING_DRAKE] =
     {
-        .name = COMPOUND_STRING("Devastating Drake"),
+        .name = COMPOUND_STRING("Devastating Aurelion"),
         .description = COMPOUND_STRING(
             "Develops aura and attacks\n"
             "the target. Power varies."),

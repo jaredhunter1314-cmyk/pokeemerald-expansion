@@ -182,11 +182,11 @@ static const u8 sText_SpaceSeconds[] = _(" seconds");
 static const u8 sText_SpaceTimes[] = _(" time(s)");
 
 static const u8 sText_Wallace[] = _("WALLACE");
-static const u8 sText_Steven[] = _("STEVEN");
+static const u8 sText_Steven[] = _("HAKON");
 static const u8 sText_Brawly[] = _("BRAWLY");
 static const u8 sText_Winona[] = _("WINONA");
-static const u8 sText_Phoebe[] = _("PHOEBE");
-static const u8 sText_Glacia[] = _("GLACIA");
+static const u8 sText_Phoebe[] = _("NYXARA");
+static const u8 sText_Glacia[] = _("RIMEWEAVER");
 
 void Special_ShowDiploma(void)
 {

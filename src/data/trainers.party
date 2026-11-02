@@ -4587,7 +4587,7 @@ IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 - Roar
 
 === TRAINER_SIDNEY ===
-Name: SIDNEY
+Name: VEXMAR
 Class: Elite Four
 Pic: Elite Four Sidney
 Gender: Male
@@ -4623,7 +4623,7 @@ Level: 49
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 === TRAINER_PHOEBE ===
-Name: PHOEBE
+Name: NYXARA
 Class: Elite Four
 Pic: Elite Four Phoebe
 Gender: Female
@@ -4659,7 +4659,7 @@ Level: 51
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 === TRAINER_GLACIA ===
-Name: GLACIA
+Name: RIMEWEAVER
 Class: Elite Four
 Pic: Elite Four Glacia
 Gender: Female
@@ -4695,7 +4695,7 @@ Level: 53
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 
 === TRAINER_DRAKE ===
-Name: DRAKE
+Name: AURELION
 Class: Elite Four
 Pic: Elite Four Drake
 Gender: Male

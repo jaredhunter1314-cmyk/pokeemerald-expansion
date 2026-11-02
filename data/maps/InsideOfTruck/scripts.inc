@@ -72,7 +72,7 @@ InsideOfTruck_EventScript_EnableNuzlocke::
 	goto InsideOfTruck_EventScript_AskCheats
 
 InsideOfTruck_Text_HelgenBurns:
-	.string "HELGEN is burning!\n"
+	.string "EMBERFALL burns!\n"
 	.string "A dragon darkens the sky...\l"
 	.string "Run, and survive.$"
 
