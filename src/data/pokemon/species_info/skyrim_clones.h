@@ -926,7 +926,7 @@
     #endif
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = TRUE,
-        .speciesName = _("Wraith Priest"),
+        .speciesName = _("Wraithpriest"),
         .cryId = CRY_BANETTE,
         .natDexNum = NATIONAL_DEX_NONE,
         .categoryName = _("Marionette"),
