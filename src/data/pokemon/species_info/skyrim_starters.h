@@ -1,5 +1,5 @@
 // Starter fakemon lines (generated)
-    [SPECIES_LESHLING] =
+    [SPECIES_BUDLEY] =
     {
         .baseHP        = 40,
         .baseAttack    = 45,
@@ -18,17 +18,16 @@
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MONSTER, EGG_GROUP_DRAGON),
         .abilities = { ABILITY_OVERGROW, ABILITY_NONE, ABILITY_UNBURDEN },
         .bodyColor = BODY_COLOR_GREEN,
-        .speciesName = _("Leshling"),
+        .speciesName = _("Budley"),
         .cryId = CRY_TREECKO,
         .natDexNum = NATIONAL_DEX_NONE,
-        .categoryName = _("Wood Gecko"),
+        .categoryName = _("Aetheria"),
         .height = 5,
         .weight = 50,
         .description = COMPOUND_STRING(
-            "It makes its nest in a giant tree in the\n"
-            "forest. It ferociously guards against\n"
-            "anything nearing its territory. It is said\n"
-            "to be the protector of the forest's trees."),
+            "A starter creature of the Holds
+"
+            "of Aetheria."),
         .pokemonScale = 541,
         .pokemonOffset = 19,
         .trainerScale = 256,
@@ -57,19 +56,19 @@
         .levelUpLearnset = sTreeckoLevelUpLearnset,
         .teachableLearnset = sTreeckoTeachableLearnset,
         .eggMoveLearnset = sTreeckoEggMoveLearnset,
-        .frontPic = gMonFrontPic_SkyLeshling,
+        .frontPic = gMonFrontPic_SkyBudley,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
         .frontPicYOffset = 2,
-        .backPic = gMonBackPic_SkyLeshling,
+        .backPic = gMonBackPic_SkyBudley,
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 0,
-        .palette = gMonPalette_SkyLeshling,
-        .shinyPalette = gMonShinyPalette_SkyLeshling,
-        .iconSprite = gMonIcon_SkyLeshling,
+        .palette = gMonPalette_SkyBudley,
+        .shinyPalette = gMonShinyPalette_SkyBudley,
+        .iconSprite = gMonIcon_SkyBudley,
         .iconPalIndex = 1,
-        .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_LESHKIN}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_CACTAIL}),
     },
-    [SPECIES_LESHKIN] =
+    [SPECIES_CACTAIL] =
     {
         .baseHP        = 50,
         .baseAttack    = 65,
@@ -88,17 +87,16 @@
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MONSTER, EGG_GROUP_DRAGON),
         .abilities = { ABILITY_OVERGROW, ABILITY_NONE, ABILITY_UNBURDEN },
         .bodyColor = BODY_COLOR_GREEN,
-        .speciesName = _("Leshkin"),
+        .speciesName = _("Cactail"),
         .cryId = CRY_GROVYLE,
         .natDexNum = NATIONAL_DEX_NONE,
-        .categoryName = _("Wood Gecko"),
+        .categoryName = _("Aetheria"),
         .height = 9,
         .weight = 216,
         .description = COMPOUND_STRING(
-            "Leaves grow out of this Pokémon's body.\n"
-            "They help obscure a Grovyle from the eyes\n"
-            "of its enemies while it is in a thickly\n"
-            "overgrown forest."),
+            "A starter creature of the Holds
+"
+            "of Aetheria."),
         .pokemonScale = 360,
         .pokemonOffset = 5,
         .trainerScale = 256,
@@ -126,19 +124,19 @@
         )
         .levelUpLearnset = sGrovyleLevelUpLearnset,
         .teachableLearnset = sGrovyleTeachableLearnset,
-        .frontPic = gMonFrontPic_SkyLeshkin,
+        .frontPic = gMonFrontPic_SkyCactail,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
         .frontPicYOffset = 2,
-        .backPic = gMonBackPic_SkyLeshkin,
+        .backPic = gMonBackPic_SkyCactail,
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 0,
-        .palette = gMonPalette_SkyLeshkin,
-        .shinyPalette = gMonShinyPalette_SkyLeshkin,
-        .iconSprite = gMonIcon_SkyLeshkin,
+        .palette = gMonPalette_SkyCactail,
+        .shinyPalette = gMonShinyPalette_SkyCactail,
+        .iconSprite = gMonIcon_SkyCactail,
         .iconPalIndex = 1,
-        .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_LESHWOOD}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_ROADTHORN}),
     },
-    [SPECIES_LESHWOOD] =
+    [SPECIES_ROADTHORN] =
     {
         .baseHP        = 70,
         .baseAttack    = 85,
@@ -146,7 +144,7 @@
         .baseSpeed     = 120,
         .baseSpAttack  = 105,
         .baseSpDefense = 85,
-        .types = MON_TYPES(TYPE_GRASS),
+        .types = MON_TYPES(TYPE_GRASS, TYPE_GROUND),
         .catchRate = 45,
     #if P_UPDATED_EXP_YIELDS >= GEN_8
         .expYield = 265,
@@ -163,17 +161,16 @@
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MONSTER, EGG_GROUP_DRAGON),
         .abilities = { ABILITY_OVERGROW, ABILITY_NONE, ABILITY_UNBURDEN },
         .bodyColor = BODY_COLOR_GREEN,
-        .speciesName = _("Leshwood"),
+        .speciesName = _("Roadthorn"),
         .cryId = CRY_SCEPTILE,
         .natDexNum = NATIONAL_DEX_NONE,
-        .categoryName = _("Forest"),
+        .categoryName = _("Aetheria"),
         .height = 17,
         .weight = 522,
         .description = COMPOUND_STRING(
-            "In the jungle, its power is without equal.\n"
-            "This Pokémon carefully grows trees and\n"
-            "plants. It regulates its body temperature\n"
-            "by basking in sunlight."),
+            "A starter creature of the Holds
+"
+            "of Aetheria."),
         .pokemonScale = 256,
         .pokemonOffset = -1,
         .trainerScale = 275,
@@ -199,18 +196,18 @@
         )
         .levelUpLearnset = sSceptileLevelUpLearnset,
         .teachableLearnset = sSceptileTeachableLearnset,
-        .frontPic = gMonFrontPic_SkyLeshwood,
+        .frontPic = gMonFrontPic_SkyRoadthorn,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
         .frontPicYOffset = 2,
-        .backPic = gMonBackPic_SkyLeshwood,
+        .backPic = gMonBackPic_SkyRoadthorn,
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 0,
-        .palette = gMonPalette_SkyLeshwood,
-        .shinyPalette = gMonShinyPalette_SkyLeshwood,
-        .iconSprite = gMonIcon_SkyLeshwood,
+        .palette = gMonPalette_SkyRoadthorn,
+        .shinyPalette = gMonShinyPalette_SkyRoadthorn,
+        .iconSprite = gMonIcon_SkyRoadthorn,
         .iconPalIndex = 1,
     },
-    [SPECIES_CINDERPUP] =
+    [SPECIES_LAMBFLAME] =
     {
         .baseHP        = 45,
         .baseAttack    = 60,
@@ -229,17 +226,16 @@
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
         .abilities = { ABILITY_BLAZE, ABILITY_NONE, ABILITY_SPEED_BOOST },
         .bodyColor = BODY_COLOR_RED,
-        .speciesName = _("Cinderpup"),
+        .speciesName = _("Lambflame"),
         .cryId = CRY_TORCHIC,
         .natDexNum = NATIONAL_DEX_NONE,
-        .categoryName = _("Chick"),
+        .categoryName = _("Aetheria"),
         .height = 4,
         .weight = 25,
         .description = COMPOUND_STRING(
-            "If attacked, it strikes back by spitting\n"
-            "balls of fire it forms in its stomach.\n"
-            "A Torchic dislikes darkness because it\n"
-            "can't see its surroundings."),
+            "A starter creature of the Holds
+"
+            "of Aetheria."),
         .pokemonScale = 566,
         .pokemonOffset = 19,
         .trainerScale = 256,
@@ -279,19 +275,19 @@
         .levelUpLearnset = sTorchicLevelUpLearnset,
         .teachableLearnset = sTorchicTeachableLearnset,
         .eggMoveLearnset = sTorchicEggMoveLearnset,
-        .frontPic = gMonFrontPic_SkyCinderpup,
+        .frontPic = gMonFrontPic_SkyLambflame,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
         .frontPicYOffset = 2,
-        .backPic = gMonBackPic_SkyCinderpup,
+        .backPic = gMonBackPic_SkyLambflame,
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 0,
-        .palette = gMonPalette_SkyCinderpup,
-        .shinyPalette = gMonShinyPalette_SkyCinderpup,
-        .iconSprite = gMonIcon_SkyCinderpup,
-        .iconPalIndex = 0,
-        .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_CINDERWOLF}),
+        .palette = gMonPalette_SkyLambflame,
+        .shinyPalette = gMonShinyPalette_SkyLambflame,
+        .iconSprite = gMonIcon_SkyLambflame,
+        .iconPalIndex = 2,
+        .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_RAMFLARE}),
     },
-    [SPECIES_CINDERWOLF] =
+    [SPECIES_RAMFLARE] =
     {
         .baseHP        = 60,
         .baseAttack    = 85,
@@ -299,7 +295,7 @@
         .baseSpeed     = 55,
         .baseSpAttack  = 85,
         .baseSpDefense = 60,
-        .types = MON_TYPES(TYPE_FIRE, TYPE_DARK),
+        .types = MON_TYPES(TYPE_FIRE, TYPE_FIRE),
         .catchRate = 45,
         .expYield = 142,
         .evYield_Attack = 1,
@@ -311,17 +307,16 @@
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
         .abilities = { ABILITY_BLAZE, ABILITY_NONE, ABILITY_SPEED_BOOST },
         .bodyColor = BODY_COLOR_RED,
-        .speciesName = _("Cinderwolf"),
+        .speciesName = _("Ramflare"),
         .cryId = CRY_COMBUSKEN,
         .natDexNum = NATIONAL_DEX_NONE,
-        .categoryName = _("Young Fowl"),
+        .categoryName = _("Aetheria"),
         .height = 9,
         .weight = 195,
         .description = COMPOUND_STRING(
-            "It lashes out with 10 kicks per second.\n"
-            "Its strong fighting instinct compels it\n"
-            "to keep up its offensive until the\n"
-            "opponent gives up."),
+            "A starter creature of the Holds
+"
+            "of Aetheria."),
         .pokemonScale = 343,
         .pokemonOffset = 5,
         .trainerScale = 256,
@@ -356,19 +351,19 @@
         )
         .levelUpLearnset = sCombuskenLevelUpLearnset,
         .teachableLearnset = sCombuskenTeachableLearnset,
-        .frontPic = gMonFrontPic_SkyCinderwolf,
+        .frontPic = gMonFrontPic_SkyRamflare,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
         .frontPicYOffset = 2,
-        .backPic = gMonBackPic_SkyCinderwolf,
+        .backPic = gMonBackPic_SkyRamflare,
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 0,
-        .palette = gMonPalette_SkyCinderwolf,
-        .shinyPalette = gMonShinyPalette_SkyCinderwolf,
-        .iconSprite = gMonIcon_SkyCinderwolf,
-        .iconPalIndex = 1,
-        .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_PYREFANG}),
+        .palette = gMonPalette_SkyRamflare,
+        .shinyPalette = gMonShinyPalette_SkyRamflare,
+        .iconSprite = gMonIcon_SkyRamflare,
+        .iconPalIndex = 2,
+        .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_HELLRAM}),
     },
-    [SPECIES_PYREFANG] =
+    [SPECIES_HELLRAM] =
     {
         .baseHP        = 80,
         .baseAttack    = 120,
@@ -376,7 +371,7 @@
         .baseSpeed     = 80,
         .baseSpAttack  = 110,
         .baseSpDefense = 70,
-        .types = MON_TYPES(TYPE_FIRE, TYPE_DARK),
+        .types = MON_TYPES(TYPE_FIRE, TYPE_FAIRY),
         .catchRate = 45,
     #if P_UPDATED_EXP_YIELDS >= GEN_8
         .expYield = 265,
@@ -393,17 +388,16 @@
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
         .abilities = { ABILITY_BLAZE, ABILITY_NONE, ABILITY_SPEED_BOOST },
         .bodyColor = BODY_COLOR_RED,
-        .speciesName = _("Pyrefang"),
+        .speciesName = _("Hellram"),
         .cryId = CRY_BLAZIKEN,
         .natDexNum = NATIONAL_DEX_NONE,
-        .categoryName = _("Blaze"),
+        .categoryName = _("Aetheria"),
         .height = 19,
         .weight = 520,
         .description = COMPOUND_STRING(
-            "It learns martial arts that use punches\n"
-            "and kicks. Every several years, its old\n"
-            "feathers burn off, and new, supple\n"
-            "feathers grow back in their place."),
+            "A starter creature of the Holds
+"
+            "of Aetheria."),
         .pokemonScale = 256,
         .pokemonOffset = 0,
         .trainerScale = 301,
@@ -440,18 +434,18 @@
         )
         .levelUpLearnset = sBlazikenLevelUpLearnset,
         .teachableLearnset = sBlazikenTeachableLearnset,
-        .frontPic = gMonFrontPic_SkyPyrefang,
+        .frontPic = gMonFrontPic_SkyHellram,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
         .frontPicYOffset = 2,
-        .backPic = gMonBackPic_SkyPyrefang,
+        .backPic = gMonBackPic_SkyHellram,
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 0,
-        .palette = gMonPalette_SkyPyrefang,
-        .shinyPalette = gMonShinyPalette_SkyPyrefang,
-        .iconSprite = gMonIcon_SkyPyrefang,
-        .iconPalIndex = 1,
+        .palette = gMonPalette_SkyHellram,
+        .shinyPalette = gMonShinyPalette_SkyHellram,
+        .iconSprite = gMonIcon_SkyHellram,
+        .iconPalIndex = 2,
     },
-    [SPECIES_WYRMLET] =
+    [SPECIES_TADPOLE] =
     {
         .baseHP        = 50,
         .baseAttack    = 70,
@@ -459,7 +453,7 @@
         .baseSpeed     = 40,
         .baseSpAttack  = 50,
         .baseSpDefense = 50,
-        .types = MON_TYPES(TYPE_DRAGON, TYPE_DRAGON),
+        .types = MON_TYPES(TYPE_WATER, TYPE_WATER),
         .catchRate = 45,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 62 : 65,
         .evYield_Attack = 1,
@@ -470,17 +464,16 @@
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MONSTER, EGG_GROUP_WATER_1),
         .abilities = { ABILITY_TORRENT, ABILITY_NONE, ABILITY_DAMP },
         .bodyColor = BODY_COLOR_BLUE,
-        .speciesName = _("Wyrmlet"),
+        .speciesName = _("Tadpole"),
         .cryId = CRY_MUDKIP,
         .natDexNum = NATIONAL_DEX_NONE,
-        .categoryName = _("Mud Fish"),
+        .categoryName = _("Aetheria"),
         .height = 4,
         .weight = 76,
         .description = COMPOUND_STRING(
-            "On land, it can powerfully lift large\n"
-            "boulders by planting its four feet and\n"
-            "heaving. It sleeps by burying itself in soil\n"
-            "at the water's edge."),
+            "A starter creature of the Holds
+"
+            "of Aetheria."),
         .pokemonScale = 535,
         .pokemonOffset = 20,
         .trainerScale = 256,
@@ -509,19 +502,19 @@
         .levelUpLearnset = sMudkipLevelUpLearnset,
         .teachableLearnset = sMudkipTeachableLearnset,
         .eggMoveLearnset = sMudkipEggMoveLearnset,
-        .frontPic = gMonFrontPic_SkyWyrmlet,
+        .frontPic = gMonFrontPic_SkyTadpole,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
         .frontPicYOffset = 2,
-        .backPic = gMonBackPic_SkyWyrmlet,
+        .backPic = gMonBackPic_SkyTadpole,
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 0,
-        .palette = gMonPalette_SkyWyrmlet,
-        .shinyPalette = gMonShinyPalette_SkyWyrmlet,
-        .iconSprite = gMonIcon_SkyWyrmlet,
-        .iconPalIndex = 0,
-        .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_DRAKELING}),
+        .palette = gMonPalette_SkyTadpole,
+        .shinyPalette = gMonShinyPalette_SkyTadpole,
+        .iconSprite = gMonIcon_SkyTadpole,
+        .iconPalIndex = 2,
+        .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_DEEPFIN}),
     },
-    [SPECIES_DRAKELING] =
+    [SPECIES_DEEPFIN] =
     {
         .baseHP        = 70,
         .baseAttack    = 85,
@@ -529,7 +522,7 @@
         .baseSpeed     = 50,
         .baseSpAttack  = 60,
         .baseSpDefense = 70,
-        .types = MON_TYPES(TYPE_DRAGON, TYPE_DRAGON),
+        .types = MON_TYPES(TYPE_WATER, TYPE_WATER),
         .catchRate = 45,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 142 : 143,
         .evYield_Attack = 2,
@@ -540,17 +533,16 @@
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MONSTER, EGG_GROUP_WATER_1),
         .abilities = { ABILITY_TORRENT, ABILITY_NONE, ABILITY_DAMP },
         .bodyColor = BODY_COLOR_BLUE,
-        .speciesName = _("Drakeling"),
+        .speciesName = _("Deepfin"),
         .cryId = CRY_MARSHTOMP,
         .natDexNum = NATIONAL_DEX_NONE,
-        .categoryName = _("Mud Fish"),
+        .categoryName = _("Aetheria"),
         .height = 7,
         .weight = 280,
         .description = COMPOUND_STRING(
-            "Its toughened hind legs enable it to stand\n"
-            "upright. Because it weakens if its skin\n"
-            "dries out, it replenishes fluids by playing\n"
-            "in mud."),
+            "A starter creature of the Holds
+"
+            "of Aetheria."),
         .pokemonScale = 340,
         .pokemonOffset = 7,
         .trainerScale = 256,
@@ -582,19 +574,19 @@
         )
         .levelUpLearnset = sMarshtompLevelUpLearnset,
         .teachableLearnset = sMarshtompTeachableLearnset,
-        .frontPic = gMonFrontPic_SkyDrakeling,
+        .frontPic = gMonFrontPic_SkyDeepfin,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
         .frontPicYOffset = 2,
-        .backPic = gMonBackPic_SkyDrakeling,
+        .backPic = gMonBackPic_SkyDeepfin,
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 0,
-        .palette = gMonPalette_SkyDrakeling,
-        .shinyPalette = gMonShinyPalette_SkyDrakeling,
-        .iconSprite = gMonIcon_SkyDrakeling,
-        .iconPalIndex = 0,
-        .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_WYRMLORD}),
+        .palette = gMonPalette_SkyDeepfin,
+        .shinyPalette = gMonShinyPalette_SkyDeepfin,
+        .iconSprite = gMonIcon_SkyDeepfin,
+        .iconPalIndex = 2,
+        .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_ABYSSWALLOW}),
     },
-    [SPECIES_WYRMLORD] =
+    [SPECIES_ABYSSWALLOW] =
     {
         .baseHP        = 100,
         .baseAttack    = 110,
@@ -602,7 +594,7 @@
         .baseSpeed     = 60,
         .baseSpAttack  = 85,
         .baseSpDefense = 90,
-        .types = MON_TYPES(TYPE_DRAGON, TYPE_GROUND),
+        .types = MON_TYPES(TYPE_WATER, TYPE_GHOST),
         .catchRate = 45,
     #if P_UPDATED_EXP_YIELDS >= GEN_8
         .expYield = 268,
@@ -619,17 +611,16 @@
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MONSTER, EGG_GROUP_WATER_1),
         .abilities = { ABILITY_TORRENT, ABILITY_NONE, ABILITY_DAMP },
         .bodyColor = BODY_COLOR_BLUE,
-        .speciesName = _("Wyrmlord"),
+        .speciesName = _("Abysswallow"),
         .cryId = CRY_SWAMPERT,
         .natDexNum = NATIONAL_DEX_NONE,
-        .categoryName = _("Mud Fish"),
+        .categoryName = _("Aetheria"),
         .height = 15,
         .weight = 819,
         .description = COMPOUND_STRING(
-            "If it senses the approach of a storm and\n"
-            "a tidal wave, it protects its seaside nest\n"
-            "by piling up boulders. It swims as fast as\n"
-            "a jet ski."),
+            "A starter creature of the Holds
+"
+            "of Aetheria."),
         .pokemonScale = 256,
         .pokemonOffset = 0,
         .trainerScale = 256,
@@ -657,14 +648,14 @@
         )
         .levelUpLearnset = sSwampertLevelUpLearnset,
         .teachableLearnset = sSwampertTeachableLearnset,
-        .frontPic = gMonFrontPic_SkyWyrmlord,
+        .frontPic = gMonFrontPic_SkyAbysswallow,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
         .frontPicYOffset = 2,
-        .backPic = gMonBackPic_SkyWyrmlord,
+        .backPic = gMonBackPic_SkyAbysswallow,
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 0,
-        .palette = gMonPalette_SkyWyrmlord,
-        .shinyPalette = gMonShinyPalette_SkyWyrmlord,
-        .iconSprite = gMonIcon_SkyWyrmlord,
+        .palette = gMonPalette_SkyAbysswallow,
+        .shinyPalette = gMonShinyPalette_SkyAbysswallow,
+        .iconSprite = gMonIcon_SkyAbysswallow,
         .iconPalIndex = 2,
     },
