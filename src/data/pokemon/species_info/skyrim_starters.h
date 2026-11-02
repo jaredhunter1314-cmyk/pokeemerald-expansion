@@ -25,8 +25,7 @@
         .height = 5,
         .weight = 50,
         .description = COMPOUND_STRING(
-            "A starter creature of the Holds
-"
+            "A starter creature of the Holds\n"
             "of Aetheria."),
         .pokemonScale = 541,
         .pokemonOffset = 19,
@@ -94,8 +93,7 @@
         .height = 9,
         .weight = 216,
         .description = COMPOUND_STRING(
-            "A starter creature of the Holds
-"
+            "A starter creature of the Holds\n"
             "of Aetheria."),
         .pokemonScale = 360,
         .pokemonOffset = 5,
@@ -168,8 +166,7 @@
         .height = 17,
         .weight = 522,
         .description = COMPOUND_STRING(
-            "A starter creature of the Holds
-"
+            "A starter creature of the Holds\n"
             "of Aetheria."),
         .pokemonScale = 256,
         .pokemonOffset = -1,
@@ -233,8 +230,7 @@
         .height = 4,
         .weight = 25,
         .description = COMPOUND_STRING(
-            "A starter creature of the Holds
-"
+            "A starter creature of the Holds\n"
             "of Aetheria."),
         .pokemonScale = 566,
         .pokemonOffset = 19,
@@ -314,8 +310,7 @@
         .height = 9,
         .weight = 195,
         .description = COMPOUND_STRING(
-            "A starter creature of the Holds
-"
+            "A starter creature of the Holds\n"
             "of Aetheria."),
         .pokemonScale = 343,
         .pokemonOffset = 5,
@@ -395,8 +390,7 @@
         .height = 19,
         .weight = 520,
         .description = COMPOUND_STRING(
-            "A starter creature of the Holds
-"
+            "A starter creature of the Holds\n"
             "of Aetheria."),
         .pokemonScale = 256,
         .pokemonOffset = 0,
@@ -471,8 +465,7 @@
         .height = 4,
         .weight = 76,
         .description = COMPOUND_STRING(
-            "A starter creature of the Holds
-"
+            "A starter creature of the Holds\n"
             "of Aetheria."),
         .pokemonScale = 535,
         .pokemonOffset = 20,
@@ -540,8 +533,7 @@
         .height = 7,
         .weight = 280,
         .description = COMPOUND_STRING(
-            "A starter creature of the Holds
-"
+            "A starter creature of the Holds\n"
             "of Aetheria."),
         .pokemonScale = 340,
         .pokemonOffset = 7,
@@ -618,8 +610,7 @@
         .height = 15,
         .weight = 819,
         .description = COMPOUND_STRING(
-            "A starter creature of the Holds
-"
+            "A starter creature of the Holds\n"
             "of Aetheria."),
         .pokemonScale = 256,
         .pokemonOffset = 0,
