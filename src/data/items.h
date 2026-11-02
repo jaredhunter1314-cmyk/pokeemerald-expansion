@@ -14716,7 +14716,7 @@ const struct ItemInfo gItemsInfo[] =
         .description = COMPOUND_STRING(
             "A medal-like item in\n"
             "the same shape as\n"
-            "Team Magma's mark."),
+            "The Eclipse's mark."),
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
