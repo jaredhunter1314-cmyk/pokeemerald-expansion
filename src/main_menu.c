@@ -255,8 +255,6 @@ static const u16 sBirchSpeechBgPals[][16] = {
 static const u32 sBirchSpeechShadowGfx[] = INCGFX_U32("graphics/birch_speech/shadow.png", ".4bpp.smol");
 static const u32 sBirchSpeechBgMap[] = INCGFX_U32("graphics/birch_speech/map.bin", ".smolTM");
 static const u16 sBirchSpeechBgGradientPal[] = INCGFX_U16("graphics/birch_speech/bg2.pal", ".gbapal");
-static const u32 sBirchSpeechBulbasaurGfx[] = INCGFX_U32("graphics/birch_speech/bulbasaur.png", ".4bpp");
-static const u16 sBirchSpeechBulbasaurPal[] = INCGFX_U16("graphics/birch_speech/bulbasaur.png", ".gbapal");
 
 static const u8 gText_SaveFileCorrupted[] = _("The save file is corrupted. The\nprevious save file will be loaded.");
 static const u8 gText_SaveFileErased[] = _("The save file has been erased\ndue to corruption or damage.");
@@ -1908,8 +1906,8 @@ static void SpriteCB_MovePlayerDownWhileShrinking(struct Sprite *sprite)
 
 static u8 NewGameBirchSpeech_CreateLotadSprite(u8 x, u8 y)
 {
-    // Jared's Emerald: the intro Pokémon is a custom Bulbasaur (graphics/birch_speech/bulbasaur.png)
-    return CreateCustomPicSprite_Affine(sBirchSpeechBulbasaurGfx, sBirchSpeechBulbasaurPal, SPECIES_BULBASAUR, MON_PIC_AFFINE_FRONT, x, y, 14);
+    // Jared's Emerald: the intro Pokémon is the game's official shiny Bulbasaur
+    return CreateMonPicSprite_Affine(SPECIES_BULBASAUR, TRUE, 0, MON_PIC_AFFINE_FRONT, x, y, 14, TAG_NONE);
 }
 
 static void AddBirchSpeechObjects(u8 taskId)
