@@ -3831,12 +3831,6 @@ static void Cmd_yesnoboxlearnmove(void)
     switch (gBattleScripting.learnMoveState)
     {
     case 0:
-        if (Nuzlocke_IsActive()) // nicknames are mandatory
-        {
-            BeginFastPaletteFade(3);
-            gBattleCommunication[MULTIUSE_STATE] = 2;
-            break;
-        }
         HandleBattleWindow(YESNOBOX_X_Y, 0);
         BattlePutTextOnWindow(gText_BattleYesNoChoice, B_WIN_YESNO);
         gBattleScripting.learnMoveState++;
