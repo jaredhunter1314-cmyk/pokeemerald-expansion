@@ -111,9 +111,9 @@ static const u8 sStarterLabelCoords[STARTER_MON_COUNT][2] =
     {8, 4},
 };
 
-#define GRASS_STARTER (IS_FRLG ? SPECIES_BULBASAUR  : SPECIES_TREECKO)
-#define FIRE_STARTER  (IS_FRLG ? SPECIES_CHARMANDER : SPECIES_TORCHIC)
-#define WATER_STARTER (IS_FRLG ? SPECIES_SQUIRTLE   : SPECIES_MUDKIP )
+#define GRASS_STARTER SPECIES_LESHLING
+#define FIRE_STARTER SPECIES_CINDERPUP
+#define WATER_STARTER SPECIES_WYRMLET
 
 static const u16 sStarterMon[STARTER_MON_COUNT] =
 {
@@ -352,7 +352,7 @@ u16 GetStarterPokemon(u16 chosenStarterId)
 {
     if (chosenStarterId > STARTER_MON_COUNT)
         chosenStarterId = 0;
-    return RandomizeStarterSpecies(sStarterMon[chosenStarterId], chosenStarterId);
+    return sStarterMon[chosenStarterId];
 }
 
 static void VblankCB_StarterChoose(void)
