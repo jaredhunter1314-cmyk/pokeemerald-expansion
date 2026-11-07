@@ -52,7 +52,7 @@
             gOverworldPalette_Treecko,
             gShinyOverworldPalette_Treecko
         )
-        .levelUpLearnset = sTreeckoLevelUpLearnset,
+        .levelUpLearnset = sSkyBudleyLevelUpLearnset,
         .teachableLearnset = sTreeckoTeachableLearnset,
         .eggMoveLearnset = sTreeckoEggMoveLearnset,
         .frontPic = gMonFrontPic_SkyBudley,
@@ -120,7 +120,7 @@
             gOverworldPalette_Grovyle,
             gShinyOverworldPalette_Grovyle
         )
-        .levelUpLearnset = sGrovyleLevelUpLearnset,
+        .levelUpLearnset = sSkyCactailLevelUpLearnset,
         .teachableLearnset = sGrovyleTeachableLearnset,
         .frontPic = gMonFrontPic_SkyCactail,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
@@ -191,7 +191,7 @@
             gOverworldPalette_Sceptile,
             gShinyOverworldPalette_Sceptile
         )
-        .levelUpLearnset = sSceptileLevelUpLearnset,
+        .levelUpLearnset = sSkyRoadthornLevelUpLearnset,
         .teachableLearnset = sSceptileTeachableLearnset,
         .frontPic = gMonFrontPic_SkyRoadthorn,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
@@ -268,7 +268,7 @@
             TRACKS_FOOT,
             sAnimTable_Following
         )
-        .levelUpLearnset = sTorchicLevelUpLearnset,
+        .levelUpLearnset = sSkyLambflameLevelUpLearnset,
         .teachableLearnset = sTorchicTeachableLearnset,
         .eggMoveLearnset = sTorchicEggMoveLearnset,
         .frontPic = gMonFrontPic_SkyLambflame,
@@ -344,7 +344,7 @@
             TRACKS_FOOT,
             sAnimTable_Following
         )
-        .levelUpLearnset = sCombuskenLevelUpLearnset,
+        .levelUpLearnset = sSkyRamflareLevelUpLearnset,
         .teachableLearnset = sCombuskenTeachableLearnset,
         .frontPic = gMonFrontPic_SkyRamflare,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
@@ -426,7 +426,7 @@
             TRACKS_FOOT,
             sAnimTable_Following
         )
-        .levelUpLearnset = sBlazikenLevelUpLearnset,
+        .levelUpLearnset = sSkyHellramLevelUpLearnset,
         .teachableLearnset = sBlazikenTeachableLearnset,
         .frontPic = gMonFrontPic_SkyHellram,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
@@ -492,7 +492,7 @@
             gOverworldPalette_Mudkip,
             gShinyOverworldPalette_Mudkip
         )
-        .levelUpLearnset = sMudkipLevelUpLearnset,
+        .levelUpLearnset = sSkyTadpoleLevelUpLearnset,
         .teachableLearnset = sMudkipTeachableLearnset,
         .eggMoveLearnset = sMudkipEggMoveLearnset,
         .frontPic = gMonFrontPic_SkyTadpole,
@@ -564,7 +564,7 @@
             gOverworldPalette_Marshtomp,
             gShinyOverworldPalette_Marshtomp
         )
-        .levelUpLearnset = sMarshtompLevelUpLearnset,
+        .levelUpLearnset = sSkyDeepfinLevelUpLearnset,
         .teachableLearnset = sMarshtompTeachableLearnset,
         .frontPic = gMonFrontPic_SkyDeepfin,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
@@ -637,7 +637,7 @@
             gOverworldPalette_Swampert,
             gShinyOverworldPalette_Swampert
         )
-        .levelUpLearnset = sSwampertLevelUpLearnset,
+        .levelUpLearnset = sSkyAbysswallowLevelUpLearnset,
         .teachableLearnset = sSwampertTeachableLearnset,
         .frontPic = gMonFrontPic_SkyAbysswallow,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
