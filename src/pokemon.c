@@ -459,6 +459,7 @@ const struct NatureInfo gNaturesInfo[NUM_NATURES] =
 #include "data/graphics/pokemon.h"
 #include "data/graphics/skyrim_pokemon.h"
 #include "data/graphics/skyrim_starters_gfx.h"
+#include "data/graphics/skyrim_batch1_gfx.h"
 
 #include "data/pokemon/trainer_class_lookups.h"
 #include "data/pokemon/experience_tables.h"
@@ -492,6 +493,7 @@ const struct NatureInfo gNaturesInfo[NUM_NATURES] =
 #include "data/object_events/object_event_pic_tables_followers.h"
 
 #include "data/pokemon/level_up_learnsets/skyrim_starters.h"
+#include "data/pokemon/level_up_learnsets/skyrim_batch1.h"
 #include "data/pokemon/species_info.h"
 
 #define PP_UP_SHIFTS(val)           val,        (val) << 2,        (val) << 4,        (val) << 6

@@ -161,6 +161,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
     #include "species_info/gen_9_families.h"
     #include "species_info/skyrim_clones.h"
     #include "species_info/skyrim_starters.h"
+    #include "species_info/skyrim_batch1.h"
 
     [SPECIES_EGG] =
     {
