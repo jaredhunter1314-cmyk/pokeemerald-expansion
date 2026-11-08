@@ -67,6 +67,18 @@ static bool8 IsGoodStarter(enum Species s)
     return TRUE;
 }
 
+static u32 EvoDepth(enum Species s)
+{
+    u32 d = 0;
+    while (d < 3 && GetSpeciesPreEvolution(s) != SPECIES_NONE)
+    {
+        s = GetSpeciesPreEvolution(s);
+        d++;
+    }
+    return d;
+}
+
+// Wild encounters use only the Holds of Aetheria creatures, matching the original's evolution depth.
 // Same original species always maps to the same new species within one save.
 enum Species RandomizeWildSpecies(enum Species species)
 {
@@ -77,8 +89,8 @@ enum Species RandomizeWildSpecies(enum Species species)
         return species;
     for (i = 0; i < 200; i++)
     {
-        enum Species candidate = 1 + Hash(seed, species * 977u + i) % (NUM_SPECIES - 1);
-        if (IsUsableForm(candidate))
+        enum Species candidate = SPECIES_CUSTOM_START + Hash(seed, species * 977u + i) % (SPECIES_CUSTOM_END - SPECIES_CUSTOM_START);
+        if (IsUsableForm(candidate) && EvoDepth(candidate) == EvoDepth(species))
             return candidate;
     }
     return species;
