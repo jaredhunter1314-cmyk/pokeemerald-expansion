@@ -62,7 +62,7 @@
         .palette = gMonPalette_SkyFlamling,
         .shinyPalette = gMonShinyPalette_SkyFlamling,
         .iconSprite = gMonIcon_SkyFlamling,
-        .iconPalIndex = 0,
+        .iconPalIndex = 1,
         .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_FLAREONIX}),
     },
     [SPECIES_FLAREONIX] =
@@ -260,7 +260,7 @@
         .palette = gMonPalette_SkyAquib,
         .shinyPalette = gMonShinyPalette_SkyAquib,
         .iconSprite = gMonIcon_SkyAquib,
-        .iconPalIndex = 2,
+        .iconPalIndex = 0,
         .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_MARINIX}),
     },
     [SPECIES_MARINIX] =
@@ -326,7 +326,7 @@
         .palette = gMonPalette_SkyMarinix,
         .shinyPalette = gMonShinyPalette_SkyMarinix,
         .iconSprite = gMonIcon_SkyMarinix,
-        .iconPalIndex = 2,
+        .iconPalIndex = 0,
         .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_TIDEBORE}),
     },
     [SPECIES_TIDEBORE] =
@@ -400,7 +400,7 @@
         .palette = gMonPalette_SkyTidebore,
         .shinyPalette = gMonShinyPalette_SkyTidebore,
         .iconSprite = gMonIcon_SkyTidebore,
-        .iconPalIndex = 2,
+        .iconPalIndex = 0,
     },
     [SPECIES_TERRAPIN] =
     {
@@ -668,7 +668,7 @@
         .palette = gMonPalette_SkySparkwit,
         .shinyPalette = gMonShinyPalette_SkySparkwit,
         .iconSprite = gMonIcon_SkySparkwit,
-        .iconPalIndex = 1,
+        .iconPalIndex = 0,
         .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_VOLTIIN}),
     },
     [SPECIES_VOLTIIN] =
@@ -745,7 +745,7 @@
         .palette = gMonPalette_SkyVoltiin,
         .shinyPalette = gMonShinyPalette_SkyVoltiin,
         .iconSprite = gMonIcon_SkyVoltiin,
-        .iconPalIndex = 2,
+        .iconPalIndex = 0,
         .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_THUNDRIX}),
     },
     [SPECIES_THUNDRIX] =
@@ -821,7 +821,7 @@
         .palette = gMonPalette_SkyThundrix,
         .shinyPalette = gMonShinyPalette_SkyThundrix,
         .iconSprite = gMonIcon_SkyThundrix,
-        .iconPalIndex = 1,
+        .iconPalIndex = 2,
     },
     [SPECIES_GLACORN] =
     {
@@ -973,7 +973,7 @@
         .palette = gMonPalette_SkyFrostail,
         .shinyPalette = gMonShinyPalette_SkyFrostail,
         .iconSprite = gMonIcon_SkyFrostail,
-        .iconPalIndex = 0,
+        .iconPalIndex = 2,
         .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_FROSTHART}),
     },
     [SPECIES_FROSTHART] =
@@ -1117,7 +1117,7 @@
         .palette = gMonPalette_SkyBramble,
         .shinyPalette = gMonShinyPalette_SkyBramble,
         .iconSprite = gMonIcon_SkyBramble,
-        .iconPalIndex = 0,
+        .iconPalIndex = 1,
         .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_WEBLING}),
     },
     [SPECIES_WEBLING] =
@@ -1183,7 +1183,7 @@
         .palette = gMonPalette_SkyWebling,
         .shinyPalette = gMonShinyPalette_SkyWebling,
         .iconSprite = gMonIcon_SkyWebling,
-        .iconPalIndex = 0,
+        .iconPalIndex = 1,
         .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_VENOMWING}),
     },
     [SPECIES_VENOMWING] =
@@ -1316,7 +1316,7 @@
         .palette = gMonPalette_SkyRubblepup,
         .shinyPalette = gMonShinyPalette_SkyRubblepup,
         .iconSprite = gMonIcon_SkyRubblepup,
-        .iconPalIndex = 0,
+        .iconPalIndex = 2,
         .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_GRANITEPUP}),
     },
     [SPECIES_GRANITEPUP] =
@@ -1384,7 +1384,7 @@
         .palette = gMonPalette_SkyGranitepup,
         .shinyPalette = gMonShinyPalette_SkyGranitepup,
         .iconSprite = gMonIcon_SkyGranitepup,
-        .iconPalIndex = 0,
+        .iconPalIndex = 2,
         .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_STONECLAW}),
     },
     [SPECIES_STONECLAW] =
@@ -1460,7 +1460,7 @@
         .palette = gMonPalette_SkyStoneclaw,
         .shinyPalette = gMonShinyPalette_SkyStoneclaw,
         .iconSprite = gMonIcon_SkyStoneclaw,
-        .iconPalIndex = 0,
+        .iconPalIndex = 2,
     },
     [SPECIES_LUNARA] =
     {
@@ -1730,7 +1730,7 @@
         .palette = gMonPalette_SkyVulcanis,
         .shinyPalette = gMonShinyPalette_SkyVulcanis,
         .iconSprite = gMonIcon_SkyVulcanis,
-        .iconPalIndex = 0,
+        .iconPalIndex = 1,
         .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_FLAMBRUTE}),
     },
     [SPECIES_FLAMBRUTE] =
@@ -2000,7 +2000,7 @@
         .palette = gMonPalette_SkyReefshark,
         .shinyPalette = gMonShinyPalette_SkyReefshark,
         .iconSprite = gMonIcon_SkyReefshark,
-        .iconPalIndex = 2,
+        .iconPalIndex = 0,
         .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_LEVIATHAN}),
     },
     [SPECIES_LEVIATHAN] =
@@ -2064,7 +2064,7 @@
         .palette = gMonPalette_SkyLeviathan,
         .shinyPalette = gMonShinyPalette_SkyLeviathan,
         .iconSprite = gMonIcon_SkyLeviathan,
-        .iconPalIndex = 2,
+        .iconPalIndex = 0,
     },
     [SPECIES_LEAFYRA] =
     {
@@ -2735,7 +2735,7 @@
         .palette = gMonPalette_SkyCinderex,
         .shinyPalette = gMonShinyPalette_SkyCinderex,
         .iconSprite = gMonIcon_SkyCinderex,
-        .iconPalIndex = 0,
+        .iconPalIndex = 1,
         .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_EMBERWING}),
     },
     [SPECIES_EMBERWING] =
@@ -2800,7 +2800,7 @@
         .palette = gMonPalette_SkyEmberwing,
         .shinyPalette = gMonShinyPalette_SkyEmberwing,
         .iconSprite = gMonIcon_SkyEmberwing,
-        .iconPalIndex = 0,
+        .iconPalIndex = 1,
         .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_BLAZEGON}),
     },
     [SPECIES_BLAZEGON] =
@@ -2869,7 +2869,7 @@
         .palette = gMonPalette_SkyBlazegon,
         .shinyPalette = gMonShinyPalette_SkyBlazegon,
         .iconSprite = gMonIcon_SkyBlazegon,
-        .iconPalIndex = 0,
+        .iconPalIndex = 1,
     },
     [SPECIES_TIDALUS] =
     {
@@ -3013,7 +3013,7 @@
         .palette = gMonPalette_SkySandfin,
         .shinyPalette = gMonShinyPalette_SkySandfin,
         .iconSprite = gMonIcon_SkySandfin,
-        .iconPalIndex = 2,
+        .iconPalIndex = 0,
         .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_ABYSSALORD}),
     },
     [SPECIES_ABYSSALORD] =
@@ -3088,7 +3088,7 @@
         .palette = gMonPalette_SkyAbyssalord,
         .shinyPalette = gMonShinyPalette_SkyAbyssalord,
         .iconSprite = gMonIcon_SkyAbyssalord,
-        .iconPalIndex = 2,
+        .iconPalIndex = 0,
     },
     [SPECIES_ZENITH] =
     {
@@ -3274,7 +3274,7 @@
         .palette = gMonPalette_SkySkyreign,
         .shinyPalette = gMonShinyPalette_SkySkyreign,
         .iconSprite = gMonIcon_SkySkyreign,
-        .iconPalIndex = 2,
+        .iconPalIndex = 0,
     },
     [SPECIES_SYLPHINE] =
     {
@@ -3346,7 +3346,7 @@
         .palette = gMonPalette_SkySylphine,
         .shinyPalette = gMonShinyPalette_SkySylphine,
         .iconSprite = gMonIcon_SkySylphine,
-        .iconPalIndex = 2,
+        .iconPalIndex = 1,
         .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_PIXIECAT}),
     },
     [SPECIES_PIXIECAT] =
@@ -3642,7 +3642,7 @@
         .palette = gMonPalette_SkyRockmoth,
         .shinyPalette = gMonShinyPalette_SkyRockmoth,
         .iconSprite = gMonIcon_SkyRockmoth,
-        .iconPalIndex = 0,
+        .iconPalIndex = 2,
         .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_GRANITEFLY}),
     },
     [SPECIES_GRANITEFLY] =
@@ -3719,7 +3719,7 @@
         .palette = gMonPalette_SkyGranitefly,
         .shinyPalette = gMonShinyPalette_SkyGranitefly,
         .iconSprite = gMonIcon_SkyGranitefly,
-        .iconPalIndex = 0,
+        .iconPalIndex = 1,
     },
     [SPECIES_BLAZEBEAR] =
     {
@@ -3942,7 +3942,7 @@
         .palette = gMonPalette_SkyTitanbear,
         .shinyPalette = gMonShinyPalette_SkyTitanbear,
         .iconSprite = gMonIcon_SkyTitanbear,
-        .iconPalIndex = 0,
+        .iconPalIndex = 1,
     },
     [SPECIES_TOXIVINE] =
     {
@@ -4295,7 +4295,7 @@
         .palette = gMonPalette_SkyStormserpent,
         .shinyPalette = gMonShinyPalette_SkyStormserpent,
         .iconSprite = gMonIcon_SkyStormserpent,
-        .iconPalIndex = 2,
+        .iconPalIndex = 0,
         .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_SKYWYRM}),
     },
     [SPECIES_SKYWYRM] =
@@ -4360,7 +4360,7 @@
         .palette = gMonPalette_SkySkywyrm,
         .shinyPalette = gMonShinyPalette_SkySkywyrm,
         .iconSprite = gMonIcon_SkySkywyrm,
-        .iconPalIndex = 2,
+        .iconPalIndex = 0,
     },
     [SPECIES_IRONHIDE] =
     {
@@ -4833,7 +4833,7 @@
         .palette = gMonPalette_SkySolflare,
         .shinyPalette = gMonShinyPalette_SkySolflare,
         .iconSprite = gMonIcon_SkySolflare,
-        .iconPalIndex = 2,
+        .iconPalIndex = 1,
         .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_SUNBURN}),
     },
     [SPECIES_SUNBURN] =
@@ -4898,7 +4898,7 @@
         .palette = gMonPalette_SkySunburn,
         .shinyPalette = gMonShinyPalette_SkySunburn,
         .iconSprite = gMonIcon_SkySunburn,
-        .iconPalIndex = 2,
+        .iconPalIndex = 1,
         .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_HELIOST}),
     },
     [SPECIES_HELIOST] =
@@ -4969,7 +4969,7 @@
         .palette = gMonPalette_SkyHeliost,
         .shinyPalette = gMonShinyPalette_SkyHeliost,
         .iconSprite = gMonIcon_SkyHeliost,
-        .iconPalIndex = 2,
+        .iconPalIndex = 1,
     },
     [SPECIES_VIREL] =
     {
@@ -5253,7 +5253,7 @@
         .palette = gMonPalette_SkyQuartz,
         .shinyPalette = gMonShinyPalette_SkyQuartz,
         .iconSprite = gMonIcon_SkyQuartz,
-        .iconPalIndex = 0,
+        .iconPalIndex = 2,
         .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_CRYSTALIX}),
     },
     [SPECIES_CRYSTALIX] =
@@ -5410,7 +5410,7 @@
         .palette = gMonPalette_SkyPrismark,
         .shinyPalette = gMonShinyPalette_SkyPrismark,
         .iconSprite = gMonIcon_SkyPrismark,
-        .iconPalIndex = 2,
+        .iconPalIndex = 0,
     },
     [SPECIES_RIPTIDE] =
     {
@@ -5554,7 +5554,7 @@
         .palette = gMonPalette_SkyWaveborn,
         .shinyPalette = gMonShinyPalette_SkyWaveborn,
         .iconSprite = gMonIcon_SkyWaveborn,
-        .iconPalIndex = 2,
+        .iconPalIndex = 0,
         .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_OCEANLORD}),
     },
     [SPECIES_OCEANLORD] =
@@ -5629,7 +5629,7 @@
         .palette = gMonPalette_SkyOceanlord,
         .shinyPalette = gMonShinyPalette_SkyOceanlord,
         .iconSprite = gMonIcon_SkyOceanlord,
-        .iconPalIndex = 2,
+        .iconPalIndex = 0,
     },
     [SPECIES_EMBERLYN] =
     {
@@ -5698,7 +5698,7 @@
         .palette = gMonPalette_SkyEmberlyn,
         .shinyPalette = gMonShinyPalette_SkyEmberlyn,
         .iconSprite = gMonIcon_SkyEmberlyn,
-        .iconPalIndex = 0,
+        .iconPalIndex = 1,
         .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_FLAMEFOX}),
     },
     [SPECIES_FLAMEFOX] =
@@ -5767,7 +5767,7 @@
         .palette = gMonPalette_SkyFlamefox,
         .shinyPalette = gMonShinyPalette_SkyFlamefox,
         .iconSprite = gMonIcon_SkyFlamefox,
-        .iconPalIndex = 0,
+        .iconPalIndex = 1,
         .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_INFERNO}),
     },
     [SPECIES_INFERNO] =
@@ -5840,7 +5840,7 @@
         .palette = gMonPalette_SkyInferno,
         .shinyPalette = gMonShinyPalette_SkyInferno,
         .iconSprite = gMonIcon_SkyInferno,
-        .iconPalIndex = 0,
+        .iconPalIndex = 1,
     },
     [SPECIES_THORNAX] =
     {
@@ -5910,7 +5910,7 @@
         .palette = gMonPalette_SkyThornax,
         .shinyPalette = gMonShinyPalette_SkyThornax,
         .iconSprite = gMonIcon_SkyThornax,
-        .iconPalIndex = 0,
+        .iconPalIndex = 1,
         .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_SPIKETAIL}),
     },
     [SPECIES_SPIKETAIL] =
@@ -6216,7 +6216,7 @@
         .palette = gMonPalette_SkyVoltire,
         .shinyPalette = gMonShinyPalette_SkyVoltire,
         .iconSprite = gMonIcon_SkyVoltire,
-        .iconPalIndex = 1,
+        .iconPalIndex = 2,
         .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_RAIJINEX}),
     },
     [SPECIES_RAIJINEX] =

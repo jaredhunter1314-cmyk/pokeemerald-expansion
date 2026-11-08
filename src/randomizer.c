@@ -89,7 +89,7 @@ enum Species RandomizeWildSpecies(enum Species species)
         return species;
     for (i = 0; i < 200; i++)
     {
-        enum Species candidate = SPECIES_CUSTOM_START + Hash(seed, species * 977u + i) % (SPECIES_CUSTOM_END - SPECIES_CUSTOM_START);
+        enum Species candidate = SPECIES_BUDLEY + Hash(seed, species * 977u + i) % (SPECIES_CUSTOM_END - SPECIES_BUDLEY);
         if (IsUsableForm(candidate) && EvoDepth(candidate) == EvoDepth(species))
             return candidate;
     }
